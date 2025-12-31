@@ -14835,8 +14835,8 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %208, %206, %202, %1
 _ZNSt7__cxx119to_stringEm.exit:                   ; preds = %236, %243
   %storemerge.i.i = phi i8 [ %245, %243 ], [ %242, %236 ]
   store i8 %storemerge.i.i, ptr %215, align 1, !tbaa !16
-  %cond = icmp eq i8 %.sink350, 0
-  br i1 %cond, label %_ZN4llvmplERKNS_5TwineES2_.exit169, label %246
+  %cond352 = icmp eq i8 %.sink350, 0
+  br i1 %cond352, label %_ZN4llvmplERKNS_5TwineES2_.exit169, label %246
 
 246:                                              ; preds = %_ZNSt7__cxx119to_stringEm.exit
   %.014.i.i158 = select i1 %184, i8 %.sink350, i8 2
@@ -14851,12 +14851,12 @@ _ZNSt7__cxx119to_stringEm.exit:                   ; preds = %236, %243
 
 _ZN4llvmplERKNS_5TwineES2_.exit169:               ; preds = %_ZNSt7__cxx119to_stringEm.exit, %246
   %.014.i.i173 = phi i8 [ 2, %246 ], [ 0, %_ZNSt7__cxx119to_stringEm.exit ]
-  %.sink354 = phi i8 [ %.014.i.i158, %246 ], [ 0, %_ZNSt7__cxx119to_stringEm.exit ]
-  %.sink352 = phi i8 [ 4, %246 ], [ 1, %_ZNSt7__cxx119to_stringEm.exit ]
+  %.sink355 = phi i8 [ %.014.i.i158, %246 ], [ 0, %_ZNSt7__cxx119to_stringEm.exit ]
+  %.sink353 = phi i8 [ 4, %246 ], [ 1, %_ZNSt7__cxx119to_stringEm.exit ]
   %248 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store i8 %.sink354, ptr %248, align 8, !tbaa !1112, !alias.scope !1142
+  store i8 %.sink355, ptr %248, align 8, !tbaa !1112, !alias.scope !1142
   %249 = getelementptr inbounds nuw i8, ptr %28, i64 33
-  store i8 %.sink352, ptr %249, align 1, !tbaa !1115, !alias.scope !1142
+  store i8 %.sink353, ptr %249, align 1, !tbaa !1115, !alias.scope !1142
   %.sroa.0.0.copyload.i = load ptr, ptr %187, align 8, !tbaa !894
   %250 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 12
   %251 = load i8, ptr %250, align 4, !tbaa !299, !range !134, !noundef !135
@@ -14865,8 +14865,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit169:               ; preds = %_ZNSt7__cxx119to_st
   %254 = load i8, ptr %253, align 1, !tbaa !16
   %.not.i = icmp eq i8 %254, 0
   %storemerge.i = select i1 %.not.i, i8 1, i8 3
-  %cond356 = icmp eq i8 %.sink354, 0
-  br i1 %cond356, label %255, label %258
+  %cond = icmp eq i8 %.sink355, 0
+  br i1 %cond, label %255, label %258
 
 255:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit169
   %256 = getelementptr inbounds nuw i8, ptr %27, i64 32
