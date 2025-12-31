@@ -962,7 +962,7 @@ define noundef zeroext i1 @_ZNK3net9IPAddressltERKS0_(ptr noundef nonnull readon
   br label %_ZStltIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit
 
 _ZStltIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %17, %18
-  %21 = phi i64 [ %20, %18 ], [ %8, %17 ]
+  %.0 = phi i64 [ %20, %18 ], [ %8, %17 ]
   %22 = icmp slt i64 %21, 0
   br label %23
 

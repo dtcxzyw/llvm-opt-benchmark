@@ -808,9 +808,9 @@ for.body.i.i.i.i.preheader.i.i.i:                 ; preds = %_ZNSt6vectorISt4pai
   br label %_ZNK4llvh8ArrayRefISt4pairIjjEEcvSt6vectorIS2_SaIS2_EEEv.exit
 
 _ZNK4llvh8ArrayRefISt4pairIjjEEcvSt6vectorIS2_SaIS2_EEEv.exit: ; preds = %_ZNSt6vectorISt4pairIjjESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i, %for.body.i.i.i.i.preheader.i.i.i
-  %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i, %for.body.i.i.i.i.preheader.i.i.i ], [ null, %_ZNSt6vectorISt4pairIjjESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i ]
+  %add.ptr.i.i.sink.i = phi ptr [ %add.ptr.i.i.i, %for.body.i.i.i.i.preheader.i.i.i ], [ null, %_ZNSt6vectorISt4pairIjjESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i ]
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 64
-  store ptr %__cur.0.lcssa.i.i.i.i.i.i.i, ptr %5, align 8, !alias.scope !23
+  store ptr %add.ptr.i.i.sink.i, ptr %5, align 8, !alias.scope !23
   %_M_finish.i.i.i9 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 56
   store ptr %__cur.0.lcssa.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i9, align 8, !alias.scope !23
   %vtable = load ptr, ptr %context, align 8

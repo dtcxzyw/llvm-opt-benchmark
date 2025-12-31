@@ -3612,10 +3612,10 @@ define internal void @_ZN11opencv_testL34gtest_BroadcastTest_EvalGenerator_Ev(pt
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %9, align 8, !tbaa !56
   store i32 1, ptr %7, align 4
-  %.sroa.571.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 100, ptr %.sroa.571.0..sroa_idx, align 4
-  %.sroa.672.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 800, ptr %.sroa.672.0..sroa_idx, align 4
+  %.sroa.568.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 100, ptr %.sroa.568.0..sroa_idx, align 4
+  %.sroa.669.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 800, ptr %.sroa.669.0..sroa_idx, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !tbaa !49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -3628,10 +3628,10 @@ define internal void @_ZN11opencv_testL34gtest_BroadcastTest_EvalGenerator_Ev(pt
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %13, ptr %14, align 8, !tbaa !56
   store i32 10, ptr %11, align 4
-  %.sroa.567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 1, ptr %.sroa.567.0..sroa_idx, align 4
-  %.sroa.668.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 800, ptr %.sroa.668.0..sroa_idx, align 4
+  %.sroa.564.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i32 1, ptr %.sroa.564.0..sroa_idx, align 4
+  %.sroa.665.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i32 800, ptr %.sroa.665.0..sroa_idx, align 4
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %13, ptr %15, align 8, !tbaa !49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -3644,10 +3644,10 @@ define internal void @_ZN11opencv_testL34gtest_BroadcastTest_EvalGenerator_Ev(pt
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %18, ptr %19, align 8, !tbaa !56
   store i32 10, ptr %16, align 4
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i32 100, ptr %.sroa.563.0..sroa_idx, align 4
-  %.sroa.664.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 1, ptr %.sroa.664.0..sroa_idx, align 4
+  %.sroa.560.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store i32 100, ptr %.sroa.560.0..sroa_idx, align 4
+  %.sroa.661.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i32 1, ptr %.sroa.661.0..sroa_idx, align 4
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %18, ptr %20, align 8, !tbaa !49
   invoke void @_ZN7testing6ValuesISt6vectorIiSaIiEES3_S3_EENS_8internal11ValueArray3IT_T0_T1_EES6_S7_S8_(ptr dead_on_unwind nonnull writable sret(%"class.testing::internal::ValueArray3") align 8 %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)

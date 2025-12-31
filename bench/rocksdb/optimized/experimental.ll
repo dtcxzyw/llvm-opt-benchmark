@@ -16675,18 +16675,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK7rocksdb12experimental12_GLOBAL__N_136SemiStaticCappedKeySegmentsExtractorILm1EE7ExtractERKNS_5SliceENS0_20KeySegmentsExtractor7KeyKindEPNS7_6ResultE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 %2, ptr noundef captures(none) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !679
-  %8 = load ptr, ptr %3, align 8, !tbaa !668
+  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !679
+  %7 = load ptr, ptr %3, align 8, !tbaa !668
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = icmp ult i64 %11, 4
   br i1 %12, label %13, label %19
 
-13:                                               ; preds = %4
-  %14 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #35
+16:                                               ; preds = %4
+  %14 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #33
   %15 = load i32, ptr %5, align 8
   store i32 %15, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16699,19 +16699,19 @@ define internal void @_ZNK7rocksdb12experimental12_GLOBAL__N_136SemiStaticCapped
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %17, %13
   store ptr %14, ptr %3, align 8, !tbaa !668
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store ptr %18, ptr %16, align 8, !tbaa !976
-  store ptr %18, ptr %6, align 8, !tbaa !679
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  store ptr %17, ptr %16, align 8, !tbaa !976
+  store ptr %17, ptr %5, align 8, !tbaa !679
   br label %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit
 
-19:                                               ; preds = %4
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !976
-  %.not.i = icmp eq ptr %21, %8
+18:                                               ; preds = %4
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !976
+  %.not.i = icmp eq ptr %20, %7
   %22 = load i32, ptr %5, align 8
   br i1 %.not.i, label %_ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i, label %23
 
-23:                                               ; preds = %19
+24:                                               ; preds = %19
   store i32 %22, ptr %8, align 4
   %.pre.i = load ptr, ptr %20, align 8, !tbaa !976
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -16722,28 +16722,28 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %17, %13
   store ptr %24, ptr %20, align 8, !tbaa !976
   br label %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit
 
-_ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %19
-  store i32 %22, ptr %21, align 4
+_ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %18
+  store i32 %22, ptr %20, align 4
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store ptr %26, ptr %20, align 8, !tbaa !976
   br label %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit
 
 _ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i, %23, %25, %_ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !19
-  %29 = trunc i64 %28 to i32
-  %30 = load i32, ptr %5, align 8, !tbaa !102
-  %31 = icmp ugt i32 %30, %29
-  br i1 %31, label %.preheader, label %33
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !19
+  %31 = trunc i64 %30 to i32
+  %32 = load i32, ptr %.ptr, align 8, !tbaa !102
+  %33 = icmp ugt i32 %32, %31
+  br i1 %33, label %.preheader, label %35
 
 .preheader:                                       ; preds = %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit
-  %32 = load ptr, ptr %3, align 8, !tbaa !668
-  %.promoted = load i32, ptr %32, align 4, !tbaa !102
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.promoted, i32 %29)
-  store i32 %.sroa.speculated, ptr %32, align 4, !tbaa !102
-  br label %33
+  %34 = load ptr, ptr %3, align 8, !tbaa !668
+  %.promoted = load i32, ptr %34, align 4, !tbaa !102
+  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.promoted, i32 %31)
+  store i32 %.sroa.speculated, ptr %34, align 4, !tbaa !102
+  br label %35
 
-33:                                               ; preds = %.preheader, %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit
+35:                                               ; preds = %.preheader, %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit
   ret void
 }
 

@@ -5554,62 +5554,62 @@ Ver_ParseInsertsSuffix.exit.split.split:          ; preds = %Ver_ParseInsertsSuf
   ]
 
 .thread62.us73:                                   ; preds = %Ver_ParseInsertsSuffix.exit.split.split, %.thread62.us73
-  %.065.us71 = phi i32 [ %89, %.thread62.us73 ], [ 0, %Ver_ParseInsertsSuffix.exit.split.split ]
-  %.05064.us72 = phi i32 [ %90, %.thread62.us73 ], [ %38, %Ver_ParseInsertsSuffix.exit.split.split ]
-  %86 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %35, i32 noundef %.05064.us72) #22
-  %87 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %4) #22
-  %88 = call ptr @Abc_NtkCreateObj(ptr noundef %1, i32 noundef 3) #22
-  call void @Abc_ObjAddFanin(ptr noundef %88, ptr noundef %87) #22
-  %89 = add nuw i32 %.065.us71, 1
-  %90 = add nsw i32 %.05064.us72, %.v
+  %.065.us71 = phi i32 [ %91, %.thread62.us73 ], [ 0, %Ver_ParseInsertsSuffix.exit.split.split ]
+  %.05064.us72 = phi i32 [ %92, %.thread62.us73 ], [ %38, %Ver_ParseInsertsSuffix.exit.split.split ]
+  %88 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %35, i32 noundef %.05064.us72) #22
+  %89 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %4) #22
+  %90 = call ptr @Abc_NtkCreateObj(ptr noundef %1, i32 noundef 3) #22
+  call void @Abc_ObjAddFanin(ptr noundef %90, ptr noundef %89) #22
+  %91 = add nuw i32 %.065.us71, 1
+  %92 = add nsw i32 %.05064.us72, %.v
   %exitcond88.not = icmp eq i32 %.065.us71, %smax89
   br i1 %exitcond88.not, label %.loopexit, label %.thread62.us73, !llvm.loop !164
 
 Ver_ParseInsertsSuffix.exit.split.split.split.us75: ; preds = %Ver_ParseInsertsSuffix.exit.split.split, %Ver_ParseInsertsSuffix.exit.split.split.split.us75
-  %.065.us76 = phi i32 [ %93, %Ver_ParseInsertsSuffix.exit.split.split.split.us75 ], [ 0, %Ver_ParseInsertsSuffix.exit.split.split ]
-  %.05064.us77 = phi i32 [ %94, %Ver_ParseInsertsSuffix.exit.split.split.split.us75 ], [ %38, %Ver_ParseInsertsSuffix.exit.split.split ]
-  %91 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %35, i32 noundef %.05064.us77) #22
-  %92 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %4) #22
-  %93 = add nuw i32 %.065.us76, 1
-  %94 = add nsw i32 %.05064.us77, %.v
+  %.065.us76 = phi i32 [ %95, %Ver_ParseInsertsSuffix.exit.split.split.split.us75 ], [ 0, %Ver_ParseInsertsSuffix.exit.split.split ]
+  %.05064.us77 = phi i32 [ %96, %Ver_ParseInsertsSuffix.exit.split.split.split.us75 ], [ %38, %Ver_ParseInsertsSuffix.exit.split.split ]
+  %93 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %35, i32 noundef %.05064.us77) #22
+  %94 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %1, ptr noundef nonnull %4) #22
+  %95 = add nuw i32 %.065.us76, 1
+  %96 = add nsw i32 %.05064.us77, %.v
   %exitcond.not = icmp eq i32 %.065.us76, %smax89
   br i1 %exitcond.not, label %.loopexit, label %Ver_ParseInsertsSuffix.exit.split.split.split.us75, !llvm.loop !164
 
 Ver_ParseInsertsSuffix.exit.split.split.split:    ; preds = %Ver_ParseInsertsSuffix.exit.split.split, %Ver_ParseInsertsSuffix.exit.split.split.split
-  %.065 = phi i32 [ %96, %Ver_ParseInsertsSuffix.exit.split.split.split ], [ 0, %Ver_ParseInsertsSuffix.exit.split.split ]
-  %.05064 = phi i32 [ %97, %Ver_ParseInsertsSuffix.exit.split.split.split ], [ %38, %Ver_ParseInsertsSuffix.exit.split.split ]
-  %95 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %35, i32 noundef %.05064) #22
-  %96 = add nuw i32 %.065, 1
-  %97 = add nsw i32 %.05064, %.v
+  %.065 = phi i32 [ %98, %Ver_ParseInsertsSuffix.exit.split.split.split ], [ 0, %Ver_ParseInsertsSuffix.exit.split.split ]
+  %.05064 = phi i32 [ %99, %Ver_ParseInsertsSuffix.exit.split.split.split ], [ %38, %Ver_ParseInsertsSuffix.exit.split.split ]
+  %97 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %35, i32 noundef %.05064) #22
+  %98 = add nuw i32 %.065, 1
+  %99 = add nsw i32 %.05064, %.v
   %exitcond90.not = icmp eq i32 %.065, %smax89
   br i1 %exitcond90.not, label %.loopexit, label %Ver_ParseInsertsSuffix.exit.split.split.split, !llvm.loop !164
 
 .loopexit:                                        ; preds = %Ver_ParseInsertsSuffix.exit.split.split.split.us75, %.thread62.us73, %Ver_ParseInsertsSuffix.exit.split.split.split, %79, %.thread62.us69, %82, %Ver_ParseInsertsSuffix.exit.split.split.us, %44, %.thread, %48
-  %98 = call signext i8 @Ver_StreamPopChar(ptr noundef %9) #22
-  switch i8 %98, label %99 [
+  %100 = call signext i8 @Ver_StreamPopChar(ptr noundef %9) #22
+  switch i8 %100, label %99 [
     i8 44, label %.backedge
     i8 59, label %Ver_ParsePrintErrorMessage.exit
   ]
 
-99:                                               ; preds = %.loopexit
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %100, ptr noundef nonnull align 1 dereferenceable(44) @.str.59, i64 44, i1 false)
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 1, ptr %101, align 4, !tbaa !43
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %103 = load i32, ptr %102, align 8, !tbaa !44
-  %.not.i60 = icmp eq i32 %103, 0
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %105 = load ptr, ptr %104, align 8, !tbaa !19
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %107 = load ptr, ptr %106, align 8, !tbaa !3
-  br i1 %.not.i60, label %110, label %108
+101:                                              ; preds = %.loopexit
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %102, ptr noundef nonnull align 1 dereferenceable(44) @.str.59, i64 44, i1 false)
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i32 1, ptr %103, align 4, !tbaa !43
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %105 = load i32, ptr %104, align 8, !tbaa !44
+  %.not.i60 = icmp eq i32 %105, 0
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %107 = load ptr, ptr %106, align 8, !tbaa !19
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %109 = load ptr, ptr %108, align 8, !tbaa !3
+  br i1 %.not.i60, label %110, label %110
 
-108:                                              ; preds = %99
-  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str, ptr noundef %107, ptr noundef nonnull %100) #22
+110:                                              ; preds = %101
+  %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str, ptr noundef %109, ptr noundef nonnull %102) #22
   br label %114
 
-110:                                              ; preds = %99
+119:                                              ; preds = %101
   %111 = load ptr, ptr %8, align 8, !tbaa !17
   %112 = call i32 @Ver_StreamGetLineNumber(ptr noundef %111) #22
   %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.1, ptr noundef %107, i32 noundef %112, ptr noundef nonnull %100) #22

@@ -7626,15 +7626,15 @@ define linkonce_odr hidden void @_ZN5clang10ASTContext22addTranslationUnitDeclEv
   %7 = icmp eq ptr %4, %6
   br i1 %7, label %14, label %8
 
-8:                                                ; preds = %1
+15:                                               ; preds = %1
   %9 = getelementptr inbounds i8, ptr %6, i64 -8
   %10 = load ptr, ptr %9, align 8, !tbaa !437
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  %12 = load ptr, ptr %11, align 8, !tbaa !634
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2112
+  %17 = load ptr, ptr %16, align 8, !tbaa !634
   %13 = icmp eq ptr %10, %12
   br i1 %13, label %.thread, label %41
 
-14:                                               ; preds = %1
+.thread:                                          ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 23104
   %16 = load ptr, ptr %15, align 8, !tbaa !681
   %17 = ptrtoint ptr %16 to i64
@@ -7642,11 +7642,11 @@ define linkonce_odr hidden void @_ZN5clang10ASTContext22addTranslationUnitDeclEv
   %19 = sub i64 %17, %18
   %20 = icmp ult i64 %19, 8
   %21 = ptrtoint ptr %2 to i64
-  br i1 %20, label %29, label %_ZSt22__uninitialized_copy_aIPKPN5clang4DeclEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i
+  br i1 %20, label %29, label %_ZSt4copyIPKPN5clang4DeclEPS2_ET0_T_S7_S6_.exit18.i
 
-.thread:                                          ; preds = %8
+.thread:; preds = %8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 23104
-  %23 = load ptr, ptr %22, align 8, !tbaa !681
+  %23 = load ptr, ptr %22, align 15, !tbaa !681
   %24 = ptrtoint ptr %23 to i64
   %25 = ptrtoint ptr %4 to i64
   %26 = sub i64 %24, %25
@@ -7663,53 +7663,53 @@ define linkonce_odr hidden void @_ZN5clang10ASTContext22addTranslationUnitDeclEv
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIPN5clang4DeclESaIS2_EE13_M_deallocateEPS2_m.exit.i, label %34
 
-34:                                               ; preds = %29
+35:                                               ; preds = %29
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %31) #34
   br label %_ZNSt12_Vector_baseIPN5clang4DeclESaIS2_EE13_M_deallocateEPS2_m.exit.i
 
-_ZNSt12_Vector_baseIPN5clang4DeclESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %34, %29
+_ZNSt12_Vector_baseIPN5clang4DeclESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %35, %29
   store ptr %33, ptr %3, align 8, !tbaa !682
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr %35, ptr %5, align 8, !tbaa !683
-  store ptr %35, ptr %32, align 8, !tbaa !681
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store ptr %36, ptr %5, align 8, !tbaa !683
+  store ptr %36, ptr %32, align 8, !tbaa !681
   br label %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit
 
-36:                                               ; preds = %.thread
+37:                                               ; preds = %.thread
   store i64 %28, ptr %4, align 8
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !683
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.not.i16.i = icmp eq ptr %.pre.i, %37
-  br i1 %.not.i16.i, label %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit, label %38
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.not.i16.i = icmp eq ptr %.pre.i, %38
+  br i1 %.not.i16.i, label %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit, label %39
 
-38:                                               ; preds = %36
-  store ptr %37, ptr %5, align 8, !tbaa !683
+39:                                               ; preds = %37
+  store ptr %38, ptr %5, align 8, !tbaa !683
   br label %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit
 
-_ZSt22__uninitialized_copy_aIPKPN5clang4DeclEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i: ; preds = %14
-  %39 = ptrtoint ptr %2 to i64
-  store i64 %39, ptr %6, align 8
+_ZSt4copyIPKPN5clang4DeclEPS2_ET0_T_S7_S6_.exit18.i: ; preds = %14
+  %40 = ptrtoint ptr %2 to i64
+  store i64 %40, ptr %6, align 15
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %40, ptr %5, align 8, !tbaa !683
   br label %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit
 
-_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseIPN5clang4DeclESaIS2_EE13_M_deallocateEPS2_m.exit.i, %36, %38, %_ZSt22__uninitialized_copy_aIPKPN5clang4DeclEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i
+_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseIPN5clang4DeclESaIS2_EE13_M_deallocateEPS2_m.exit.i, %37, %39, %_ZSt22__uninitialized_copy_aIPKPN5clang4DeclEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !634
-  br label %41
+  br label %44
 
-41:                                               ; preds = %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit, %8
-  %42 = phi ptr [ %.pre, %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit ], [ %12, %8 ]
-  %.not = icmp eq ptr %42, null
-  br i1 %.not, label %45, label %43
+44:                                               ; preds = %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit, %8
+  %45 = phi ptr [ %.pre, %_ZNSt6vectorIPN5clang4DeclESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit ], [ %12, %8 ]
+  %.not = icmp eq ptr %45, null
+  br i1 %.not, label %48, label %46
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  tail call void @_ZN5clang12RedeclarableINS_19TranslationUnitDeclEE15setPreviousDeclEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull %42)
-  br label %45
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  tail call void @_ZN5clang12RedeclarableINS_19TranslationUnitDeclEE15setPreviousDeclEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull %45)
+  br label %48
 
-45:                                               ; preds = %43, %41
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  store ptr %2, ptr %46, align 8, !tbaa !634
+48:                                               ; preds = %46, %44
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 2112
+  store ptr %2, ptr %49, align 8, !tbaa !634
   ret void
 }
 

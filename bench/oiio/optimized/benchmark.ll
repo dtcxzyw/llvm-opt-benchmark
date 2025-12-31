@@ -869,7 +869,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit: ; pr
   store double %71, ptr %72, align 8, !tbaa !45
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, i8 0, i64 16, i1 false)
-  br label %99
+  br label %101
 
 74:                                               ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit
   %75 = getelementptr double, ptr %68, i64 %.041
@@ -882,60 +882,60 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S
   br label %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN11OpenImageIO6v3_1_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SD_SC_T1_.exit"
 
 .lr.ph.i:                                         ; preds = %74, %.lr.ph.i
-  %.07.i = phi double [ %78, %.lr.ph.i ], [ 0.000000e+00, %74 ]
-  %.sroa.02.06.i = phi ptr [ %79, %.lr.ph.i ], [ %69, %74 ]
-  %77 = load double, ptr %.sroa.02.06.i, align 8, !tbaa !26
-  %78 = fadd double %.07.i, %77
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
-  %.not.i = icmp eq ptr %79, %75
+  %.07.i = phi double [ %80, %.lr.ph.i ], [ 0.000000e+00, %74 ]
+  %.sroa.02.06.i = phi ptr [ %81, %.lr.ph.i ], [ %69, %74 ]
+  %79 = load double, ptr %.sroa.02.06.i, align 8, !tbaa !26
+  %80 = fadd double %.07.i, %79
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
+  %.not.i = icmp eq ptr %81, %75
   br i1 %.not.i, label %.lr.ph.i46, label %.lr.ph.i, !llvm.loop !46
 
 .lr.ph.i46:                                       ; preds = %.lr.ph.i
-  %80 = uitofp i64 %66 to double
-  %81 = fdiv double %78, %80
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store double %81, ptr %82, align 8, !tbaa !45
-  br label %83
+  %82 = uitofp i64 %66 to double
+  %83 = fdiv double %80, %82
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store double %83, ptr %84, align 8, !tbaa !45
+  br label %85
 
-83:                                               ; preds = %83, %.lr.ph.i46
-  %.08.i = phi double [ 0.000000e+00, %.lr.ph.i46 ], [ %86, %83 ]
-  %.sroa.03.07.i = phi ptr [ %69, %.lr.ph.i46 ], [ %87, %83 ]
-  %84 = load double, ptr %.sroa.03.07.i, align 8, !tbaa !26
-  %85 = fsub double %84, %81
-  %86 = tail call noundef double @llvm.fmuladd.f64(double %85, double %85, double %.08.i)
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i, i64 8
-  %.not.i47 = icmp eq ptr %87, %75
-  br i1 %.not.i47, label %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN11OpenImageIO6v3_1_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SD_SC_T1_.exit", label %83, !llvm.loop !47
+85:                                               ; preds = %85, %.lr.ph.i46
+  %.08.i = phi double [ 0.000000e+00, %.lr.ph.i46 ], [ %88, %83 ]
+  %.sroa.03.07.i = phi ptr [ %69, %.lr.ph.i46 ], [ %89, %83 ]
+  %86 = load double, ptr %.sroa.03.07.i, align 8, !tbaa !26
+  %87 = fsub double %86, %83
+  %88 = tail call noundef double @llvm.fmuladd.f64(double %87, double %87, double %.08.i)
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i, i64 8
+  %.not.i47 = icmp eq ptr %89, %75
+  br i1 %.not.i47, label %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN11OpenImageIO6v3_1_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SD_SC_T1_.exit", label %85, !llvm.loop !47
 
-"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN11OpenImageIO6v3_1_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SD_SC_T1_.exit": ; preds = %83, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit.thread
-  %88 = phi double [ 0x7FF8000000000000, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit.thread ], [ %81, %83 ]
-  %.0.lcssa.i48 = phi double [ 0.000000e+00, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit.thread ], [ %86, %83 ]
-  %89 = add nsw i64 %66, -1
-  %90 = uitofp i64 %89 to double
-  %91 = fdiv double %.0.lcssa.i48, %90
-  %92 = tail call double @llvm.sqrt.f64(double %91)
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store double %92, ptr %93, align 8, !tbaa !48
-  %94 = getelementptr i8, ptr %75, i64 -8
-  %95 = load double, ptr %94, align 8, !tbaa !26
-  %96 = load double, ptr %69, align 8, !tbaa !26
-  %97 = fsub double %95, %96
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store double %97, ptr %98, align 8, !tbaa !49
-  br label %99
+"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN11OpenImageIO6v3_1_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SD_SC_T1_.exit": ; preds = %85, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit.thread
+  %90 = phi double [ 0x7FF8000000000000, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit.thread ], [ %83, %83 ]
+  %.0.lcssa.i48 = phi double [ 0.000000e+00, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S7_.exit.thread ], [ %88, %83 ]
+  %91 = add nsw i64 %66, -1
+  %92 = uitofp i64 %91 to double
+  %93 = fdiv double %.0.lcssa.i48, %92
+  %94 = tail call double @llvm.sqrt.f64(double %93)
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store double %94, ptr %95, align 8, !tbaa !48
+  %96 = getelementptr i8, ptr %75, i64 -8
+  %97 = load double, ptr %96, align 8, !tbaa !26
+  %98 = load double, ptr %69, align 8, !tbaa !26
+  %99 = fsub double %97, %98
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store double %99, ptr %100, align 8, !tbaa !49
+  br label %101
 
-99:                                               ; preds = %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN11OpenImageIO6v3_1_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SD_SC_T1_.exit", %70
-  %100 = phi double [ %97, %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN11OpenImageIO6v3_1_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SD_SC_T1_.exit" ], [ 0.000000e+00, %70 ]
-  %101 = phi double [ %92, %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN11OpenImageIO6v3_1_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SD_SC_T1_.exit" ], [ 0.000000e+00, %70 ]
-  %102 = phi double [ %88, %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN11OpenImageIO6v3_1_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SD_SC_T1_.exit" ], [ %71, %70 ]
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %104 = load i64, ptr %103, align 8, !tbaa !50
-  %105 = and i64 %104, 1
-  %.not45 = icmp eq i64 %105, 0
-  %106 = lshr i64 %104, 1
-  %107 = load ptr, ptr %1, align 8, !tbaa !9
-  %108 = getelementptr inbounds nuw double, ptr %107, i64 %106
-  %109 = load double, ptr %108, align 8, !tbaa !26
+101:                                              ; preds = %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN11OpenImageIO6v3_1_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SD_SC_T1_.exit", %70
+  %102 = phi double [ %99, %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN11OpenImageIO6v3_1_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SD_SC_T1_.exit" ], [ 0.000000e+00, %70 ]
+  %103 = phi double [ %94, %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN11OpenImageIO6v3_1_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SD_SC_T1_.exit" ], [ 0.000000e+00, %70 ]
+  %104 = phi double [ %90, %"_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdZN11OpenImageIO6v3_1_011Benchmarker13compute_statsERS5_mE3$_0ET0_T_SD_SC_T1_.exit" ], [ %71, %70 ]
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %106 = load i64, ptr %105, align 8, !tbaa !50
+  %107 = and i64 %106, 1
+  %.not45 = icmp eq i64 %107, 0
+  %108 = lshr i64 %106, 1
+  %109 = load ptr, ptr %1, align 8, !tbaa !9
+  %110 = getelementptr inbounds nuw double, ptr %109, i64 %108
+  %111 = load double, ptr %110, align 8, !tbaa !26
   br i1 %.not45, label %110, label %115
 
 110:                                              ; preds = %99
@@ -945,7 +945,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S
   %114 = fmul double %113, 5.000000e-01
   br label %115
 
-115:                                              ; preds = %99, %110
+112:                                              ; preds = %101, %110
   %.sink = phi double [ %114, %110 ], [ %109, %99 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %117 = uitofp i64 %2 to double
