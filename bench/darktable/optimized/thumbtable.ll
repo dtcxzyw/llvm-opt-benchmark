@@ -5873,36 +5873,36 @@ define range(i32 0, 2) i32 @dt_thumbtable_check_imgid_visibility(ptr noundef rea
   %39 = icmp slt i32 %38, 1
   br i1 %39, label %_filemanager_check_rowid_visibility.exit, label %40
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !34
-  %.not.i9 = icmp eq ptr %42, null
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %43 = load ptr, ptr %42, align 8, !tbaa !34
+  %.not.i9 = icmp eq ptr %43, null
   br i1 %.not.i9, label %_filemanager_check_rowid_visibility.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %40, %68
-  %.03371.i = phi ptr [ %70, %68 ], [ %42, %40 ]
-  %43 = load ptr, ptr %.03371.i, align 8, !tbaa !23
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !44
-  %.not51.i = icmp eq i32 %45, %38
-  br i1 %.not51.i, label %46, label %68
+.preheader.i:                                     ; preds = %41, %69
+  %.03371.i = phi ptr [ %71, %68 ], [ %43, %40 ]
+  %44 = load ptr, ptr %.03371.i, align 8, !tbaa !23
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %46 = load i32, ptr %45, align 4, !tbaa !44
+  %.not51.i = icmp eq i32 %46, %38
+  br i1 %.not51.i, label %47, label %69
 
-46:                                               ; preds = %.preheader.i
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 20
-  %48 = load i32, ptr %47, align 4, !tbaa !40
-  %.fr69.i = freeze i32 %48
-  %49 = icmp slt i32 %.fr69.i, 0
-  br i1 %49, label %57, label %50
+47:                                               ; preds = %.preheader.i
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 20
+  %49 = load i32, ptr %48, align 4, !tbaa !40
+  %.fr69.i = freeze i32 %49
+  %50 = icmp slt i32 %.fr69.i, 0
+  br i1 %50, label %57, label %51
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %52 = load i32, ptr %51, align 8, !tbaa !81
-  %.fr70.i = freeze i32 %52
-  %53 = add i32 %.fr70.i, %.fr69.i
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %55 = load i32, ptr %54, align 4, !tbaa !43
-  %.fr68.i = freeze i32 %55
-  %56 = icmp sge i32 %.fr68.i, %53
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %53 = load i32, ptr %52, align 8, !tbaa !81
+  %.fr70.i = freeze i32 %53
+  %54 = add i32 %.fr70.i, %.fr69.i
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %56 = load i32, ptr %55, align 4, !tbaa !43
+  %.fr68.i = freeze i32 %56
+  %57 = icmp sge i32 %.fr68.i, %54
   br label %57
 
 57:                                               ; preds = %50, %46
@@ -5913,7 +5913,7 @@ define range(i32 0, 2) i32 @dt_thumbtable_check_imgid_visibility(ptr noundef rea
   %60 = icmp slt i32 %.fr66.i, 0
   br i1 %60, label %.thread55.i, label %61
 
-61:                                               ; preds = %57
+58:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %63 = load i32, ptr %62, align 8, !tbaa !81
   %.fr67.i = freeze i32 %63
@@ -5925,16 +5925,16 @@ define range(i32 0, 2) i32 @dt_thumbtable_check_imgid_visibility(ptr noundef rea
   %or.cond.i = and i1 %.138.i, %67
   br i1 %or.cond.i, label %_filemanager_check_rowid_visibility.exit, label %.thread55.i
 
-68:                                               ; preds = %.preheader.i
-  %69 = getelementptr inbounds nuw i8, ptr %.03371.i, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !85
-  %.not48.i = icmp eq ptr %70, null
+69:                                               ; preds = %.preheader.i
+  %70 = getelementptr inbounds nuw i8, ptr %.03371.i, i64 8
+  %71 = load ptr, ptr %70, align 8, !tbaa !85
+  %.not48.i = icmp eq ptr %71, null
   br i1 %.not48.i, label %.thread55.i, label %.preheader.i
 
-.thread55.i:                                      ; preds = %68, %28, %34, %61, %57
+.thread55.i:                                      ; preds = %69, %28, %34, %58, %57
   br label %_filemanager_check_rowid_visibility.exit
 
-_filemanager_check_rowid_visibility.exit:         ; preds = %.thread55.i, %61, %40, %37, %34, %9, %6, %4, %2
+_filemanager_check_rowid_visibility.exit:         ; preds = %.thread55.i, %61, %41, %37, %34, %9, %6, %4, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %6 ], [ 0, %9 ], [ 1, %34 ], [ 0, %37 ], [ 0, %40 ], [ 0, %.thread55.i ], [ 1, %61 ]
   ret i32 %.0
 }

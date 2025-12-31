@@ -2051,7 +2051,7 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit85.i: ; preds = %_ZNSt11ch
   %.pre.i = load ptr, ptr %167, align 8, !tbaa !78
   br label %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit90.i
 
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i.invoke: ; preds = %240, %214, %189, %.noexc59, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i39.i
+_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i: ; preds = %240, %214, %189, %.noexc59, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i39.i
   %.str.38.sink = phi ptr [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i39.i ], [ @.str.38, %.noexc59 ], [ @.str.32, %189 ], [ @.str.32, %214 ], [ @.str.32, %240 ]
   %241 = call ptr @__cxa_allocate_exception(i64 16) #36
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %241, align 8, !tbaa !25

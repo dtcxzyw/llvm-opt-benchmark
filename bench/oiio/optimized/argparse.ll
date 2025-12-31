@@ -6457,7 +6457,7 @@ _ZNSt6vectorIN11OpenImageIO6v3_1_08TypeDescESaIS2_EE6resizeEmRKS2_.exit: ; preds
   switch i8 %71, label %.thread25 [
     i8 60, label %83
     i8 37, label %74
-    i8 45, label %83
+    i8 45, label %87
   ]
 
 72:                                               ; preds = %2
@@ -6470,7 +6470,7 @@ _ZNSt6vectorIN11OpenImageIO6v3_1_08TypeDescESaIS2_EE6resizeEmRKS2_.exit: ; preds
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %76 = load i8, ptr %75, align 1, !tbaa !14
   %cond = icmp eq i8 %76, 49
-  br i1 %cond, label %77, label %.thread25
+  br i1 %cond, label %77, label %81
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -6478,23 +6478,23 @@ _ZNSt6vectorIN11OpenImageIO6v3_1_08TypeDescESaIS2_EE6resizeEmRKS2_.exit: ; preds
   %80 = icmp eq i8 %79, 0
   br i1 %80, label %.sink.split, label %.thread25
 
-.thread25:                                        ; preds = %74, %_ZNSt6vectorIN11OpenImageIO6v3_1_08TypeDescESaIS2_EE6resizeEmRKS2_.exit, %77
+81:                                               ; preds = %74, %_ZNSt6vectorIN11OpenImageIO6v3_1_08TypeDescESaIS2_EE6resizeEmRKS2_.exit, %77
   br label %.sink.split
 
 .sink.split:                                      ; preds = %77, %.thread25
   %.sink38 = phi i64 [ 56, %.thread25 ], [ 64, %77 ]
-  %81 = load ptr, ptr %0, align 8, !tbaa !106
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %.sink38
-  store ptr %4, ptr %82, align 8, !tbaa !141
-  br label %83
+  %85 = load ptr, ptr %0, align 8, !tbaa !106
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %.sink38
+  store ptr %4, ptr %86, align 8, !tbaa !141
+  br label %87
 
-83:                                               ; preds = %_ZNSt6vectorIN11OpenImageIO6v3_1_08TypeDescESaIS2_EE6resizeEmRKS2_.exit, %.sink.split, %_ZNSt6vectorIN11OpenImageIO6v3_1_08TypeDescESaIS2_EE6resizeEmRKS2_.exit
-  %84 = load ptr, ptr %0, align 8, !tbaa !106
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 256
-  %86 = load ptr, ptr %85, align 8, !tbaa !140
-  %87 = getelementptr inbounds i8, ptr %86, i64 -8
-  %88 = load ptr, ptr %87, align 8, !tbaa !141
-  ret ptr %88
+87:                                               ; preds = %_ZNSt6vectorIN11OpenImageIO6v3_1_08TypeDescESaIS2_EE6resizeEmRKS2_.exit, %.sink.split, %_ZNSt6vectorIN11OpenImageIO6v3_1_08TypeDescESaIS2_EE6resizeEmRKS2_.exit
+  %88 = load ptr, ptr %0, align 8, !tbaa !106
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 256
+  %90 = load ptr, ptr %89, align 8, !tbaa !140
+  %91 = getelementptr inbounds i8, ptr %90, i64 -8
+  %92 = load ptr, ptr %91, align 8, !tbaa !141
+  ret ptr %92
 }
 
 ; Function Attrs: mustprogress uwtable
