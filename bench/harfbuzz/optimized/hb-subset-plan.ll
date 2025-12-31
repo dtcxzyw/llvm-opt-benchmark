@@ -29050,8 +29050,7 @@ _ZL11sort_r_swapPcS_m.exit148.us:                 ; preds = %51, %53
   br i1 %.not.i, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %scevgep = getelementptr i8, ptr %.0123208, i64 %8
-  %57 = icmp ugt ptr %scevgep, %.us-phi
+  %57 = icmp ugt ptr %.0123208, %.us-phi
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %_ZL11sort_r_swapPcS_m.exit153.us

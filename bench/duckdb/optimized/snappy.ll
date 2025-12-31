@@ -3882,37 +3882,36 @@ define linkonce_odr void @_ZN13duckdb_snappy17SnappyIOVecReader4SkipEm(ptr nound
 
 .._crit_edge_crit_edge:                           ; preds = %2
   %.pre = load i64, ptr %8, align 8, !tbaa !91
-  %.pre26 = load ptr, ptr %9, align 8, !tbaa !89
+  %.pre23 = load ptr, ptr %9, align 8, !tbaa !89
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.promoted = load i64, ptr %8, align 8, !tbaa !91
-  %.promoted15 = load ptr, ptr %10, align 8
+  %.promoted = load ptr, ptr %10, align 8
+  %.promoted2.i.pre = load i64, ptr %8, align 8, !tbaa !91
   br label %11
 
 11:                                               ; preds = %.lr.ph, %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit
-  %12 = phi ptr [ %.promoted15, %.lr.ph ], [ %30, %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit ]
-  %.lcssa13 = phi i64 [ %.promoted, %.lr.ph ], [ %19, %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit ]
+  %.promoted2.i = phi i64 [ %.promoted2.i.pre, %.lr.ph ], [ %.promoted2.i21, %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit ]
+  %12 = phi ptr [ %.promoted, %.lr.ph ], [ %30, %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit ]
   %13 = phi i64 [ %4, %.lr.ph ], [ %29, %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit ]
-  %.010 = phi i64 [ %1, %.lr.ph ], [ %14, %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit ]
-  %14 = sub nuw i64 %.010, %13
+  %.09 = phi i64 [ %1, %.lr.ph ], [ %14, %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit ]
+  %14 = sub nuw i64 %.09, %13
   br label %15
 
-15:                                               ; preds = %22, %11
-  %16 = phi ptr [ %23, %22 ], [ %12, %11 ]
-  %17 = phi i64 [ %19, %22 ], [ %.lcssa13, %11 ]
-  %18 = phi i64 [ 0, %22 ], [ %13, %11 ]
-  %19 = sub i64 %17, %18
-  %20 = icmp eq i64 %17, %18
-  br i1 %20, label %21, label %22
+15:                                               ; preds = %21, %11
+  %16 = phi ptr [ %23, %21 ], [ %12, %11 ]
+  %17 = phi i64 [ %22, %21 ], [ %.promoted2.i, %11 ]
+  %18 = phi i64 [ 0, %21 ], [ %13, %11 ]
+  %19 = icmp eq i64 %17, %18
+  br i1 %19, label %20, label %21
 
-21:                                               ; preds = %15
-  store i64 %19, ptr %8, align 8, !tbaa !91
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+20:                                               ; preds = %15
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   br label %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit
 
-22:                                               ; preds = %15
+21:                                               ; preds = %15
+  %22 = sub i64 %17, %18
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %23, ptr %10, align 8, !tbaa !87
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -3920,25 +3919,26 @@ define linkonce_odr void @_ZN13duckdb_snappy17SnappyIOVecReader4SkipEm(ptr nound
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %15, label %.loopexit.i, !llvm.loop !92
 
-.loopexit.i:                                      ; preds = %22
+.loopexit.i:                                      ; preds = %21
   %27 = load ptr, ptr %23, align 8, !tbaa !63
   br label %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit
 
-_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit: ; preds = %21, %.loopexit.i
-  %28 = phi ptr [ null, %21 ], [ %27, %.loopexit.i ]
-  %29 = phi i64 [ 0, %21 ], [ %25, %.loopexit.i ]
-  %30 = phi ptr [ %16, %21 ], [ %23, %.loopexit.i ]
+_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit: ; preds = %20, %.loopexit.i
+  %28 = phi ptr [ null, %20 ], [ %27, %.loopexit.i ]
+  %29 = phi i64 [ 0, %20 ], [ %25, %.loopexit.i ]
+  %.promoted2.i21 = phi i64 [ 0, %20 ], [ %22, %.loopexit.i ]
+  %30 = phi ptr [ %16, %20 ], [ %23, %.loopexit.i ]
   %31 = icmp uge i64 %14, %29
   %32 = icmp ne i64 %14, 0
   %33 = and i1 %32, %31
   br i1 %33, label %11, label %._crit_edge, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit, %.._crit_edge_crit_edge
-  %34 = phi ptr [ %.pre26, %.._crit_edge_crit_edge ], [ %28, %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit ]
-  %35 = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %19, %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit ]
+  %34 = phi ptr [ %.pre23, %.._crit_edge_crit_edge ], [ %28, %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit ]
+  %35 = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %.promoted2.i21, %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit ]
   %.0.lcssa = phi i64 [ %1, %.._crit_edge_crit_edge ], [ %14, %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit ]
-  %.lcssa8 = phi i64 [ %4, %.._crit_edge_crit_edge ], [ %29, %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit ]
-  %36 = sub i64 %.lcssa8, %.0.lcssa
+  %.lcssa7 = phi i64 [ %4, %.._crit_edge_crit_edge ], [ %29, %_ZN13duckdb_snappy17SnappyIOVecReader7AdvanceEv.exit ]
+  %36 = sub i64 %.lcssa7, %.0.lcssa
   store i64 %36, ptr %3, align 8, !tbaa !90
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = sub i64 %35, %.0.lcssa

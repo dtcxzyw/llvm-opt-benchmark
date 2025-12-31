@@ -1327,11 +1327,11 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   br label %29
 
 29:                                               ; preds = %.preheader, %._crit_edge
-  %.0105239 = phi i32 [ %6, %.preheader ], [ %.2107.lcssa, %._crit_edge ]
-  %.0109238 = phi ptr [ %4, %.preheader ], [ %.2111.lcssa, %._crit_edge ]
-  %.0121237 = phi i32 [ 0, %.preheader ], [ %372, %._crit_edge ]
-  %.0122236 = phi ptr [ %24, %.preheader ], [ %371, %._crit_edge ]
-  %30 = getelementptr inbounds nuw i8, ptr %.0122236, i64 92
+  %.0105238 = phi i32 [ %6, %.preheader ], [ %.2107.lcssa, %._crit_edge ]
+  %.0109237 = phi ptr [ %4, %.preheader ], [ %.2111.lcssa, %._crit_edge ]
+  %.0121236 = phi i32 [ 0, %.preheader ], [ %372, %._crit_edge ]
+  %.0122235 = phi ptr [ %24, %.preheader ], [ %371, %._crit_edge ]
+  %30 = getelementptr inbounds nuw i8, ptr %.0122235, i64 92
   %31 = load i32, ptr %30, align 4, !tbaa !31
   %32 = icmp eq i32 %31, -1
   br i1 %32, label %33, label %34
@@ -1357,31 +1357,31 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   %42 = zext i32 %41 to i64
   %43 = shl nuw nsw i64 %42, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %38, i8 1, i64 %43, i1 false)
-  %44 = tail call i32 @opj_pi_next(ptr noundef nonnull %.0122236) #6
-  %.not129229 = icmp eq i32 %44, 0
-  br i1 %.not129229, label %._crit_edge, label %.lr.ph234
+  %44 = tail call i32 @opj_pi_next(ptr noundef nonnull %.0122235) #6
+  %.not129228 = icmp eq i32 %44, 0
+  br i1 %.not129228, label %._crit_edge, label %.lr.ph233
 
-.lr.ph234:                                        ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %.0122236, i64 36
-  %46 = getelementptr inbounds nuw i8, ptr %.0122236, i64 40
-  %47 = getelementptr inbounds nuw i8, ptr %.0122236, i64 44
-  %48 = getelementptr inbounds nuw i8, ptr %.0122236, i64 48
+.lr.ph233:                                        ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %.0122235, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %.0122235, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.0122235, i64 44
+  %48 = getelementptr inbounds nuw i8, ptr %.0122235, i64 48
   br label %49
 
-49:                                               ; preds = %.lr.ph234, %366
-  %.2107232 = phi i32 [ %.0105239, %.lr.ph234 ], [ %369, %366 ]
-  %.2111230 = phi ptr [ %.0109238, %.lr.ph234 ], [ %368, %366 ]
+49:                                               ; preds = %.lr.ph233, %366
+  %.2107231 = phi i32 [ %.0105238, %.lr.ph233 ], [ %369, %366 ]
+  %.2111229 = phi ptr [ %.0109237, %.lr.ph233 ], [ %368, %366 ]
   %50 = load i32, ptr %48, align 8, !tbaa !37
   %51 = load i32, ptr %26, align 4, !tbaa !119
   %.not130 = icmp ult i32 %50, %51
-  %.val24.i.pre298 = load ptr, ptr %27, align 8, !tbaa !71
+  %.val24.i.pre296 = load ptr, ptr %27, align 8, !tbaa !71
   br i1 %.not130, label %52, label %.critedge
 
 52:                                               ; preds = %49
   %53 = load i32, ptr %46, align 8, !tbaa !69
   %54 = load i32, ptr %45, align 4, !tbaa !68
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %struct.opj_tcd_tilecomp, ptr %.val24.i.pre298, i64 %55
+  %56 = getelementptr inbounds nuw %struct.opj_tcd_tilecomp, ptr %.val24.i.pre296, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load i32, ptr %57, align 8, !tbaa !120
   %.not131 = icmp ult i32 %53, %58
@@ -1394,8 +1394,8 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   %63 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load i32, ptr %64, align 8, !tbaa !76
-  %.not240 = icmp eq i32 %65, 0
-  br i1 %.not240, label %.critedge, label %.lr.ph
+  %.not239 = icmp eq i32 %65, 0
+  br i1 %.not239, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %59
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 32
@@ -1441,7 +1441,7 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   store i32 0, ptr %13, align 4, !tbaa !30
   %.val.i = load ptr, ptr %15, align 8, !tbaa !10
   %.val25.i = load ptr, ptr %27, align 8, !tbaa !71
-  %94 = call fastcc i32 @opj_t2_read_packet_header(ptr %.val.i, ptr %.val25.i, ptr noundef %20, ptr noundef nonnull readonly %.0122236, ptr noundef %12, ptr noundef %.2111230, ptr noundef %13, i32 noundef %.2107232, ptr noundef %8)
+  %94 = call fastcc i32 @opj_t2_read_packet_header(ptr %.val.i, ptr %.val25.i, ptr noundef %20, ptr noundef nonnull readonly %.0122235, ptr noundef %12, ptr noundef %.2111229, ptr noundef %13, i32 noundef %.2107231, ptr noundef %8)
   %.not.i = icmp eq i32 %94, 0
   br i1 %.not.i, label %.loopexit160, label %95
 
@@ -1449,21 +1449,21 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   %96 = load i32, ptr %13, align 4, !tbaa !30
   %97 = load i32, ptr %12, align 4, !tbaa !30
   %.not23.i = icmp eq i32 %97, 0
-  %.pre295 = load i32, ptr %45, align 4, !tbaa !68
-  %.pre297 = load i32, ptr %46, align 8, !tbaa !69
+  %.pre293 = load i32, ptr %45, align 4, !tbaa !68
+  %.pre295 = load i32, ptr %46, align 8, !tbaa !69
   br i1 %.not23.i, label %250, label %98
 
 98:                                               ; preds = %95
-  %99 = sub i32 %.2107232, %96
+  %99 = sub i32 %.2107231, %96
   %100 = zext i32 %96 to i64
-  %101 = getelementptr inbounds nuw i8, ptr %.2111230, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %.2111229, i64 %100
   store i32 0, ptr %13, align 4, !tbaa !30
   %.val26.i = load ptr, ptr %27, align 8, !tbaa !71
-  %102 = zext i32 %.pre295 to i64
+  %102 = zext i32 %.pre293 to i64
   %103 = getelementptr inbounds nuw %struct.opj_tcd_tilecomp, ptr %.val26.i, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %105 = load ptr, ptr %104, align 8, !tbaa !72
-  %106 = zext i32 %.pre297 to i64
+  %106 = zext i32 %.pre295 to i64
   %107 = getelementptr inbounds nuw %struct.opj_tcd_resolution, ptr %105, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %109 = load i32, ptr %108, align 8, !tbaa !76
@@ -1734,12 +1734,12 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   %246 = trunc i64 %245 to i32
   %spec.select.i.i = select i1 %242, i32 %246, i32 %99
   %.pre.pre = load i32, ptr %45, align 4, !tbaa !68
-  %.pre296.pre = load i32, ptr %46, align 8, !tbaa !69
+  %.pre294.pre = load i32, ptr %46, align 8, !tbaa !69
   br label %247
 
 247:                                              ; preds = %._crit_edge55.i.i, %98
-  %.pre296 = phi i32 [ %.pre297, %98 ], [ %.pre296.pre, %._crit_edge55.i.i ]
-  %.pre = phi i32 [ %.pre295, %98 ], [ %.pre.pre, %._crit_edge55.i.i ]
+  %.pre294 = phi i32 [ %.pre295, %98 ], [ %.pre294.pre, %._crit_edge55.i.i ]
+  %.pre = phi i32 [ %.pre293, %98 ], [ %.pre.pre, %._crit_edge55.i.i ]
   %248 = phi i32 [ 0, %98 ], [ %spec.select.i.i, %._crit_edge55.i.i ]
   %249 = add i32 %248, %96
   br label %250
@@ -1752,8 +1752,8 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   br label %.critedge138
 
 250:                                              ; preds = %247, %95
-  %251 = phi i32 [ %.pre296, %247 ], [ %.pre297, %95 ]
-  %252 = phi i32 [ %.pre, %247 ], [ %.pre295, %95 ]
+  %251 = phi i32 [ %.pre294, %247 ], [ %.pre295, %95 ]
+  %252 = phi i32 [ %.pre, %247 ], [ %.pre293, %95 ]
   %.1 = phi i32 [ %249, %247 ], [ %96, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1771,12 +1771,12 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %59, %49, %52
-  %.val24.i = phi ptr [ %.val24.i.pre, %.critedge.loopexit ], [ %.val24.i.pre298, %59 ], [ %.val24.i.pre298, %49 ], [ %.val24.i.pre298, %52 ]
+  %.val24.i = phi ptr [ %.val24.i.pre, %.critedge.loopexit ], [ %.val24.i.pre296, %59 ], [ %.val24.i.pre296, %49 ], [ %.val24.i.pre296, %52 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !30
   %.val.i140 = load ptr, ptr %15, align 8, !tbaa !10
-  %259 = call fastcc i32 @opj_t2_read_packet_header(ptr %.val.i140, ptr %.val24.i, ptr noundef %20, ptr noundef nonnull readonly %.0122236, ptr noundef %10, ptr noundef %.2111230, ptr noundef %11, i32 noundef %.2107232, ptr noundef %8)
+  %259 = call fastcc i32 @opj_t2_read_packet_header(ptr %.val.i140, ptr %.val24.i, ptr noundef %20, ptr noundef nonnull readonly %.0122235, ptr noundef %10, ptr noundef %.2111229, ptr noundef %11, i32 noundef %.2107231, ptr noundef %8)
   %.not.i141 = icmp eq i32 %259, 0
   br i1 %.not.i141, label %.loopexit, label %260
 
@@ -1784,13 +1784,13 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   %261 = load i32, ptr %11, align 4, !tbaa !30
   %262 = load i32, ptr %10, align 4, !tbaa !30
   %.not22.i = icmp eq i32 %262, 0
-  %.pre300.pre303 = load i32, ptr %45, align 4, !tbaa !68
+  %.pre298.pre301 = load i32, ptr %45, align 4, !tbaa !68
   br i1 %.not22.i, label %opj_t2_skip_packet.exit, label %263
 
 263:                                              ; preds = %260
-  %264 = sub i32 %.2107232, %261
+  %264 = sub i32 %.2107231, %261
   %.val25.i142 = load ptr, ptr %27, align 8, !tbaa !71
-  %265 = zext i32 %.pre300.pre303 to i64
+  %265 = zext i32 %.pre298.pre301 to i64
   %266 = getelementptr inbounds nuw %struct.opj_tcd_tilecomp, ptr %.val25.i142, i64 %265
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 32
   %268 = load ptr, ptr %267, align 8, !tbaa !72
@@ -1892,8 +1892,8 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   %or.cond20.i.i = or i1 %322, %323
   br i1 %or.cond20.i.i, label %._crit_edge.i.i145, label %.lr.ph.i.i143
 
-._crit_edge.i.loopexit.i:                         ; preds = %338
-  store i32 %337, ptr %299, align 4, !tbaa !131
+._crit_edge.i.loopexit.i:                         ; preds = %337
+  store i32 %338, ptr %299, align 4, !tbaa !131
   br label %._crit_edge.i.i145
 
 ._crit_edge.i.i145:                               ; preds = %317, %._crit_edge.i.loopexit.i
@@ -1905,26 +1905,26 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   br i1 %.not91.i.i, label %327, label %opj_t2_skip_packet_data.exit.i
 
 327:                                              ; preds = %._crit_edge.i.i145
-  %328 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %8, i32 noundef 2, ptr noundef nonnull @.str.16, i32 noundef %.lcssa.i.i146, i32 noundef %264, i32 noundef %.08330.i.i, i32 noundef %275, i32 noundef %.07835.i.i, i32 noundef %269, i32 noundef %.pre300.pre303) #6
-  %.pre300.pre.pre = load i32, ptr %45, align 4, !tbaa !68
+  %328 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %8, i32 noundef 2, ptr noundef nonnull @.str.16, i32 noundef %.lcssa.i.i146, i32 noundef %264, i32 noundef %.08330.i.i, i32 noundef %275, i32 noundef %.07835.i.i, i32 noundef %269, i32 noundef %.pre298.pre301) #6
+  %.pre298.pre.pre = load i32, ptr %45, align 4, !tbaa !68
   br label %.loopexit.i
 
-.lr.ph.i.i143:                                    ; preds = %317, %338
-  %329 = phi i32 [ %340, %338 ], [ %318, %317 ]
-  %330 = phi i32 [ %337, %338 ], [ %300, %317 ]
-  %331 = phi i32 [ %343, %338 ], [ %321, %317 ]
-  %.121.i.i = phi ptr [ %339, %338 ], [ %.0.i.i, %317 ]
+.lr.ph.i.i143:                                    ; preds = %317, %337
+  %329 = phi i32 [ %340, %337 ], [ %318, %317 ]
+  %330 = phi i32 [ %338, %337 ], [ %300, %317 ]
+  %331 = phi i32 [ %343, %337 ], [ %321, %317 ]
+  %.121.i.i = phi ptr [ %339, %337 ], [ %.0.i.i, %317 ]
   %332 = getelementptr inbounds nuw i8, ptr %.121.i.i, i64 16
   %333 = load i32, ptr %332, align 4, !tbaa !150
   %334 = getelementptr inbounds nuw i8, ptr %.121.i.i, i64 4
   %335 = load i32, ptr %334, align 4, !tbaa !139
   %336 = add i32 %335, %333
   store i32 %336, ptr %334, align 4, !tbaa !139
-  %337 = sub i32 %330, %333
   %.not89.i.i = icmp eq i32 %330, %333
-  br i1 %.not89.i.i, label %.loopexit.i.loopexit.i, label %338
+  br i1 %.not89.i.i, label %.loopexit.i.loopexit.i, label %337
 
-338:                                              ; preds = %.lr.ph.i.i143
+337:                                              ; preds = %.lr.ph.i.i143
+  %338 = sub i32 %330, %333
   %339 = getelementptr inbounds nuw i8, ptr %.121.i.i, i64 24
   %340 = add i32 %329, 1
   store i32 %340, ptr %302, align 8, !tbaa !137
@@ -1937,7 +1937,7 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   br i1 %or.cond.i.i144, label %._crit_edge.i.loopexit.i, label %.lr.ph.i.i143, !llvm.loop !159
 
 .loopexit.i.loopexit.i:                           ; preds = %.lr.ph.i.i143
-  store i32 %337, ptr %299, align 4, !tbaa !131
+  store i32 0, ptr %299, align 4, !tbaa !131
   br label %.loopexit.i.i148
 
 .loopexit.i.i148:                                 ; preds = %.loopexit.i.loopexit.i, %.lr.ph33.i.i
@@ -1955,21 +1955,21 @@ define hidden range(i32 0, 2) i32 @opj_t2_decode_packets(ptr noundef %0, ptr nou
   br i1 %exitcond.not.i, label %.loopexit.i, label %277, !llvm.loop !161
 
 opj_t2_skip_packet_data.exit.i:                   ; preds = %._crit_edge.i.i145
-  %348 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str.16, i32 noundef %.lcssa.i.i146, i32 noundef %264, i32 noundef %.08330.i.i, i32 noundef %275, i32 noundef %.07835.i.i, i32 noundef %269, i32 noundef %.pre300.pre303) #6
+  %348 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str.16, i32 noundef %.lcssa.i.i146, i32 noundef %264, i32 noundef %.08330.i.i, i32 noundef %275, i32 noundef %.07835.i.i, i32 noundef %269, i32 noundef %.pre298.pre301) #6
   br label %.loopexit
 
 .loopexit.i:                                      ; preds = %.loopexit14.i.i, %327, %263
-  %.pre300.pre = phi i32 [ %.pre300.pre.pre, %327 ], [ %.pre300.pre303, %263 ], [ %.pre300.pre303, %.loopexit14.i.i ]
+  %.pre298.pre = phi i32 [ %.pre298.pre.pre, %327 ], [ %.pre298.pre301, %263 ], [ %.pre298.pre301, %.loopexit14.i.i ]
   %349 = phi i32 [ %264, %327 ], [ 0, %263 ], [ %.lcssa1521.lcssa25.i, %.loopexit14.i.i ]
   %350 = add i32 %349, %261
   br label %opj_t2_skip_packet.exit
 
 opj_t2_skip_packet.exit:                          ; preds = %260, %.loopexit.i
-  %.pre300 = phi i32 [ %.pre300.pre, %.loopexit.i ], [ %.pre300.pre303, %260 ]
+  %.pre298 = phi i32 [ %.pre298.pre, %.loopexit.i ], [ %.pre298.pre301, %260 ]
   %.2 = phi i32 [ %350, %.loopexit.i ], [ %261, %260 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.pre306 = zext i32 %.pre300 to i64
+  %.pre304 = zext i32 %.pre298 to i64
   br label %351
 
 .loopexit:                                        ; preds = %.critedge, %opj_t2_skip_packet_data.exit.i
@@ -1980,7 +1980,7 @@ opj_t2_skip_packet.exit:                          ; preds = %260, %.loopexit.i
   br label %.critedge138
 
 351:                                              ; preds = %opj_t2_skip_packet.exit, %250
-  %.pre-phi = phi i64 [ %.pre306, %opj_t2_skip_packet.exit ], [ %254, %250 ]
+  %.pre-phi = phi i64 [ %.pre304, %opj_t2_skip_packet.exit ], [ %254, %250 ]
   %.0152 = phi i32 [ %.2, %opj_t2_skip_packet.exit ], [ %.1, %250 ]
   %352 = getelementptr inbounds nuw i32, ptr %38, i64 %.pre-phi
   %353 = load i32, ptr %352, align 4, !tbaa !30
@@ -2006,18 +2006,18 @@ opj_t2_skip_packet.exit:                          ; preds = %260, %.loopexit.i
 
 366:                                              ; preds = %354, %360, %351
   %367 = zext i32 %.0152 to i64
-  %368 = getelementptr inbounds nuw i8, ptr %.2111230, i64 %367
-  %369 = sub i32 %.2107232, %.0152
-  %370 = tail call i32 @opj_pi_next(ptr noundef nonnull %.0122236) #6
+  %368 = getelementptr inbounds nuw i8, ptr %.2111229, i64 %367
+  %369 = sub i32 %.2107231, %.0152
+  %370 = tail call i32 @opj_pi_next(ptr noundef nonnull %.0122235) #6
   %.not129 = icmp eq i32 %370, 0
   br i1 %.not129, label %._crit_edge, label %49, !llvm.loop !162
 
 ._crit_edge:                                      ; preds = %366, %40
-  %.2111.lcssa = phi ptr [ %.0109238, %40 ], [ %368, %366 ]
-  %.2107.lcssa = phi i32 [ %.0105239, %40 ], [ %369, %366 ]
-  %371 = getelementptr inbounds nuw i8, ptr %.0122236, i64 256
+  %.2111.lcssa = phi ptr [ %.0109237, %40 ], [ %368, %366 ]
+  %.2107.lcssa = phi i32 [ %.0105238, %40 ], [ %369, %366 ]
+  %371 = getelementptr inbounds nuw i8, ptr %.0122235, i64 256
   tail call void @opj_free(ptr noundef nonnull %38) #6
-  %372 = add i32 %.0121237, 1
+  %372 = add i32 %.0121236, 1
   %373 = load i32, ptr %21, align 4, !tbaa !23
   %.not127 = icmp ugt i32 %372, %373
   br i1 %.not127, label %374, label %29, !llvm.loop !163

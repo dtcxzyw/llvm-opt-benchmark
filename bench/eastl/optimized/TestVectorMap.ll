@@ -10754,8 +10754,8 @@ while.body.i.i:                                   ; preds = %invoke.cont274, %if
   br i1 %cmp.not.i.i.i.i.i.i.i, label %if.then.i.i653, label %_ZNK5eastl17map_value_compareINS_12basic_stringIcNS_9allocatorEEENS_4pairIS3_iEENS_4lessIS3_EEEclERKS5_RKS3_.exit.i.i
 
 _ZNK5eastl17map_value_compareINS_12basic_stringIcNS_9allocatorEEENS_4pairIS3_iEENS_4lessIS3_EEEclERKS5_RKS3_.exit.i.i: ; preds = %while.body.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i.i648 = ptrtoint ptr %cond.i.i.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i649 = ptrtoint ptr %spec.select.i.i.i.i.i.i.i to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i648 = ptrtoint ptr %cond.i.i.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i650 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i648, %sub.ptr.rhs.cast.i.i.i.i.i.i649
   %cond.i.i16.i.i.i.i.i = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub.i.i.i.i.i.i650, i64 3)
   %call.i.i.i.i.i.i.i651 = call i32 @memcmp(ptr noundef %spec.select.i.i.i.i.i.i.i, ptr noundef nonnull %ref.tmp276, i64 noundef %cond.i.i16.i.i.i.i.i) #17
@@ -10834,8 +10834,8 @@ while.body.i.i703:                                ; preds = %_ZN5eastl12basic_st
   br i1 %cmp.not.i.i.i.i.i.i.i720, label %if.then.i.i724, label %_ZNK5eastl17map_value_compareINS_12basic_stringIcNS_9allocatorEEENS_4pairIS3_iEENS_4lessIS3_EEEclERKS3_RKS5_.exit.i.i
 
 _ZNK5eastl17map_value_compareINS_12basic_stringIcNS_9allocatorEEENS_4pairIS3_iEENS_4lessIS3_EEEclERKS3_RKS5_.exit.i.i: ; preds = %while.body.i.i703
-  %sub.ptr.lhs.cast1.i.i.i.i.i.i716 = ptrtoint ptr %cond.i.i15.i.i.i.i.i715 to i64
   %sub.ptr.rhs.cast2.i.i.i.i.i.i717 = ptrtoint ptr %spec.select.i.i7.i.i.i.i.i709 to i64
+  %sub.ptr.lhs.cast1.i.i.i.i.i.i716 = ptrtoint ptr %cond.i.i15.i.i.i.i.i715 to i64
   %sub.ptr.sub3.i.i.i.i.i.i718 = sub i64 %sub.ptr.lhs.cast1.i.i.i.i.i.i716, %sub.ptr.rhs.cast2.i.i.i.i.i.i717
   %cond.i.i16.i.i.i.i.i719 = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub3.i.i.i.i.i.i718, i64 3)
   %call.i.i.i.i.i.i.i721 = call i32 @memcmp(ptr noundef nonnull %ref.tmp288, ptr noundef %spec.select.i.i7.i.i.i.i.i709, i64 noundef %cond.i.i16.i.i.i.i.i719) #17
@@ -11108,8 +11108,8 @@ while.body.i.i1025:                               ; preds = %invoke.cont376, %if
   br i1 %cmp.not.i.i.i.i.i.i.i1043, label %if.then.i.i1052, label %_ZNK5eastl17map_value_compareINS_12basic_stringIcNS_9allocatorEEENS_4pairIS3_iEENS_4lessIS3_EEEclERKS5_RKS3_.exit.i.i1044
 
 _ZNK5eastl17map_value_compareINS_12basic_stringIcNS_9allocatorEEENS_4pairIS3_iEENS_4lessIS3_EEEclERKS5_RKS3_.exit.i.i1044: ; preds = %while.body.i.i1025
-  %sub.ptr.lhs.cast.i.i.i.i.i.i1039 = ptrtoint ptr %cond.i.i.i.i.i.i.i1038 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i1040 = ptrtoint ptr %spec.select.i.i.i.i.i.i.i1032 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i1039 = ptrtoint ptr %cond.i.i.i.i.i.i.i1038 to i64
   %sub.ptr.sub.i.i.i.i.i.i1041 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i1039, %sub.ptr.rhs.cast.i.i.i.i.i.i1040
   %cond.i.i16.i.i.i.i.i1042 = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub.i.i.i.i.i.i1041, i64 3)
   %call.i.i.i.i.i.i.i1045 = call i32 @memcmp(ptr noundef %spec.select.i.i.i.i.i.i.i1032, ptr noundef nonnull %ref.tmp378, i64 noundef %cond.i.i16.i.i.i.i.i1042) #17
@@ -11188,8 +11188,8 @@ while.body.i.i1105:                               ; preds = %_ZN5eastl12basic_st
   br i1 %cmp.not.i.i.i.i.i.i.i1123, label %if.then.i.i1128, label %_ZNK5eastl17map_value_compareINS_12basic_stringIcNS_9allocatorEEENS_4pairIS3_iEENS_4lessIS3_EEEclERKS3_RKS5_.exit.i.i1124
 
 _ZNK5eastl17map_value_compareINS_12basic_stringIcNS_9allocatorEEENS_4pairIS3_iEENS_4lessIS3_EEEclERKS3_RKS5_.exit.i.i1124: ; preds = %while.body.i.i1105
-  %sub.ptr.lhs.cast1.i.i.i.i.i.i1119 = ptrtoint ptr %cond.i.i15.i.i.i.i.i1118 to i64
   %sub.ptr.rhs.cast2.i.i.i.i.i.i1120 = ptrtoint ptr %spec.select.i.i7.i.i.i.i.i1112 to i64
+  %sub.ptr.lhs.cast1.i.i.i.i.i.i1119 = ptrtoint ptr %cond.i.i15.i.i.i.i.i1118 to i64
   %sub.ptr.sub3.i.i.i.i.i.i1121 = sub i64 %sub.ptr.lhs.cast1.i.i.i.i.i.i1119, %sub.ptr.rhs.cast2.i.i.i.i.i.i1120
   %cond.i.i16.i.i.i.i.i1122 = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub3.i.i.i.i.i.i1121, i64 3)
   %call.i.i.i.i.i.i.i1125 = call i32 @memcmp(ptr noundef nonnull %ref.tmp390, ptr noundef %spec.select.i.i7.i.i.i.i.i1112, i64 noundef %cond.i.i16.i.i.i.i.i1122) #17

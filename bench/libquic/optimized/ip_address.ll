@@ -950,7 +950,7 @@ define noundef zeroext i1 @_ZNK3net9IPAddressltERKS0_(ptr noundef nonnull readon
 
 15:                                               ; preds = %2
   %16 = icmp ult i64 %8, %14
-  br label %_ZStltIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit
+  br label %23
 
 17:                                               ; preds = %2
   %.not.i.i.i.i.i.i = icmp eq ptr %10, %11
@@ -958,11 +958,16 @@ define noundef zeroext i1 @_ZNK3net9IPAddressltERKS0_(ptr noundef nonnull readon
 
 18:                                               ; preds = %17
   %19 = tail call noundef i32 @memcmp(ptr noundef %5, ptr noundef %11, i64 noundef %8) #21
-  %20 = icmp slt i32 %19, 0
+  %20 = sext i32 %19 to i64
   br label %_ZStltIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit
 
-_ZStltIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %18, %17, %15
-  %.0 = phi i1 [ %16, %15 ], [ %20, %18 ], [ false, %17 ]
+_ZStltIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %17, %18
+  %21 = phi i64 [ %20, %18 ], [ %8, %17 ]
+  %22 = icmp slt i64 %21, 0
+  br label %23
+
+23:                                               ; preds = %_ZStltIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit, %15
+  %.0 = phi i1 [ %16, %15 ], [ %22, %_ZStltIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit ]
   ret i1 %.0
 }
 

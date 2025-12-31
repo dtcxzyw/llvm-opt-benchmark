@@ -8788,8 +8788,8 @@ while.body.i.i:                                   ; preds = %if.end.i.i, %while.
   br i1 %cmp.not.i.i.i.i.i.i, label %if.then.i.i354, label %_ZNK5eastl4lessINS_12basic_stringIcNS_9allocatorEEEEclERKS3_S6_.exit.i.i
 
 _ZNK5eastl4lessINS_12basic_stringIcNS_9allocatorEEEEclERKS3_S6_.exit.i.i: ; preds = %while.body.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i351 = ptrtoint ptr %cond.i.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i352 = ptrtoint ptr %spec.select.i.i.i.i.i.i to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i351 = ptrtoint ptr %cond.i.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i353 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i351, %sub.ptr.rhs.cast.i.i.i.i.i352
   %cond.i.i16.i.i.i.i = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub.i.i.i.i.i353, i64 3)
   %call.i.i.i.i.i.i = call i32 @memcmp(ptr noundef %spec.select.i.i.i.i.i.i, ptr noundef nonnull %ref.tmp166, i64 noundef %cond.i.i16.i.i.i.i) #18
@@ -8871,8 +8871,8 @@ while.body.i.i404:                                ; preds = %if.end.i.i430, %whi
   br i1 %cmp.not.i.i.i.i.i.i421, label %if.then.i.i426, label %_ZNK5eastl4lessINS_12basic_stringIcNS_9allocatorEEEEclERKS3_S6_.exit.i.i422
 
 _ZNK5eastl4lessINS_12basic_stringIcNS_9allocatorEEEEclERKS3_S6_.exit.i.i422: ; preds = %while.body.i.i404
-  %sub.ptr.lhs.cast1.i.i.i.i.i417 = ptrtoint ptr %cond.i.i15.i.i.i.i416 to i64
   %sub.ptr.rhs.cast2.i.i.i.i.i418 = ptrtoint ptr %spec.select.i.i7.i.i.i.i410 to i64
+  %sub.ptr.lhs.cast1.i.i.i.i.i417 = ptrtoint ptr %cond.i.i15.i.i.i.i416 to i64
   %sub.ptr.sub3.i.i.i.i.i419 = sub i64 %sub.ptr.lhs.cast1.i.i.i.i.i417, %sub.ptr.rhs.cast2.i.i.i.i.i418
   %cond.i.i16.i.i.i.i420 = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub3.i.i.i.i.i419, i64 3)
   %call.i.i.i.i.i.i423 = call i32 @memcmp(ptr noundef nonnull %ref.tmp178, ptr noundef %spec.select.i.i7.i.i.i.i410, i64 noundef %cond.i.i16.i.i.i.i420) #18
@@ -9165,8 +9165,8 @@ while.body.i.i743:                                ; preds = %if.end.i.i766, %whi
   br i1 %cmp.not.i.i.i.i.i.i761, label %if.then.i.i770, label %_ZNK5eastl4lessINS_12basic_stringIcNS_9allocatorEEEEclERKS3_S6_.exit.i.i762
 
 _ZNK5eastl4lessINS_12basic_stringIcNS_9allocatorEEEEclERKS3_S6_.exit.i.i762: ; preds = %while.body.i.i743
-  %sub.ptr.lhs.cast.i.i.i.i.i757 = ptrtoint ptr %cond.i.i.i.i.i.i756 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i758 = ptrtoint ptr %spec.select.i.i.i.i.i.i750 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i757 = ptrtoint ptr %cond.i.i.i.i.i.i756 to i64
   %sub.ptr.sub.i.i.i.i.i759 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i757, %sub.ptr.rhs.cast.i.i.i.i.i758
   %cond.i.i16.i.i.i.i760 = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub.i.i.i.i.i759, i64 3)
   %call.i.i.i.i.i.i763 = call i32 @memcmp(ptr noundef %spec.select.i.i.i.i.i.i750, ptr noundef nonnull %ref.tmp288, i64 noundef %cond.i.i16.i.i.i.i760) #18
@@ -9248,8 +9248,8 @@ while.body.i.i823:                                ; preds = %if.end.i.i850, %whi
   br i1 %cmp.not.i.i.i.i.i.i841, label %if.then.i.i846, label %_ZNK5eastl4lessINS_12basic_stringIcNS_9allocatorEEEEclERKS3_S6_.exit.i.i842
 
 _ZNK5eastl4lessINS_12basic_stringIcNS_9allocatorEEEEclERKS3_S6_.exit.i.i842: ; preds = %while.body.i.i823
-  %sub.ptr.lhs.cast1.i.i.i.i.i837 = ptrtoint ptr %cond.i.i15.i.i.i.i836 to i64
   %sub.ptr.rhs.cast2.i.i.i.i.i838 = ptrtoint ptr %spec.select.i.i7.i.i.i.i830 to i64
+  %sub.ptr.lhs.cast1.i.i.i.i.i837 = ptrtoint ptr %cond.i.i15.i.i.i.i836 to i64
   %sub.ptr.sub3.i.i.i.i.i839 = sub i64 %sub.ptr.lhs.cast1.i.i.i.i.i837, %sub.ptr.rhs.cast2.i.i.i.i.i838
   %cond.i.i16.i.i.i.i840 = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub3.i.i.i.i.i839, i64 3)
   %call.i.i.i.i.i.i843 = call i32 @memcmp(ptr noundef nonnull %ref.tmp300, ptr noundef %spec.select.i.i7.i.i.i.i830, i64 noundef %cond.i.i16.i.i.i.i840) #18
@@ -9626,8 +9626,8 @@ while.body.i.i1167:                               ; preds = %if.end.i.i1190, %wh
   br i1 %cmp.not.i.i.i.i.i.i1185, label %if.then.i.i1194, label %_ZNK5eastl4lessINS_12basic_stringIcNS_9allocatorEEEEclERKS3_S6_.exit.i.i1186
 
 _ZNK5eastl4lessINS_12basic_stringIcNS_9allocatorEEEEclERKS3_S6_.exit.i.i1186: ; preds = %while.body.i.i1167
-  %sub.ptr.lhs.cast.i.i.i.i.i1181 = ptrtoint ptr %cond.i.i.i.i.i.i1180 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i1182 = ptrtoint ptr %spec.select.i.i.i.i.i.i1174 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i1181 = ptrtoint ptr %cond.i.i.i.i.i.i1180 to i64
   %sub.ptr.sub.i.i.i.i.i1183 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i1181, %sub.ptr.rhs.cast.i.i.i.i.i1182
   %cond.i.i16.i.i.i.i1184 = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub.i.i.i.i.i1183, i64 3)
   %call.i.i.i.i.i.i1187 = call i32 @memcmp(ptr noundef %spec.select.i.i.i.i.i.i1174, ptr noundef nonnull %ref.tmp410, i64 noundef %cond.i.i16.i.i.i.i1184) #18
@@ -9709,8 +9709,8 @@ while.body.i.i1247:                               ; preds = %if.end.i.i1274, %wh
   br i1 %cmp.not.i.i.i.i.i.i1265, label %if.then.i.i1270, label %_ZNK5eastl4lessINS_12basic_stringIcNS_9allocatorEEEEclERKS3_S6_.exit.i.i1266
 
 _ZNK5eastl4lessINS_12basic_stringIcNS_9allocatorEEEEclERKS3_S6_.exit.i.i1266: ; preds = %while.body.i.i1247
-  %sub.ptr.lhs.cast1.i.i.i.i.i1261 = ptrtoint ptr %cond.i.i15.i.i.i.i1260 to i64
   %sub.ptr.rhs.cast2.i.i.i.i.i1262 = ptrtoint ptr %spec.select.i.i7.i.i.i.i1254 to i64
+  %sub.ptr.lhs.cast1.i.i.i.i.i1261 = ptrtoint ptr %cond.i.i15.i.i.i.i1260 to i64
   %sub.ptr.sub3.i.i.i.i.i1263 = sub i64 %sub.ptr.lhs.cast1.i.i.i.i.i1261, %sub.ptr.rhs.cast2.i.i.i.i.i1262
   %cond.i.i16.i.i.i.i1264 = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub3.i.i.i.i.i1263, i64 3)
   %call.i.i.i.i.i.i1267 = call i32 @memcmp(ptr noundef nonnull %ref.tmp422, ptr noundef %spec.select.i.i7.i.i.i.i1254, i64 noundef %cond.i.i16.i.i.i.i1264) #18
@@ -10087,8 +10087,8 @@ while.body.i.i1592:                               ; preds = %if.end.i.i1615, %wh
   br i1 %cmp.not.i.i.i.i.i.i1610, label %if.then.i.i1619, label %_ZNK5eastl4lessINS_12basic_stringIcNS_9allocatorEEEEclERKS3_S6_.exit.i.i1611
 
 _ZNK5eastl4lessINS_12basic_stringIcNS_9allocatorEEEEclERKS3_S6_.exit.i.i1611: ; preds = %while.body.i.i1592
-  %sub.ptr.lhs.cast.i.i.i.i.i1606 = ptrtoint ptr %cond.i.i.i.i.i.i1605 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i1607 = ptrtoint ptr %spec.select.i.i.i.i.i.i1599 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i1606 = ptrtoint ptr %cond.i.i.i.i.i.i1605 to i64
   %sub.ptr.sub.i.i.i.i.i1608 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i1606, %sub.ptr.rhs.cast.i.i.i.i.i1607
   %cond.i.i16.i.i.i.i1609 = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub.i.i.i.i.i1608, i64 3)
   %call.i.i.i.i.i.i1612 = call i32 @memcmp(ptr noundef %spec.select.i.i.i.i.i.i1599, ptr noundef nonnull %ref.tmp532, i64 noundef %cond.i.i16.i.i.i.i1609) #18
@@ -10170,8 +10170,8 @@ while.body.i.i1672:                               ; preds = %if.end.i.i1699, %wh
   br i1 %cmp.not.i.i.i.i.i.i1690, label %if.then.i.i1695, label %_ZNK5eastl4lessINS_12basic_stringIcNS_9allocatorEEEEclERKS3_S6_.exit.i.i1691
 
 _ZNK5eastl4lessINS_12basic_stringIcNS_9allocatorEEEEclERKS3_S6_.exit.i.i1691: ; preds = %while.body.i.i1672
-  %sub.ptr.lhs.cast1.i.i.i.i.i1686 = ptrtoint ptr %cond.i.i15.i.i.i.i1685 to i64
   %sub.ptr.rhs.cast2.i.i.i.i.i1687 = ptrtoint ptr %spec.select.i.i7.i.i.i.i1679 to i64
+  %sub.ptr.lhs.cast1.i.i.i.i.i1686 = ptrtoint ptr %cond.i.i15.i.i.i.i1685 to i64
   %sub.ptr.sub3.i.i.i.i.i1688 = sub i64 %sub.ptr.lhs.cast1.i.i.i.i.i1686, %sub.ptr.rhs.cast2.i.i.i.i.i1687
   %cond.i.i16.i.i.i.i1689 = call noundef i64 @llvm.smin.i64(i64 %sub.ptr.sub3.i.i.i.i.i1688, i64 3)
   %call.i.i.i.i.i.i1692 = call i32 @memcmp(ptr noundef nonnull %ref.tmp544, ptr noundef %spec.select.i.i7.i.i.i.i1679, i64 noundef %cond.i.i16.i.i.i.i1689) #18

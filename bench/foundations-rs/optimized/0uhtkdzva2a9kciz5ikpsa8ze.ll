@@ -17472,7 +17472,7 @@ define hidden { i64, ptr } @"_ZN95_$LT$hyper..common..io..rewind..Rewind$LT$T$GT
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 32
   %57 = load ptr, ptr %56, align 8, !noalias !1267, !nonnull !4, !noundef !4
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void %57(ptr noalias noundef nonnull align 8 dereferenceable(8) %58, ptr noundef %43, i64 noundef %42)
+  call void %57(ptr noalias noundef nonnull align 8 dereferenceable(8) %58, ptr noundef %43, i64 noundef 0)
   br label %54
 
 "_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hf3b5d558bc69c852E.exit": ; preds = %44, %47
