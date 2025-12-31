@@ -62322,7 +62322,7 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.split.i.i
   br label %26
 
 26:                                               ; preds = %25, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %.lr.ph.split.i.i
-  %.sink56.i.i = phi i64 [ 3, %25 ], [ 1, %switch.early.test.i.i ], [ 1, %switch.early.test.i.i ], [ 1, %switch.early.test.i.i ], [ 1, %switch.early.test.i.i ], [ 1, %.lr.ph.split.i.i ], [ 1, %switch.early.test.i.i ]
+  %.sink56.i.i = phi i64 [ 3, %25 ], [ 1, %switch.early.test.i.i ], [ 1, %switch.early.test.i.i ], [ 1, %switch.early.test.i.i ], [ 1, %switch.early.test.i.i ], [ 1, %switch.early.test.i.i ], [ 1, %.lr.ph.split.i.i ]
   %27 = add i64 %.sink56.i.i, %19
   %28 = add nuw i64 %.049.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %28, %8
@@ -62493,10 +62493,8 @@ _ZN6duckdb10StringUtil14CharacterIsHexEc.exit27.thread.us.i.i: ; preds = %switch
   %25 = phi i64 [ %39, %_ZN6duckdb10StringUtil14CharacterIsHexEc.exit27.thread.i.i ], [ 0, %.lr.ph.i.i ]
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 %.034.i.i
   %27 = load i8, ptr %26, align 1, !tbaa !73
-  switch i8 %27, label %38 [
-    i8 43, label %_ZN6duckdb10StringUtil14CharacterIsHexEc.exit27.thread.i.i
-    i8 37, label %28
-  ]
+  %cond.i.i = icmp eq i8 %27, 37
+  br i1 %cond.i.i, label %28, label %38
 
 28:                                               ; preds = %.lr.ph.split.i.i
   %29 = add i64 %.034.i.i, 2
@@ -62554,8 +62552,8 @@ switch.early.test32.i.i:                          ; preds = %_ZN6duckdb10StringU
 38:                                               ; preds = %switch.early.test32.i.i, %switch.early.test.i.i, %28, %.lr.ph.split.i.i
   br label %_ZN6duckdb10StringUtil14CharacterIsHexEc.exit27.thread.i.i
 
-_ZN6duckdb10StringUtil14CharacterIsHexEc.exit27.thread.i.i: ; preds = %38, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %_ZN6duckdb10StringUtil14CharacterIsHexEc.exit.thread.i.i, %.lr.ph.split.i.i
-  %.1.i.i = phi i64 [ %.034.i.i, %38 ], [ %.034.i.i, %.lr.ph.split.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %_ZN6duckdb10StringUtil14CharacterIsHexEc.exit.thread.i.i ]
+_ZN6duckdb10StringUtil14CharacterIsHexEc.exit27.thread.i.i: ; preds = %38, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %switch.early.test32.i.i, %_ZN6duckdb10StringUtil14CharacterIsHexEc.exit.thread.i.i
+  %.1.i.i = phi i64 [ %.034.i.i, %38 ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %switch.early.test32.i.i ], [ %29, %_ZN6duckdb10StringUtil14CharacterIsHexEc.exit.thread.i.i ]
   %39 = add i64 %25, 1
   %40 = add i64 %.1.i.i, 1
   %41 = icmp ult i64 %40, %7
@@ -121980,7 +121978,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.split.i
   br label %21
 
 21:                                               ; preds = %20, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph.split.i
-  %.sink56.i = phi i64 [ 3, %20 ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %.lr.ph.split.i ], [ 1, %switch.early.test.i ]
+  %.sink56.i = phi i64 [ 3, %20 ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %switch.early.test.i ], [ 1, %.lr.ph.split.i ]
   %22 = add i64 %.sink56.i, %14
   %23 = add nuw i64 %.049.i, 1
   %exitcond.not.i = icmp eq i64 %23, %1
@@ -122217,10 +122215,8 @@ _ZN6duckdb10StringUtil14CharacterIsHexEc.exit27.thread.us.i: ; preds = %switch.e
   %21 = phi i64 [ %35, %_ZN6duckdb10StringUtil14CharacterIsHexEc.exit27.thread.i ], [ 0, %.lr.ph.i ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 %.034.i
   %23 = load i8, ptr %22, align 1, !tbaa !73
-  switch i8 %23, label %34 [
-    i8 43, label %_ZN6duckdb10StringUtil14CharacterIsHexEc.exit27.thread.i
-    i8 37, label %24
-  ]
+  %cond.i = icmp eq i8 %23, 37
+  br i1 %cond.i, label %24, label %34
 
 24:                                               ; preds = %.lr.ph.split.i
   %25 = add i64 %.034.i, 2
@@ -122278,8 +122274,8 @@ switch.early.test32.i:                            ; preds = %_ZN6duckdb10StringU
 34:                                               ; preds = %switch.early.test32.i, %switch.early.test.i, %24, %.lr.ph.split.i
   br label %_ZN6duckdb10StringUtil14CharacterIsHexEc.exit27.thread.i
 
-_ZN6duckdb10StringUtil14CharacterIsHexEc.exit27.thread.i: ; preds = %34, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %_ZN6duckdb10StringUtil14CharacterIsHexEc.exit.thread.i, %.lr.ph.split.i
-  %.1.i = phi i64 [ %.034.i, %34 ], [ %.034.i, %.lr.ph.split.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %_ZN6duckdb10StringUtil14CharacterIsHexEc.exit.thread.i ]
+_ZN6duckdb10StringUtil14CharacterIsHexEc.exit27.thread.i: ; preds = %34, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %switch.early.test32.i, %_ZN6duckdb10StringUtil14CharacterIsHexEc.exit.thread.i
+  %.1.i = phi i64 [ %.034.i, %34 ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %switch.early.test32.i ], [ %25, %_ZN6duckdb10StringUtil14CharacterIsHexEc.exit.thread.i ]
   %35 = add i64 %21, 1
   %36 = add i64 %.1.i, 1
   %37 = icmp ult i64 %36, %1
@@ -266257,7 +266253,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 ; Function Attrs: inlinehint mustprogress uwtable
 define internal fastcc noundef zeroext i1 @"_ZZNK6duckdb11LogicalType10IsCompleteEvENK3$_0clERKS0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i8, ptr %0, align 8, !tbaa !122
-  switch i8 %2, label %28 [
+  switch i8 %2, label %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit70.thread [
     i8 0, label %.critedge
     i8 2, label %.critedge
     i8 3, label %.critedge
@@ -266330,35 +266326,32 @@ _ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit62: ; preds = %23
   %.not = icmp eq i8 %27, 6
   br i1 %.not, label %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit70.thread, label %.critedge
 
-28:                                               ; preds = %1
-  br label %.critedge
-
-_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit70.thread: ; preds = %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit62, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit46, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit
+_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit70.thread: ; preds = %1, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit62, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit46, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit
   br label %.critedge
 
 _ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit78: ; preds = %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit38
-  %29 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %30 = load ptr, ptr %29, align 8, !tbaa !2473
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %32 = load ptr, ptr %31, align 8, !tbaa !2473
-  %33 = icmp eq ptr %30, %32
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %29 = load ptr, ptr %28, align 8, !tbaa !2473
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %31 = load ptr, ptr %30, align 8, !tbaa !2473
+  %32 = icmp eq ptr %29, %31
   br label %.critedge
 
 _ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE.exit: ; preds = %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit54
-  %34 = getelementptr inbounds nuw i8, ptr %20, i64 56
-  %35 = load i8, ptr %34, align 8, !tbaa !295
-  %36 = add i8 %35, -1
-  %or.cond = icmp ult i8 %36, 38
-  br i1 %or.cond, label %37, label %.critedge
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  %34 = load i8, ptr %33, align 8, !tbaa !295
+  %35 = add i8 %34, -1
+  %or.cond = icmp ult i8 %35, 38
+  br i1 %or.cond, label %36, label %.critedge
 
-37:                                               ; preds = %_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE.exit
-  %38 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %39 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %40 = icmp ule i8 %38, %39
+36:                                               ; preds = %_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE.exit
+  %37 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %38 = tail call noundef zeroext i8 @_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  %39 = icmp ule i8 %37, %38
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit70.thread, %23, %18, %13, %8, %3, %_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE.exit, %37, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit62, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit54, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit46, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit38, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit, %1, %1, %1, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit78, %28
-  %.0 = phi i1 [ false, %28 ], [ %33, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit78 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit ], [ true, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit38 ], [ true, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit46 ], [ true, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit54 ], [ true, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit62 ], [ false, %_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE.exit ], [ %40, %37 ], [ true, %3 ], [ true, %8 ], [ true, %13 ], [ true, %18 ], [ true, %23 ], [ false, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit70.thread ]
+.critedge:                                        ; preds = %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit70.thread, %23, %18, %13, %8, %3, %_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE.exit, %36, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit62, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit54, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit46, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit38, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit, %1, %1, %1, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit78
+  %.0 = phi i1 [ %32, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit78 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit ], [ true, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit38 ], [ true, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit46 ], [ true, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit54 ], [ true, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit62 ], [ false, %_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE.exit ], [ %39, %36 ], [ true, %3 ], [ true, %8 ], [ true, %13 ], [ true, %18 ], [ true, %23 ], [ false, %_ZNK6duckdb12optional_ptrINS_13ExtraTypeInfoELb1EEptEv.exit70.thread ]
   ret i1 %.0
 }
 

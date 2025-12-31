@@ -1859,7 +1859,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi19EEERS2_RAT__Kc.exit.i: ; 
     i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i39.i
   ], !prof !91
 
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i39.i: ; preds = %189
+_ZSt26__throw_bad_variant_accessb.exit.i.i.i39.i: ; preds = %240, %214, %189
   br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i.invoke
 
 _ZNK9grpc_core12experimental4Json4typeEv.exit42.i: ; preds = %189, %189
@@ -1938,11 +1938,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit.i: ; 
   %215 = load i8, ptr %95, align 8, !tbaa !3
   switch i8 %215, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i.invoke [
     i8 4, label %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit45.i
-    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i44.i
+    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i39.i
   ], !prof !24
-
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i44.i: ; preds = %214
-  br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i.invoke
 
 _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit45.i: ; preds = %214
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
@@ -2047,18 +2044,15 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit85.i: ; preds = %_ZNSt11ch
   %.pr.i = load i8, ptr %95, align 8, !tbaa !3
   switch i8 %.pr.i, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i.invoke [
     i8 4, label %._ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit90_crit_edge.i
-    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i
+    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i39.i
   ], !prof !95
 
 ._ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit90_crit_edge.i: ; preds = %240
   %.pre.i = load ptr, ptr %167, align 8, !tbaa !78
   br label %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit90.i
 
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i: ; preds = %240
-  br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i.invoke
-
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i.invoke: ; preds = %240, %214, %189, %.noexc59, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i39.i, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i44.i, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i
-  %.str.38.sink = phi ptr [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i39.i ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i44.i ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i ], [ @.str.38, %.noexc59 ], [ @.str.32, %189 ], [ @.str.32, %214 ], [ @.str.32, %240 ]
+_ZSt26__throw_bad_variant_accessb.exit.i.i.i89.i.invoke: ; preds = %240, %214, %189, %.noexc59, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i39.i
+  %.str.38.sink = phi ptr [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i39.i ], [ @.str.38, %.noexc59 ], [ @.str.32, %189 ], [ @.str.32, %214 ], [ @.str.32, %240 ]
   %241 = call ptr @__cxa_allocate_exception(i64 16) #36
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %241, align 8, !tbaa !25
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
@@ -6255,8 +6249,8 @@ define internal void @_ZL17on_keys_retrievedPvN4absl12lts_202407226StatusE(ptr n
     i8 0, label %349
   ]
 
-.invoke:                                          ; preds = %.noexc55, %.noexc52, %92, %2, %219, %190, %175, %74, %46, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i57.i.i, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.i.i, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i124.i, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i79.i, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.i
-  %.str.31.sink = phi ptr [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i57.i.i ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.i.i ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i124.i ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i79.i ], [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.i ], [ @.str.32, %46 ], [ @.str.38, %74 ], [ @.str.38, %175 ], [ @.str.32, %190 ], [ @.str.32, %219 ], [ @.str.38, %2 ], [ @.str.38, %92 ], [ @.str.32, %.noexc52 ], [ @.str.32, %.noexc55 ]
+.invoke:                                          ; preds = %.noexc55, %.noexc52, %92, %2, %219, %190, %175, %74, %46, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i57.i.i
+  %.str.31.sink = phi ptr [ @.str.31, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i57.i.i ], [ @.str.32, %46 ], [ @.str.38, %74 ], [ @.str.38, %175 ], [ @.str.32, %190 ], [ @.str.32, %219 ], [ @.str.38, %2 ], [ @.str.38, %92 ], [ @.str.32, %.noexc52 ], [ @.str.32, %.noexc55 ]
   %33 = call ptr @__cxa_allocate_exception(i64 16) #36
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %33, align 8, !tbaa !25
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -6308,11 +6302,8 @@ define internal void @_ZL17on_keys_retrievedPvN4absl12lts_202407226StatusE(ptr n
   switch i8 %48, label %.invoke [
     i8 2, label %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit.i
     i8 3, label %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit.i
-    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.i
+    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i57.i.i
   ], !prof !91
-
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i.i:   ; preds = %46
-  br label %.invoke
 
 _ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit.i: ; preds = %46, %46
   %49 = load ptr, ptr %44, align 8, !tbaa !36
@@ -6565,11 +6556,8 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit75.i: ; preds = %_ZNSt11ch
   %.pr.i = load i8, ptr %93, align 8, !tbaa !3
   switch i8 %.pr.i, label %.invoke [
     i8 4, label %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit80.i
-    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i79.i
+    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i57.i.i
   ], !prof !181
-
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i79.i: ; preds = %.noexc52
-  br label %.invoke
 
 _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit80.i: ; preds = %.noexc52, %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit75.i, %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit75.thread.i
   %.038196.i = phi ptr [ %119, %.noexc52 ], [ null, %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit75.i ], [ null, %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit75.thread.i ]
@@ -6662,11 +6650,8 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit120.i: ; preds = %_ZNSt11c
   %.pr197.i = load i8, ptr %93, align 8, !tbaa !3
   switch i8 %.pr197.i, label %.invoke [
     i8 4, label %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit125.i
-    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i124.i
+    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i57.i.i
   ], !prof !181
-
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i124.i: ; preds = %.noexc55
-  br label %.invoke
 
 _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit125.i: ; preds = %.noexc55, %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit120.i, %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit120.thread.i
   %.037200.i = phi ptr [ %142, %.noexc55 ], [ null, %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit120.i ], [ null, %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit120.thread.i ]
@@ -6854,11 +6839,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi26EEERS2_RAT__Kc.exit.i.i: 
   %191 = load i8, ptr %93, align 8, !tbaa !3
   switch i8 %191, label %.invoke [
     i8 4, label %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit.i.i
-    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i.i.i
+    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i57.i.i
   ], !prof !24
-
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i.i.i: ; preds = %190
-  br label %.invoke
 
 _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit.i.i: ; preds = %190
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -6987,7 +6969,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi30EEERS2_RAT__Kc.exit.i.i: 
     i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i57.i.i
   ], !prof !24
 
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i57.i.i: ; preds = %219
+_ZSt26__throw_bad_variant_accessb.exit.i.i.i57.i.i: ; preds = %.noexc52, %.noexc55, %46, %190, %219
   br label %.invoke
 
 _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit58.i.i: ; preds = %219

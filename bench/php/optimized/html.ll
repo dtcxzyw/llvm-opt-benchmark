@@ -6186,13 +6186,13 @@ find_entity_for_char.exit.thread:                 ; preds = %205, %158, %find_en
 
 225:                                              ; preds = %223
   %or.cond.i = icmp ult i32 %224, 95
-  br i1 %or.cond.i, label %unicode_cp_is_allowed.exit.thread.thread, label %switch.early.test.i
+  br i1 %or.cond.i, label %unicode_cp_is_allowed.exit212.thread.thread, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %225
   switch i32 %.1290296.fr, label %226 [
-    i32 13, label %unicode_cp_is_allowed.exit.thread.thread
-    i32 10, label %unicode_cp_is_allowed.exit.thread.thread
-    i32 9, label %unicode_cp_is_allowed.exit.thread.thread
+    i32 13, label %unicode_cp_is_allowed.exit212.thread.thread
+    i32 10, label %unicode_cp_is_allowed.exit212.thread.thread
+    i32 9, label %unicode_cp_is_allowed.exit212.thread.thread
   ]
 
 226:                                              ; preds = %switch.early.test.i
@@ -6201,11 +6201,11 @@ switch.early.test.i:                              ; preds = %225
   %228 = add i32 %.1290296.fr, -57344
   %229 = icmp ult i32 %228, 1056768
   %or.cond467 = or i1 %or.cond9.i, %229
-  br i1 %or.cond467, label %unicode_cp_is_allowed.exit.thread.thread, label %.thread407
+  br i1 %or.cond467, label %unicode_cp_is_allowed.exit212.thread.thread, label %.thread407
 
 230:                                              ; preds = %223
   %or.cond11.i = icmp ult i32 %224, 95
-  br i1 %or.cond11.i, label %unicode_cp_is_allowed.exit.thread.thread, label %231
+  br i1 %or.cond11.i, label %unicode_cp_is_allowed.exit212.thread.thread, label %231
 
 231:                                              ; preds = %230
   %232 = add nsw i32 %.1290296.fr, -9
@@ -6215,7 +6215,7 @@ switch.early.test.i:                              ; preds = %225
   %234 = add nsw i32 %.1290296.fr, -160
   %or.cond17.i = icmp ult i32 %234, 55136
   %or.cond64.i = or i1 %or.cond17.i, %or.cond15.i
-  br i1 %or.cond64.i, label %unicode_cp_is_allowed.exit.thread.thread, label %235
+  br i1 %or.cond64.i, label %unicode_cp_is_allowed.exit212.thread.thread, label %235
 
 235:                                              ; preds = %231
   %236 = add i32 %.1290296.fr, -57344
@@ -6226,17 +6226,17 @@ switch.early.test.i:                              ; preds = %225
   %238 = add nsw i32 %.1290296.fr, -65008
   %239 = icmp ult i32 %238, -32
   %or.cond469 = select i1 %or.cond65.i.not475, i1 %239, i1 false
-  br i1 %or.cond469, label %unicode_cp_is_allowed.exit.thread.thread, label %.thread407
+  br i1 %or.cond469, label %unicode_cp_is_allowed.exit212.thread.thread, label %.thread407
 
 240:                                              ; preds = %223, %223
   %or.cond21.i = icmp ult i32 %224, 55264
-  br i1 %or.cond21.i, label %unicode_cp_is_allowed.exit.thread.thread, label %switch.early.test66.i
+  br i1 %or.cond21.i, label %unicode_cp_is_allowed.exit212.thread.thread, label %switch.early.test66.i
 
 switch.early.test66.i:                            ; preds = %240
   switch i32 %.1290296.fr, label %unicode_cp_is_allowed.exit [
-    i32 13, label %unicode_cp_is_allowed.exit.thread.thread
-    i32 10, label %unicode_cp_is_allowed.exit.thread.thread
-    i32 9, label %unicode_cp_is_allowed.exit.thread.thread
+    i32 13, label %unicode_cp_is_allowed.exit212.thread.thread
+    i32 10, label %unicode_cp_is_allowed.exit212.thread.thread
+    i32 9, label %unicode_cp_is_allowed.exit212.thread.thread
   ]
 
 unicode_cp_is_allowed.exit:                       ; preds = %switch.early.test66.i
@@ -6245,10 +6245,7 @@ unicode_cp_is_allowed.exit:                       ; preds = %switch.early.test66
   %242 = add i32 %.1290296.fr, -65536
   %243 = icmp ult i32 %242, -2
   %spec.select.i = and i1 %243, %or.cond29.i
-  br i1 %spec.select.i, label %unicode_cp_is_allowed.exit.thread.thread, label %.thread407
-
-unicode_cp_is_allowed.exit.thread.thread:         ; preds = %235, %unicode_cp_is_allowed.exit, %240, %switch.early.test66.i, %switch.early.test66.i, %switch.early.test66.i, %231, %230, %225, %226, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
-  br label %.thread407
+  br i1 %spec.select.i, label %unicode_cp_is_allowed.exit212.thread.thread, label %.thread407
 
 244:                                              ; preds = %222
   br i1 %.not167, label %278, label %245
@@ -6343,7 +6340,7 @@ unicode_cp_is_allowed.exit212:                    ; preds = %switch.early.test66
   %spec.select.i200 = and i1 %277, %or.cond29.i199
   br i1 %spec.select.i200, label %unicode_cp_is_allowed.exit212.thread.thread, label %.thread407
 
-unicode_cp_is_allowed.exit212.thread.thread:      ; preds = %269, %unicode_cp_is_allowed.exit212, %274, %switch.early.test66.i196, %switch.early.test66.i196, %switch.early.test66.i196, %265, %264, %259, %260, %switch.early.test.i210, %switch.early.test.i210, %switch.early.test.i210
+unicode_cp_is_allowed.exit212.thread.thread:      ; preds = %269, %235, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %226, %225, %230, %231, %switch.early.test66.i, %switch.early.test66.i, %switch.early.test66.i, %240, %unicode_cp_is_allowed.exit, %unicode_cp_is_allowed.exit212, %274, %switch.early.test66.i196, %switch.early.test66.i196, %switch.early.test66.i196, %265, %264, %259, %260, %switch.early.test.i210, %switch.early.test.i210, %switch.early.test.i210
   br label %.thread407
 
 278:                                              ; preds = %244
@@ -6392,9 +6389,9 @@ unicode_cp_is_allowed.exit230:                    ; preds = %283
 .thread436:                                       ; preds = %unicode_cp_is_allowed.exit230, %switch.early.test.i228, %switch.early.test66.i214
   br label %.thread407
 
-.thread407:                                       ; preds = %260, %226, %unicode_cp_is_allowed.exit230, %unicode_cp_is_allowed.exit212, %unicode_cp_is_allowed.exit, %switch.early.test.i228, %switch.early.test.i228, %switch.early.test.i228, %282, %283, %switch.early.test66.i214, %switch.early.test66.i214, %switch.early.test66.i214, %284, %269, %235, %.thread436, %unicode_cp_is_allowed.exit212.thread.thread, %unicode_cp_is_allowed.exit.thread.thread, %141, %find_entity_for_char.exit.thread, %278, %146
-  %.0131 = phi ptr [ %138, %146 ], [ %138, %278 ], [ %138, %find_entity_for_char.exit.thread ], [ %138, %141 ], [ %138, %unicode_cp_is_allowed.exit.thread.thread ], [ %138, %unicode_cp_is_allowed.exit212.thread.thread ], [ %.0143, %.thread436 ], [ %.0143, %235 ], [ %.0143, %269 ], [ %138, %284 ], [ %138, %switch.early.test66.i214 ], [ %138, %switch.early.test66.i214 ], [ %138, %switch.early.test66.i214 ], [ %138, %283 ], [ %138, %282 ], [ %138, %switch.early.test.i228 ], [ %138, %switch.early.test.i228 ], [ %138, %switch.early.test.i228 ], [ %.0143, %unicode_cp_is_allowed.exit ], [ %.0143, %unicode_cp_is_allowed.exit212 ], [ %138, %unicode_cp_is_allowed.exit230 ], [ %.0143, %226 ], [ %.0143, %260 ]
-  %.0130 = phi i64 [ %140, %146 ], [ %140, %278 ], [ %140, %find_entity_for_char.exit.thread ], [ %140, %141 ], [ %140, %unicode_cp_is_allowed.exit.thread.thread ], [ %140, %unicode_cp_is_allowed.exit212.thread.thread ], [ %.0142, %.thread436 ], [ %.0142, %235 ], [ %.0142, %269 ], [ %140, %284 ], [ %140, %switch.early.test66.i214 ], [ %140, %switch.early.test66.i214 ], [ %140, %switch.early.test66.i214 ], [ %140, %283 ], [ %140, %282 ], [ %140, %switch.early.test.i228 ], [ %140, %switch.early.test.i228 ], [ %140, %switch.early.test.i228 ], [ %.0142, %unicode_cp_is_allowed.exit ], [ %.0142, %unicode_cp_is_allowed.exit212 ], [ %140, %unicode_cp_is_allowed.exit230 ], [ %.0142, %226 ], [ %.0142, %260 ]
+.thread407:                                       ; preds = %260, %226, %unicode_cp_is_allowed.exit230, %unicode_cp_is_allowed.exit212, %unicode_cp_is_allowed.exit, %switch.early.test.i228, %switch.early.test.i228, %switch.early.test.i228, %282, %283, %switch.early.test66.i214, %switch.early.test66.i214, %switch.early.test66.i214, %284, %269, %235, %.thread436, %unicode_cp_is_allowed.exit212.thread.thread, %141, %find_entity_for_char.exit.thread, %278, %146
+  %.0131 = phi ptr [ %138, %146 ], [ %138, %278 ], [ %138, %find_entity_for_char.exit.thread ], [ %138, %141 ], [ %138, %unicode_cp_is_allowed.exit212.thread.thread ], [ %.0143, %.thread436 ], [ %.0143, %235 ], [ %.0143, %269 ], [ %138, %284 ], [ %138, %switch.early.test66.i214 ], [ %138, %switch.early.test66.i214 ], [ %138, %switch.early.test66.i214 ], [ %138, %283 ], [ %138, %282 ], [ %138, %switch.early.test.i228 ], [ %138, %switch.early.test.i228 ], [ %138, %switch.early.test.i228 ], [ %.0143, %unicode_cp_is_allowed.exit ], [ %.0143, %unicode_cp_is_allowed.exit212 ], [ %138, %unicode_cp_is_allowed.exit230 ], [ %.0143, %226 ], [ %.0143, %260 ]
+  %.0130 = phi i64 [ %140, %146 ], [ %140, %278 ], [ %140, %find_entity_for_char.exit.thread ], [ %140, %141 ], [ %140, %unicode_cp_is_allowed.exit212.thread.thread ], [ %.0142, %.thread436 ], [ %.0142, %235 ], [ %.0142, %269 ], [ %140, %284 ], [ %140, %switch.early.test66.i214 ], [ %140, %switch.early.test66.i214 ], [ %140, %switch.early.test66.i214 ], [ %140, %283 ], [ %140, %282 ], [ %140, %switch.early.test.i228 ], [ %140, %switch.early.test.i228 ], [ %140, %switch.early.test.i228 ], [ %.0142, %unicode_cp_is_allowed.exit ], [ %.0142, %unicode_cp_is_allowed.exit212 ], [ %140, %unicode_cp_is_allowed.exit230 ], [ %.0142, %226 ], [ %.0142, %260 ]
   %287 = icmp ugt i64 %.0130, 1
   br i1 %287, label %288, label %292
 
