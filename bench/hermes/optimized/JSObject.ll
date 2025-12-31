@@ -7264,7 +7264,7 @@ if.then.i.i279:                                   ; preds = %lor.lhs.false.i.i24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %leftSize_.i.i.i.i282, i8 0, i64 16, i1 false), !alias.scope !149
   br label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit283
 
-if.then7.i.i277:                                  ; preds = %lor.lhs.false.i.i248
+if.end.i.i251:                                    ; preds = %lor.lhs.false.i.i248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp46, i64 48, i1 false)
   br label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit283
 

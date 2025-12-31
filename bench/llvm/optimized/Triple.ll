@@ -2727,7 +2727,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i71:          ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i79:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i71
   %bcmp.i.i.i80 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @.str.92, i64 3)
   %13 = icmp eq i32 %bcmp.i.i.i80, 0
-  %spec.select625 = select i1 %13, i64 4294967306, i64 0
+  %spec.select612 = select i1 %13, i64 4294967306, i64 0
   br label %_ZN4llvm12StringSwitchINS_6Triple10VendorTypeES2_E4CaseENS_13StringLiteralES2_.exit114
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i87:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15
@@ -2738,25 +2738,25 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i87:          ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i95:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i87
   %bcmp.i.i.i96 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.105, i64 4)
   %15 = icmp eq i32 %bcmp.i.i.i96, 0
-  %spec.select626 = select i1 %15, i64 4294967308, i64 0
+  %spec.select613 = select i1 %15, i64 4294967308, i64 0
   br label %_ZN4llvm12StringSwitchINS_6Triple10VendorTypeES2_E4CaseENS_13StringLiteralES2_.exit114
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i103:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7
   %bcmp.i.i.i104 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) @.str.102, i64 2)
   %16 = icmp eq i32 %bcmp.i.i.i104, 0
-  %spec.select627 = select i1 %16, i64 4294967309, i64 0
+  %spec.select614 = select i1 %16, i64 4294967309, i64 0
   br label %_ZN4llvm12StringSwitchINS_6Triple10VendorTypeES2_E4CaseENS_13StringLiteralES2_.exit114
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i111:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
   %bcmp.i.i.i112 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) @.str.98, i64 5)
   %17 = icmp eq i32 %bcmp.i.i.i112, 0
-  %spec.select628 = select i1 %17, i64 4294967310, i64 0
+  %spec.select615 = select i1 %17, i64 4294967310, i64 0
   br label %_ZN4llvm12StringSwitchINS_6Triple10VendorTypeES2_E4CaseENS_13StringLiteralES2_.exit114
 
 _ZN4llvm12StringSwitchINS_6Triple10VendorTypeES2_E4CaseENS_13StringLiteralES2_.exit114: ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i111, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i103, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i95, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i79, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i63, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i31, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i23, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i47, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i55, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i71, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i87
-  %.sroa.34.14 = phi i64 [ 4294967307, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i87 ], [ 4294967305, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i71 ], [ 4294967303, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i55 ], [ 4294967302, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i47 ], [ 4294967301, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39 ], [ 4294967300, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i31 ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i23 ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i63 ], [ %spec.select625, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i79 ], [ %spec.select626, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i95 ], [ %spec.select627, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i103 ], [ %spec.select628, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i111 ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7 ], [ 0, %2 ]
-  %spec.select.i634 = tail call i64 @llvm.umax.i64(i64 %.sroa.34.14, i64 4294967296)
-  %spec.select.i = trunc i64 %spec.select.i634 to i32
+  %.sroa.34.14 = phi i64 [ 4294967307, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i87 ], [ 4294967305, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i71 ], [ 4294967303, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i55 ], [ 4294967302, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i47 ], [ 4294967301, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39 ], [ 4294967300, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i31 ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i23 ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i63 ], [ %spec.select612, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i79 ], [ %spec.select613, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i95 ], [ %spec.select614, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i103 ], [ %spec.select615, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i111 ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7 ], [ 0, %2 ]
+  %spec.select.i621 = tail call i64 @llvm.umax.i64(i64 %.sroa.34.14, i64 4294967296)
+  %spec.select.i = trunc i64 %spec.select.i621 to i32
   ret i32 %spec.select.i
 }
 
