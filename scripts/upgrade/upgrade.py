@@ -16,17 +16,16 @@ def run_upgrader(task):
 
 if __name__ == "__main__":
     work_list = []
-    for dir_name in os.listdir(bench_dir):
-        original_dir = os.path.join(bench_dir, dir_name, "original")
-        if not os.path.isdir(original_dir):
-            continue
-        for file in os.listdir(original_dir):
-            if file.endswith(".ll"):
-                work_list.append(os.path.join(original_dir, file))
-        # optimized_dir = os.path.join(bench_dir, dir_name, "optimized")
-        # for file in os.listdir(optimized_dir):
-        #     if file.endswith(".ll"):
-        #         work_list.append(os.path.join(optimized_dir, file))
+    original_dir = os.path.join(bench_dir, "original")
+    if not os.path.isdir(original_dir):
+        exit(0)
+    for file in os.listdir(original_dir):
+        if file.endswith(".ll"):
+            work_list.append(os.path.join(original_dir, file))
+    # optimized_dir = os.path.join(bench_dir, dir_name, "optimized")
+    # for file in os.listdir(optimized_dir):
+    #     if file.endswith(".ll"):
+    #         work_list.append(os.path.join(optimized_dir, file))
 
     print("total items: ", len(work_list))
     cores = os.cpu_count()
