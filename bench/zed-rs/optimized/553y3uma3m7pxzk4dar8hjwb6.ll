@@ -14728,12 +14728,11 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h73abfabd6bdaa44
 define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h79b8932617ae1b20E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !range !246, !alias.scope !3888, !noalias !3891, !noundef !4
   %.not = icmp eq i8 %3, 2
-  %4 = select i1 %.not, i64 0, i64 5871781006564002453
-  %5 = zext nneg i8 %3 to i64
-  %6 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 5)
-  %7 = xor i64 %6, %5
-  %8 = mul i64 %7, 5871781006564002453
-  %storemerge.i.i = select i1 %.not, i64 0, i64 %8
+  %4 = zext nneg i8 %3 to i64
+  %5 = select i1 %.not, i64 0, i64 3429551472952562346
+  %6 = xor i64 %5, %4
+  %7 = mul i64 %6, 5871781006564002453
+  %storemerge.i.i = select i1 %.not, i64 0, i64 %7
   ret i64 %storemerge.i.i
 }
 
@@ -14769,11 +14768,10 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h8dbf9d31420d376
 define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h8defd2807c08843bE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !alias.scope !3920, !noalias !3923, !noundef !4
   %.not = icmp eq i64 %3, 0
-  %4 = select i1 %.not, i64 0, i64 5871781006564002453
-  %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 5)
-  %6 = xor i64 %5, %3
-  %7 = mul i64 %6, 5871781006564002453
-  %storemerge.i.i = select i1 %.not, i64 0, i64 %7
+  %4 = select i1 %.not, i64 0, i64 3429551472952562346
+  %5 = xor i64 %4, %3
+  %6 = mul i64 %5, 5871781006564002453
+  %storemerge.i.i = select i1 %.not, i64 0, i64 %6
   ret i64 %storemerge.i.i
 }
 

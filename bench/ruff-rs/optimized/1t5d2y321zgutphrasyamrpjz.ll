@@ -3935,9 +3935,9 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h0566f826a231c2a
   %5 = icmp eq i64 %.val.i, 0
   %6 = add i64 %4, %.val1.i
   %7 = mul i64 %6, -1065810590584100411
-  %storemerge.i.i = select i1 %5, i64 0, i64 %7
-  %8 = tail call noundef i64 @llvm.fshl.i64(i64 %storemerge.i.i, i64 %storemerge.i.i, i64 26)
-  ret i64 %8
+  %8 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 26)
+  %9 = select i1 %5, i64 0, i64 %8
+  ret i64 %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable

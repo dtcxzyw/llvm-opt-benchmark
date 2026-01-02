@@ -22629,158 +22629,157 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = select i1 %1, i64 5871781006564002453, i64 0
-  %10 = load i64, ptr %2, align 8, !alias.scope !6888, !noalias !6893, !noundef !9
-  %11 = icmp ne i64 %10, 0
-  %12 = zext i1 %11 to i64
-  %13 = tail call i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 5)
-  %14 = or disjoint i64 %13, %12
-  %15 = mul i64 %14, 5871781006564002453
-  %16 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 5)
-  %17 = xor i64 %16, %10
-  %18 = mul i64 %17, 5871781006564002453
-  %storemerge.i.i.i.i.i.i = select i1 %11, i64 %18, i64 %15
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %20 = load i64, ptr %19, align 8, !alias.scope !6888, !noalias !6893, !noundef !9
-  %21 = tail call i64 @llvm.fshl.i64(i64 %storemerge.i.i.i.i.i.i, i64 %storemerge.i.i.i.i.i.i, i64 5)
-  %22 = xor i64 %21, %20
-  %23 = mul i64 %22, 5871781006564002453
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %26 = load i16, ptr %25, align 4, !alias.scope !6907, !noalias !6910, !noundef !9
-  %27 = zext i16 %26 to i64
-  %28 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %23, i64 5)
-  %29 = xor i64 %28, %27
-  %30 = mul i64 %29, 5871781006564002453
-  %31 = load i32, ptr %24, align 8, !alias.scope !6907, !noalias !6910, !noundef !9
-  %32 = zext i32 %31 to i64
-  %33 = tail call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 5)
-  %34 = xor i64 %33, %32
-  %35 = mul i64 %34, 5871781006564002453
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %37 = load i64, ptr %36, align 8, !alias.scope !6907, !noalias !6910, !noundef !9
-  %38 = tail call i64 @llvm.fshl.i64(i64 %35, i64 %35, i64 5)
-  %39 = xor i64 %38, %37
-  %40 = mul i64 %39, 5871781006564002453
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %42 = load i8, ptr %41, align 8, !range !95, !alias.scope !6907, !noalias !6910, !noundef !9
-  %43 = zext nneg i8 %42 to i64
-  %44 = tail call i64 @llvm.fshl.i64(i64 %40, i64 %40, i64 5)
-  %45 = xor i64 %44, %43
-  %46 = mul i64 %45, 5871781006564002453
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %48 = load i64, ptr %47, align 8, !alias.scope !6907, !noalias !6910, !noundef !9
-  %49 = icmp ne i64 %48, 0
-  %50 = zext i1 %49 to i64
-  %51 = tail call i64 @llvm.fshl.i64(i64 %46, i64 %46, i64 5)
-  %52 = xor i64 %51, %50
-  %53 = mul i64 %52, 5871781006564002453
-  %54 = tail call i64 @llvm.fshl.i64(i64 %53, i64 %53, i64 5)
-  %55 = xor i64 %54, %48
-  %56 = mul i64 %55, 5871781006564002453
-  %storemerge.i.i.i.i.i.i.i = select i1 %49, i64 %56, i64 %53
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %58 = load i64, ptr %57, align 8, !alias.scope !6912, !noalias !6915, !noundef !9
-  %59 = icmp ne i64 %58, 0
-  %60 = zext i1 %59 to i64
-  %61 = tail call i64 @llvm.fshl.i64(i64 %storemerge.i.i.i.i.i.i.i, i64 %storemerge.i.i.i.i.i.i.i, i64 5)
-  %62 = xor i64 %61, %60
-  %63 = mul i64 %62, 5871781006564002453
-  %64 = tail call i64 @llvm.fshl.i64(i64 %63, i64 %63, i64 5)
-  %65 = xor i64 %64, %58
-  %66 = mul i64 %65, 5871781006564002453
-  %storemerge.i1.i.i.i.i.i = select i1 %59, i64 %66, i64 %63
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %68 = load i64, ptr %67, align 8, !alias.scope !6912, !noalias !6915, !noundef !9
-  %69 = tail call i64 @llvm.fshl.i64(i64 %storemerge.i1.i.i.i.i.i, i64 %storemerge.i1.i.i.i.i.i, i64 5)
-  %70 = xor i64 %69, %68
-  %71 = mul i64 %70, 5871781006564002453
-  %72 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %74 = load i16, ptr %73, align 4, !alias.scope !6917, !noalias !6920, !noundef !9
-  %75 = zext i16 %74 to i64
-  %76 = tail call i64 @llvm.fshl.i64(i64 %71, i64 %71, i64 5)
-  %77 = xor i64 %76, %75
-  %78 = mul i64 %77, 5871781006564002453
-  %79 = load i32, ptr %72, align 8, !alias.scope !6917, !noalias !6920, !noundef !9
-  %80 = zext i32 %79 to i64
-  %81 = tail call i64 @llvm.fshl.i64(i64 %78, i64 %78, i64 5)
-  %82 = xor i64 %81, %80
-  %83 = mul i64 %82, 5871781006564002453
-  %84 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %85 = load i64, ptr %84, align 8, !alias.scope !6917, !noalias !6920, !noundef !9
-  %86 = tail call i64 @llvm.fshl.i64(i64 %83, i64 %83, i64 5)
-  %87 = xor i64 %86, %85
-  %88 = mul i64 %87, 5871781006564002453
-  %89 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %90 = load i8, ptr %89, align 8, !range !95, !alias.scope !6917, !noalias !6920, !noundef !9
-  %91 = zext nneg i8 %90 to i64
-  %92 = tail call i64 @llvm.fshl.i64(i64 %88, i64 %88, i64 5)
-  %93 = xor i64 %92, %91
-  %94 = mul i64 %93, 5871781006564002453
-  %95 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %96 = load i64, ptr %95, align 8, !alias.scope !6917, !noalias !6920, !noundef !9
-  %97 = icmp ne i64 %96, 0
-  %98 = zext i1 %97 to i64
-  %99 = tail call i64 @llvm.fshl.i64(i64 %94, i64 %94, i64 5)
-  %100 = xor i64 %99, %98
-  %101 = mul i64 %100, 5871781006564002453
-  %102 = tail call i64 @llvm.fshl.i64(i64 %101, i64 %101, i64 5)
-  %103 = xor i64 %102, %96
-  %104 = mul i64 %103, 5871781006564002453
-  %storemerge.i.i2.i.i.i.i.i = select i1 %97, i64 %104, i64 %101
-  %105 = call { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h32da8330416632b3E.llvm.14110235212462412740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %storemerge.i.i2.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %8)
-  %106 = extractvalue { i64, ptr } %105, 0
-  %107 = extractvalue { i64, ptr } %105, 1
-  %108 = icmp eq i64 %106, 0
-  br i1 %108, label %109, label %113
+  %9 = load i64, ptr %2, align 8, !alias.scope !6888, !noalias !6893, !noundef !9
+  %10 = icmp ne i64 %9, 0
+  %11 = zext i1 %10 to i64
+  %12 = select i1 %1, i64 3429551472952562346, i64 0
+  %13 = or disjoint i64 %12, %11
+  %14 = mul i64 %13, 5871781006564002453
+  %15 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 5)
+  %16 = xor i64 %15, %9
+  %17 = mul i64 %16, 5871781006564002453
+  %storemerge.i.i.i.i.i.i = select i1 %10, i64 %17, i64 %14
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %19 = load i64, ptr %18, align 8, !alias.scope !6888, !noalias !6893, !noundef !9
+  %20 = tail call i64 @llvm.fshl.i64(i64 %storemerge.i.i.i.i.i.i, i64 %storemerge.i.i.i.i.i.i, i64 5)
+  %21 = xor i64 %20, %19
+  %22 = mul i64 %21, 5871781006564002453
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %25 = load i16, ptr %24, align 4, !alias.scope !6907, !noalias !6910, !noundef !9
+  %26 = zext i16 %25 to i64
+  %27 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 5)
+  %28 = xor i64 %27, %26
+  %29 = mul i64 %28, 5871781006564002453
+  %30 = load i32, ptr %23, align 8, !alias.scope !6907, !noalias !6910, !noundef !9
+  %31 = zext i32 %30 to i64
+  %32 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 5)
+  %33 = xor i64 %32, %31
+  %34 = mul i64 %33, 5871781006564002453
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %36 = load i64, ptr %35, align 8, !alias.scope !6907, !noalias !6910, !noundef !9
+  %37 = tail call i64 @llvm.fshl.i64(i64 %34, i64 %34, i64 5)
+  %38 = xor i64 %37, %36
+  %39 = mul i64 %38, 5871781006564002453
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %41 = load i8, ptr %40, align 8, !range !95, !alias.scope !6907, !noalias !6910, !noundef !9
+  %42 = zext nneg i8 %41 to i64
+  %43 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 5)
+  %44 = xor i64 %43, %42
+  %45 = mul i64 %44, 5871781006564002453
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %47 = load i64, ptr %46, align 8, !alias.scope !6907, !noalias !6910, !noundef !9
+  %48 = icmp ne i64 %47, 0
+  %49 = zext i1 %48 to i64
+  %50 = tail call i64 @llvm.fshl.i64(i64 %45, i64 %45, i64 5)
+  %51 = xor i64 %50, %49
+  %52 = mul i64 %51, 5871781006564002453
+  %53 = tail call i64 @llvm.fshl.i64(i64 %52, i64 %52, i64 5)
+  %54 = xor i64 %53, %47
+  %55 = mul i64 %54, 5871781006564002453
+  %storemerge.i.i.i.i.i.i.i = select i1 %48, i64 %55, i64 %52
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %57 = load i64, ptr %56, align 8, !alias.scope !6912, !noalias !6915, !noundef !9
+  %58 = icmp ne i64 %57, 0
+  %59 = zext i1 %58 to i64
+  %60 = tail call i64 @llvm.fshl.i64(i64 %storemerge.i.i.i.i.i.i.i, i64 %storemerge.i.i.i.i.i.i.i, i64 5)
+  %61 = xor i64 %60, %59
+  %62 = mul i64 %61, 5871781006564002453
+  %63 = tail call i64 @llvm.fshl.i64(i64 %62, i64 %62, i64 5)
+  %64 = xor i64 %63, %57
+  %65 = mul i64 %64, 5871781006564002453
+  %storemerge.i1.i.i.i.i.i = select i1 %58, i64 %65, i64 %62
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %67 = load i64, ptr %66, align 8, !alias.scope !6912, !noalias !6915, !noundef !9
+  %68 = tail call i64 @llvm.fshl.i64(i64 %storemerge.i1.i.i.i.i.i, i64 %storemerge.i1.i.i.i.i.i, i64 5)
+  %69 = xor i64 %68, %67
+  %70 = mul i64 %69, 5871781006564002453
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %73 = load i16, ptr %72, align 4, !alias.scope !6917, !noalias !6920, !noundef !9
+  %74 = zext i16 %73 to i64
+  %75 = tail call i64 @llvm.fshl.i64(i64 %70, i64 %70, i64 5)
+  %76 = xor i64 %75, %74
+  %77 = mul i64 %76, 5871781006564002453
+  %78 = load i32, ptr %71, align 8, !alias.scope !6917, !noalias !6920, !noundef !9
+  %79 = zext i32 %78 to i64
+  %80 = tail call i64 @llvm.fshl.i64(i64 %77, i64 %77, i64 5)
+  %81 = xor i64 %80, %79
+  %82 = mul i64 %81, 5871781006564002453
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %84 = load i64, ptr %83, align 8, !alias.scope !6917, !noalias !6920, !noundef !9
+  %85 = tail call i64 @llvm.fshl.i64(i64 %82, i64 %82, i64 5)
+  %86 = xor i64 %85, %84
+  %87 = mul i64 %86, 5871781006564002453
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %89 = load i8, ptr %88, align 8, !range !95, !alias.scope !6917, !noalias !6920, !noundef !9
+  %90 = zext nneg i8 %89 to i64
+  %91 = tail call i64 @llvm.fshl.i64(i64 %87, i64 %87, i64 5)
+  %92 = xor i64 %91, %90
+  %93 = mul i64 %92, 5871781006564002453
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %95 = load i64, ptr %94, align 8, !alias.scope !6917, !noalias !6920, !noundef !9
+  %96 = icmp ne i64 %95, 0
+  %97 = zext i1 %96 to i64
+  %98 = tail call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 5)
+  %99 = xor i64 %98, %97
+  %100 = mul i64 %99, 5871781006564002453
+  %101 = tail call i64 @llvm.fshl.i64(i64 %100, i64 %100, i64 5)
+  %102 = xor i64 %101, %95
+  %103 = mul i64 %102, 5871781006564002453
+  %storemerge.i.i2.i.i.i.i.i = select i1 %96, i64 %103, i64 %100
+  %104 = call { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h32da8330416632b3E.llvm.14110235212462412740"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %storemerge.i.i2.i.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %8)
+  %105 = extractvalue { i64, ptr } %104, 0
+  %106 = extractvalue { i64, ptr } %104, 1
+  %107 = icmp eq i64 %105, 0
+  br i1 %107, label %108, label %112
 
-109:                                              ; preds = %4
-  %110 = icmp ne ptr %107, null
-  tail call void @llvm.assume(i1 %110)
-  %111 = getelementptr inbounds i8, ptr %107, i64 -8
-  %112 = load ptr, ptr %111, align 8, !nonnull !9, !align !396, !noundef !9
-  store ptr %3, ptr %111, align 8
-  br label %137
+108:                                              ; preds = %4
+  %109 = icmp ne ptr %106, null
+  tail call void @llvm.assume(i1 %109)
+  %110 = getelementptr inbounds i8, ptr %106, i64 -8
+  %111 = load ptr, ptr %110, align 8, !nonnull !9, !align !396, !noundef !9
+  store ptr %3, ptr %110, align 8
+  br label %136
 
-113:                                              ; preds = %4
-  %114 = ptrtoint ptr %107 to i64
+112:                                              ; preds = %4
+  %113 = ptrtoint ptr %106 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6922)
-  %115 = load ptr, ptr %0, align 8, !alias.scope !6922, !noalias !6925, !nonnull !9, !noundef !9
-  %116 = getelementptr inbounds i8, ptr %115, i64 %114
-  %117 = load i8, ptr %116, align 1, !noalias !6927, !noundef !9
-  %118 = and i8 %117, 1
-  %119 = zext nneg i8 %118 to i64
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %121 = load i64, ptr %120, align 8, !alias.scope !6922, !noalias !6925, !noundef !9
-  %122 = sub i64 %121, %119
-  store i64 %122, ptr %120, align 8, !alias.scope !6922, !noalias !6925
-  %123 = lshr i64 %storemerge.i.i2.i.i.i.i.i, 57
-  %124 = trunc nuw nsw i64 %123 to i8
-  %125 = add i64 %114, -16
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %127 = load i64, ptr %126, align 8, !alias.scope !6922, !noalias !6925, !noundef !9
-  %128 = and i64 %127, %125
-  store i8 %124, ptr %116, align 1, !noalias !6927
-  %129 = getelementptr i8, ptr %115, i64 %128
-  %130 = getelementptr i8, ptr %129, i64 16
-  store i8 %124, ptr %130, align 1, !noalias !6927
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %132 = load i64, ptr %131, align 8, !alias.scope !6922, !noalias !6925, !noundef !9
-  %133 = add i64 %132, 1
-  store i64 %133, ptr %131, align 8, !alias.scope !6922, !noalias !6925
-  %134 = sub nsw i64 0, %114
-  %135 = getelementptr inbounds { { i8, [7 x i8], ptr }, ptr }, ptr %115, i64 %134
-  %136 = getelementptr inbounds i8, ptr %135, i64 -24
-  store i8 %6, ptr %136, align 8, !noalias !6922
-  %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %135, i64 -16
+  %114 = load ptr, ptr %0, align 8, !alias.scope !6922, !noalias !6925, !nonnull !9, !noundef !9
+  %115 = getelementptr inbounds i8, ptr %114, i64 %113
+  %116 = load i8, ptr %115, align 1, !noalias !6927, !noundef !9
+  %117 = and i8 %116, 1
+  %118 = zext nneg i8 %117 to i64
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %120 = load i64, ptr %119, align 8, !alias.scope !6922, !noalias !6925, !noundef !9
+  %121 = sub i64 %120, %118
+  store i64 %121, ptr %119, align 8, !alias.scope !6922, !noalias !6925
+  %122 = lshr i64 %storemerge.i.i2.i.i.i.i.i, 57
+  %123 = trunc nuw nsw i64 %122 to i8
+  %124 = add i64 %113, -16
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %126 = load i64, ptr %125, align 8, !alias.scope !6922, !noalias !6925, !noundef !9
+  %127 = and i64 %126, %124
+  store i8 %123, ptr %115, align 1, !noalias !6927
+  %128 = getelementptr i8, ptr %114, i64 %127
+  %129 = getelementptr i8, ptr %128, i64 16
+  store i8 %123, ptr %129, align 1, !noalias !6927
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %131 = load i64, ptr %130, align 8, !alias.scope !6922, !noalias !6925, !noundef !9
+  %132 = add i64 %131, 1
+  store i64 %132, ptr %130, align 8, !alias.scope !6922, !noalias !6925
+  %133 = sub nsw i64 0, %113
+  %134 = getelementptr inbounds { { i8, [7 x i8], ptr }, ptr }, ptr %114, i64 %133
+  %135 = getelementptr inbounds i8, ptr %134, i64 -24
+  store i8 %6, ptr %135, align 8, !noalias !6922
+  %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %134, i64 -16
   store ptr %2, ptr %.sroa.47.0..sroa_idx, align 8, !noalias !6922
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %135, i64 -8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %134, i64 -8
   store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !6922
-  br label %137
+  br label %136
 
-137:                                              ; preds = %109, %113
-  %.sroa.0.0 = phi ptr [ %112, %109 ], [ null, %113 ]
+136:                                              ; preds = %108, %112
+  %.sroa.0.0 = phi ptr [ %111, %108 ], [ null, %112 ]
   ret ptr %.sroa.0.0
 }
 
