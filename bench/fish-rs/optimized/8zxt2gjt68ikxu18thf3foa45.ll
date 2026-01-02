@@ -38112,13 +38112,13 @@ define { i8, i8 } @_ZN4fish9tokenizer20MoveWordStateMachine3new17h8403828dc5f3e7
 define noundef zeroext i1 @_ZN4fish9tokenizer20MoveWordStateMachine12consume_char17hc5095395d9e72ab6E(ptr noalias noundef align 1 captures(none) dereferenceable(2) %0, i32 noundef range(i32 0, 1114112) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %0, align 1, !range !80, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  switch i8 %3, label %default.unreachable41 [
+  switch i8 %3, label %default.unreachable40 [
     i8 0, label %5
     i8 1, label %70
     i8 2, label %150
   ]
 
-default.unreachable41:                            ; preds = %2
+default.unreachable40:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -38358,15 +38358,18 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit25.th
   %79 = icmp eq i32 %1, 5760
   %80 = zext i1 %79 to i8
   %81 = icmp eq i32 %1, 47
-  %switch.tableidx58 = add nsw i32 %1, -9
-  %82 = icmp ult i32 %switch.tableidx58, 24
-  %switch.shifted62 = lshr i32 8388639, %switch.tableidx58
-  %switch.lobit63 = trunc i32 %switch.shifted62 to i1
-  %or.cond64 = select i1 %82, i1 %switch.lobit63, i1 false
-  br label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i.outer
+  %switch.tableidx59 = add nsw i32 %1, -9
+  %82 = icmp ult i32 %switch.tableidx59, 24
+  %switch.shifted63 = lshr i32 8388639, %switch.tableidx59
+  %switch.lobit64 = trunc i32 %switch.shifted63 to i1
+  %or.cond65 = select i1 %82, i1 %switch.lobit64, i1 false
+  br label %.outer
 
-_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i.outer: ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i, %.lr.ph.i2
-  %.ph = phi i8 [ %.sink.i4, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i ], [ %.promoted.i1, %.lr.ph.i2 ]
+.outer:                                           ; preds = %.outer.backedge, %.lr.ph.i2
+  %.ph = phi i8 [ %.promoted.i1, %.lr.ph.i2 ], [ %.sink.i4.sink, %.outer.backedge ]
+  br label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i
+
+_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i: ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i, %.outer
   switch i8 %.ph, label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i [
     i8 0, label %83
     i8 1, label %87
@@ -38376,19 +38379,20 @@ _ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i.out
     i8 5, label %95
   ]
 
-_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i: ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i.outer, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i
-  br label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i
-
 _ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i.thread: ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit.i, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit.i, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit.i, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit.i, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit.i, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit.i, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit.i, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit.i, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit.i, %101, %99
   store i8 1, ptr %4, align 1, !alias.scope !3438
   br label %_ZN4fish9tokenizer20MoveWordStateMachine24consume_char_punctuation17hbef6493a30962145E.exit
 
-_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i: ; preds = %.preheader.i41.i, %.preheader.i30.i, %.loopexit.i, %121, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.i6, %104, %103, %89, %.thread.i5, %83, %83, %83, %83, %83
-  %.sink.i4 = phi i8 [ 2, %.loopexit.i ], [ 5, %83 ], [ 5, %83 ], [ 5, %83 ], [ 5, %83 ], [ 5, %83 ], [ 5, %104 ], [ 5, %.thread.i5 ], [ 5, %103 ], [ 5, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.i6 ], [ 3, %121 ], [ 4, %89 ], [ 1, %.preheader.i30.i ], [ 3, %.preheader.i41.i ]
-  store i8 %.sink.i4, ptr %4, align 1, !alias.scope !3438
-  br label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i.outer
+_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i: ; preds = %.preheader.i41.i, %.preheader.i30.i, %121, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.i6, %104, %103, %89, %83, %83, %83, %83, %83
+  %.sink.i4 = phi i8 [ 5, %83 ], [ 5, %83 ], [ 5, %83 ], [ 5, %83 ], [ 5, %83 ], [ 5, %104 ], [ 5, %103 ], [ 5, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.i6 ], [ 3, %121 ], [ 4, %89 ], [ 1, %.preheader.i30.i ], [ 3, %.preheader.i41.i ]
+  br label %.outer.backedge
 
-83:                                               ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i.outer
+.outer.backedge:                                  ; preds = %124, %121, %121, %121, %121, %121, %121, %121, %121, %121, %122, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i, %.thread.i5
+  %.sink.i4.sink = phi i8 [ %.sink.i4, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i ], [ 5, %.thread.i5 ], [ 2, %122 ], [ 2, %121 ], [ 2, %121 ], [ 2, %121 ], [ 2, %121 ], [ 2, %121 ], [ 2, %121 ], [ 2, %121 ], [ 2, %121 ], [ 2, %121 ], [ 2, %124 ]
+  store i8 %.sink.i4.sink, ptr %4, align 1, !alias.scope !3438
+  br label %.outer
+
+83:                                               ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i
   switch i32 %1, label %.preheader.i.i [
     i32 38, label %.thread.i5
     i32 32, label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit.i
@@ -38404,7 +38408,7 @@ _ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.
 
 .thread.i5:                                       ; preds = %83
   %84 = tail call noundef zeroext i1 @_ZN4fish20future_feature_flags4test17h02c9d886eb4fded4E(i8 noundef 3), !noalias !3438
-  br label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i
+  br label %.outer.backedge
 
 .preheader.i.i:                                   ; preds = %83, %85
   %.idx.i.i = phi i64 [ %.add.i.i, %85 ], [ 0, %83 ]
@@ -38428,10 +38432,10 @@ switch.early.test.i:                              ; preds = %85
     i32 9, label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit.i
   ]
 
-87:                                               ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i.outer
-  br i1 %or.cond64, label %_ZN4fish9tokenizer20MoveWordStateMachine24consume_char_punctuation17hbef6493a30962145E.exit, label %112
+87:                                               ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i
+  br i1 %or.cond65, label %_ZN4fish9tokenizer20MoveWordStateMachine24consume_char_punctuation17hbef6493a30962145E.exit, label %112
 
-88:                                               ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i.outer
+88:                                               ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i
   switch i32 %1, label %126 [
     i32 32, label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit57.i
     i32 13, label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit57.i
@@ -38441,10 +38445,10 @@ switch.early.test.i:                              ; preds = %85
     i32 9, label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit57.i
   ]
 
-89:                                               ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i.outer
+89:                                               ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i
   br i1 %81, label %_ZN4fish9tokenizer20MoveWordStateMachine24consume_char_punctuation17hbef6493a30962145E.exit, label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i
 
-90:                                               ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i.outer
+90:                                               ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i
   switch i32 %1, label %.preheader.i14.i [
     i32 0, label %.loopexit73.i
     i32 32, label %.loopexit73.i
@@ -38474,7 +38478,7 @@ switch.early.test.i:                              ; preds = %85
   %94 = icmp eq i32 %.val4.i.i.i19.i, %1
   br i1 %94, label %.loopexit73.i, label %.preheader.i14.i
 
-95:                                               ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i.outer
+95:                                               ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.i
   switch i32 %1, label %.preheader.i22.i [
     i32 38, label %.thread70.i
     i32 32, label %149
@@ -38524,8 +38528,8 @@ _ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit.i: ; pr
 
 .preheader.i30.i:                                 ; preds = %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit.i, %101
   %.idx.i31.i = phi i64 [ %.add.i34.i, %101 ], [ 0, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit.i ]
-  %.not.not.not.i.not.not.i.i32.not.i = icmp eq i64 %.idx.i31.i, 40
-  br i1 %.not.not.not.i.not.not.i.i32.not.i, label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i, label %101
+  %.not.not.not.i.not.not.i.i32.not.i.not = icmp eq i64 %.idx.i31.i, 40
+  br i1 %.not.not.not.i.not.not.i.i32.not.i.not, label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i, label %101
 
 101:                                              ; preds = %.preheader.i30.i
   %.ptr.i33.i = getelementptr inbounds nuw i8, ptr @anon.21a3d60d47e9a7a4b9c3e30d929412c3.966, i64 %.idx.i31.i
@@ -38596,21 +38600,21 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit39.i:
 121:                                              ; preds = %112
   switch i32 %1, label %.preheader.i41.i.preheader [
     i32 47, label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i
-    i32 0, label %.loopexit.i
-    i32 32, label %.loopexit.i
-    i32 10, label %.loopexit.i
-    i32 124, label %.loopexit.i
-    i32 9, label %.loopexit.i
-    i32 59, label %.loopexit.i
-    i32 13, label %.loopexit.i
-    i32 60, label %.loopexit.i
-    i32 62, label %.loopexit.i
+    i32 0, label %.outer.backedge
+    i32 32, label %.outer.backedge
+    i32 10, label %.outer.backedge
+    i32 124, label %.outer.backedge
+    i32 9, label %.outer.backedge
+    i32 59, label %.outer.backedge
+    i32 13, label %.outer.backedge
+    i32 60, label %.outer.backedge
+    i32 62, label %.outer.backedge
     i32 38, label %122
   ]
 
 122:                                              ; preds = %121
   %123 = tail call noundef zeroext i1 @_ZN4fish20future_feature_flags4test17h02c9d886eb4fded4E(i8 noundef 3), !noalias !3438
-  br label %.loopexit.i
+  br label %.outer.backedge
 
 .preheader.i41.i:                                 ; preds = %.preheader.i41.i.preheader, %124
   %.idx.i42.i = phi i64 [ %.add.i45.i, %124 ], [ 0, %.preheader.i41.i.preheader ]
@@ -38622,10 +38626,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit39.i:
   %.add.i45.i = add nuw nsw i64 %.idx.i42.i, 4
   %.val4.i.i.i46.i = load i32, ptr %.ptr.i44.i, align 4, !range !207, !alias.scope !3469, !noalias !3472, !noundef !3
   %125 = icmp eq i32 %.val4.i.i.i46.i, %1
-  br i1 %125, label %.loopexit.i, label %.preheader.i41.i
-
-.loopexit.i:                                      ; preds = %124, %122, %121, %121, %121, %121, %121, %121, %121, %121, %121
-  br label %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i
+  br i1 %125, label %.outer.backedge, label %.preheader.i41.i
 
 126:                                              ; preds = %88
   br i1 %72, label %127, label %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i
@@ -38768,7 +38769,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit59.i:
   switch i8 %.promoted.i7, label %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit13.thread.i.us [
     i8 0, label %.split.us
     i8 1, label %_ZN4fish9tokenizer20MoveWordStateMachine24consume_char_punctuation17hbef6493a30962145E.exit
-    i8 2, label %.split24.us
+    i8 2, label %.split22.us
   ]
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit13.thread.i.us: ; preds = %.lr.ph.i8.split.us, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit13.thread.i.us
@@ -38778,14 +38779,14 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit13.th
   br i1 %152, label %.lr.ph.i8.split.split.us.outer, label %.lr.ph.i8.split.split.outer
 
 .lr.ph.i8.split.split.us.outer:                   ; preds = %.lr.ph.i8.split, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit11.thread.i.us
-  %.ph71 = phi i8 [ 2, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit11.thread.i.us ], [ %.promoted.i7, %.lr.ph.i8.split ]
+  %.ph72 = phi i8 [ 2, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit11.thread.i.us ], [ %.promoted.i7, %.lr.ph.i8.split ]
   br label %.lr.ph.i8.split.split.us
 
 .lr.ph.i8.split.split.us:                         ; preds = %.lr.ph.i8.split.split.us.outer, %.lr.ph.i8.split.split.us
-  switch i8 %.ph71, label %.lr.ph.i8.split.split.us [
+  switch i8 %.ph72, label %.lr.ph.i8.split.split.us [
     i8 0, label %.split.us
     i8 1, label %161
-    i8 2, label %.split24.us
+    i8 2, label %.split22.us
   ]
 
 161:                                              ; preds = %.lr.ph.i8.split.split.us
@@ -38817,17 +38818,17 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit11.th
   store i8 2, ptr %4, align 1, !alias.scope !3483
   br label %.lr.ph.i8.split.split.us.outer
 
-._crit_edge.sink.split.i9:                        ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit13.i, %178, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.i13, %170, %169, %.split24.us, %.split24.us, %.split24.us, %.split24.us, %.split24.us, %.split24.us
-  %.sink.i10 = phi i8 [ 1, %178 ], [ 2, %170 ], [ 2, %169 ], [ 2, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.i13 ], [ 3, %.split24.us ], [ 3, %.split24.us ], [ 3, %.split24.us ], [ 3, %.split24.us ], [ 3, %.split24.us ], [ 3, %.split24.us ], [ 3, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit13.i ]
-  %.sroa.0.0.lcssa.ph.i11 = phi i1 [ true, %178 ], [ true, %170 ], [ true, %169 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.i13 ], [ false, %.split24.us ], [ false, %.split24.us ], [ false, %.split24.us ], [ false, %.split24.us ], [ false, %.split24.us ], [ false, %.split24.us ], [ false, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit13.i ]
+._crit_edge.sink.split.i9:                        ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit13.i, %178, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.i13, %170, %169, %.split22.us, %.split22.us, %.split22.us, %.split22.us, %.split22.us, %.split22.us
+  %.sink.i10 = phi i8 [ 1, %178 ], [ 2, %170 ], [ 2, %169 ], [ 2, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.i13 ], [ 3, %.split22.us ], [ 3, %.split22.us ], [ 3, %.split22.us ], [ 3, %.split22.us ], [ 3, %.split22.us ], [ 3, %.split22.us ], [ 3, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit13.i ]
+  %.sroa.0.0.lcssa.ph.i11 = phi i1 [ true, %178 ], [ true, %170 ], [ true, %169 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.i13 ], [ false, %.split22.us ], [ false, %.split22.us ], [ false, %.split22.us ], [ false, %.split22.us ], [ false, %.split22.us ], [ false, %.split22.us ], [ false, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit13.i ]
   store i8 %.sink.i10, ptr %4, align 1, !alias.scope !3483
   br label %_ZN4fish9tokenizer20MoveWordStateMachine24consume_char_punctuation17hbef6493a30962145E.exit
 
 .lr.ph.i8.split.split:                            ; preds = %.lr.ph.i8.split.split.outer, %.lr.ph.i8.split.split
-  switch i8 %.ph74, label %.lr.ph.i8.split.split [
+  switch i8 %.ph75, label %.lr.ph.i8.split.split [
     i8 0, label %.split.us
     i8 1, label %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit11.thread.i
-    i8 2, label %.split24.us
+    i8 2, label %.split22.us
   ]
 
 .split.us:                                        ; preds = %.lr.ph.i8.split.split, %.lr.ph.i8.split.split.us, %.lr.ph.i8.split.us
@@ -38845,10 +38846,10 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit11.th
   br label %.lr.ph.i8.split.split.outer
 
 .lr.ph.i8.split.split.outer:                      ; preds = %.lr.ph.i8.split, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit11.thread.i
-  %.ph74 = phi i8 [ 2, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit11.thread.i ], [ %.promoted.i7, %.lr.ph.i8.split ]
+  %.ph75 = phi i8 [ 2, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit11.thread.i ], [ %.promoted.i7, %.lr.ph.i8.split ]
   br label %.lr.ph.i8.split.split
 
-.split24.us:                                      ; preds = %.lr.ph.i8.split.split, %.lr.ph.i8.split.split.us, %.lr.ph.i8.split.us
+.split22.us:                                      ; preds = %.lr.ph.i8.split.split, %.lr.ph.i8.split.split.us, %.lr.ph.i8.split.us
   switch i32 %1, label %179 [
     i32 32, label %._crit_edge.sink.split.i9
     i32 13, label %._crit_edge.sink.split.i9
@@ -38889,7 +38890,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.i13:
 178:                                              ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit.i13, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us
   br label %._crit_edge.sink.split.i9
 
-179:                                              ; preds = %.split24.us
+179:                                              ; preds = %.split22.us
   br i1 %152, label %180, label %_ZN4fish9tokenizer20MoveWordStateMachine24consume_char_punctuation17hbef6493a30962145E.exit
 
 180:                                              ; preds = %179
@@ -38917,8 +38918,8 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit13.i:
   %187 = trunc i8 %.sroa.0.0.i12.i to i1
   br i1 %187, label %._crit_edge.sink.split.i9, label %_ZN4fish9tokenizer20MoveWordStateMachine24consume_char_punctuation17hbef6493a30962145E.exit
 
-_ZN4fish9tokenizer20MoveWordStateMachine24consume_char_punctuation17hbef6493a30962145E.exit: ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit11.i.us, %87, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit39.i, %89, %.preheader.i14.i, %137, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit25.i, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17h133407dd41c91624E.exit.thread.i", %27, %.lr.ph.i8.split.us, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i.thread, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit13.i, %180, %179, %._crit_edge.sink.split.i9, %150, %149, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit59.i, %141, %140, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit28.i, %.loopexit73.i, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit57.i, %135, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %.thread70.i, %95, %95, %95, %95, %95, %70, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17h133407dd41c91624E.exit.i", %32, %30, %28, %._crit_edge.sink.split.i, %5
-  %.sroa.0.0.in = phi i1 [ false, %5 ], [ true, %30 ], [ true, %28 ], [ true, %32 ], [ true, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17h133407dd41c91624E.exit.i" ], [ %.sroa.0.0.lcssa.ph.i, %._crit_edge.sink.split.i ], [ false, %70 ], [ true, %141 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %135 ], [ true, %.thread70.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit59.i ], [ true, %140 ], [ false, %149 ], [ true, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit28.i ], [ false, %.loopexit73.i ], [ false, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit57.i ], [ true, %95 ], [ true, %95 ], [ true, %95 ], [ true, %95 ], [ true, %95 ], [ false, %150 ], [ true, %180 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit13.i ], [ true, %179 ], [ %.sroa.0.0.lcssa.ph.i11, %._crit_edge.sink.split.i9 ], [ true, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i.thread ], [ true, %.lr.ph.i8.split.us ], [ true, %27 ], [ false, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17h133407dd41c91624E.exit.thread.i" ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit25.i ], [ true, %137 ], [ true, %.preheader.i14.i ], [ true, %89 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit39.i ], [ true, %87 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit11.i.us ]
+_ZN4fish9tokenizer20MoveWordStateMachine24consume_char_punctuation17hbef6493a30962145E.exit: ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit11.i.us, %87, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit39.i, %89, %.preheader.i14.i, %137, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit25.i, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17h133407dd41c91624E.exit.thread.i", %27, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i.thread, %.lr.ph.i8.split.us, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit13.i, %180, %179, %._crit_edge.sink.split.i9, %150, %149, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit59.i, %141, %140, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit28.i, %.loopexit73.i, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit57.i, %135, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i, %.thread70.i, %95, %95, %95, %95, %95, %70, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17h133407dd41c91624E.exit.i", %32, %30, %28, %._crit_edge.sink.split.i, %5
+  %.sroa.0.0.in = phi i1 [ false, %5 ], [ true, %30 ], [ true, %28 ], [ true, %32 ], [ true, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17h133407dd41c91624E.exit.i" ], [ %.sroa.0.0.lcssa.ph.i, %._crit_edge.sink.split.i ], [ false, %70 ], [ true, %141 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit49.thread.i ], [ true, %135 ], [ true, %.thread70.i ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit59.i ], [ true, %140 ], [ false, %149 ], [ true, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit28.i ], [ false, %.loopexit73.i ], [ false, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit57.i ], [ true, %95 ], [ true, %95 ], [ true, %95 ], [ true, %95 ], [ true, %95 ], [ false, %150 ], [ true, %180 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit13.i ], [ true, %179 ], [ %.sroa.0.0.lcssa.ph.i11, %._crit_edge.sink.split.i9 ], [ true, %.lr.ph.i8.split.us ], [ true, %_ZN4fish9tokenizer27is_path_component_character17hcd1de7dc0ea00289E.exit20.sink.split.i.thread ], [ true, %27 ], [ false, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17h133407dd41c91624E.exit.thread.i" ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit25.i ], [ true, %137 ], [ true, %.preheader.i14.i ], [ true, %89 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit39.i ], [ true, %87 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E.exit11.i.us ]
   ret i1 %.sroa.0.0.in
 }
 

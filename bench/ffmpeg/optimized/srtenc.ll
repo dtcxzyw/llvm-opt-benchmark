@@ -55,7 +55,7 @@ define internal range(i32 -1094995529, 1) i32 @srt_encode_init(ptr noundef %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @srt_encode_frame(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 0, -1) i32 @srt_encode_frame(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = tail call fastcc i32 @encode_frame(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull @srt_callbacks)
   ret i32 %5
 }
@@ -71,7 +71,7 @@ define internal noundef i32 @srt_encode_close(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @text_encode_frame(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 0, -1) i32 @text_encode_frame(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = tail call fastcc i32 @encode_frame(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull @text_callbacks)
   ret i32 %5
 }
@@ -79,7 +79,7 @@ define internal i32 @text_encode_frame(ptr noundef %0, ptr noundef %1, i32 nound
 declare ptr @ff_ass_split(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @encode_frame(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, -1) i32 @encode_frame(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !4

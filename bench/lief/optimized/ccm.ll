@@ -487,7 +487,7 @@ define hidden i32 @mbedtls_ccm_update(ptr noundef %0, ptr noundef readonly captu
   %14 = load i32, ptr %13, align 8, !tbaa !15
   %15 = and i32 %14, 16
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %16, label %158
+  br i1 %.not, label %16, label %157
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -504,11 +504,11 @@ define hidden i32 @mbedtls_ccm_update(ptr noundef %0, ptr noundef readonly captu
   %25 = icmp ugt i64 %22, %24
   %26 = icmp ult i64 %4, %2
   %or.cond = or i1 %26, %25
-  br i1 %or.cond, label %158, label %28
+  br i1 %or.cond, label %157, label %28
 
 27:                                               ; preds = %16
   %.old = icmp ult i64 %4, %2
-  br i1 %.old, label %158, label %28
+  br i1 %.old, label %157, label %28
 
 28:                                               ; preds = %19, %27
   store i64 %2, ptr %5, align 8, !tbaa !25
@@ -525,9 +525,9 @@ define hidden i32 @mbedtls_ccm_update(ptr noundef %0, ptr noundef readonly captu
   br label %35
 
 35:                                               ; preds = %.lr.ph154, %.loopexit
-  %.082152 = phi ptr [ %1, %.lr.ph154 ], [ %156, %.loopexit ]
-  %.083151 = phi i64 [ %2, %.lr.ph154 ], [ %155, %.loopexit ]
-  %.084149 = phi ptr [ %3, %.lr.ph154 ], [ %157, %.loopexit ]
+  %.082152 = phi ptr [ %1, %.lr.ph154 ], [ %155, %.loopexit ]
+  %.083151 = phi i64 [ %2, %.lr.ph154 ], [ %154, %.loopexit ]
+  %.084149 = phi ptr [ %3, %.lr.ph154 ], [ %156, %.loopexit ]
   %36 = load i64, ptr %29, align 8, !tbaa !21
   %37 = and i64 %36, 15
   %38 = sub nuw nsw i64 16, %37
@@ -790,7 +790,7 @@ mbedtls_xor.exit:                                 ; preds = %.lr.ph144, %.prehea
   %128 = load i64, ptr %29, align 8, !tbaa !21
   %129 = load i64, ptr %31, align 8, !tbaa !17
   %130 = icmp eq i64 %128, %129
-  br i1 %130, label %131, label %136
+  br i1 %130, label %131, label %.thread
 
 131:                                              ; preds = %127, %mbedtls_xor.exit
   %132 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %32, ptr noundef nonnull %0, i64 noundef 16, ptr noundef nonnull %0, ptr noundef nonnull %11) #10
@@ -803,54 +803,54 @@ mbedtls_xor.exit:                                 ; preds = %.lr.ph144, %.prehea
   store i32 %135, ptr %13, align 8, !tbaa !15
   br label %.loopexit128
 
-136:                                              ; preds = %._crit_edge, %127, %131
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %125, %127 ], [ %125, %131 ]
+136:                                              ; preds = %._crit_edge, %131
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %125, %131 ]
   %137 = icmp eq i64 %.pre-phi, 16
-  br i1 %137, label %142, label %138
+  br i1 %137, label %141, label %.thread
 
-138:                                              ; preds = %136
-  %139 = load i64, ptr %29, align 8, !tbaa !21
-  %140 = load i64, ptr %31, align 8, !tbaa !17
-  %141 = icmp eq i64 %139, %140
-  br i1 %141, label %142, label %.loopexit
+.thread:                                          ; preds = %127, %136
+  %138 = load i64, ptr %29, align 8, !tbaa !21
+  %139 = load i64, ptr %31, align 8, !tbaa !17
+  %140 = icmp eq i64 %138, %139
+  br i1 %140, label %141, label %.loopexit
 
-142:                                              ; preds = %138, %136
-  %143 = load i32, ptr %34, align 8, !tbaa !13
-  %.not155 = icmp eq i32 %143, 0
+141:                                              ; preds = %.thread, %136
+  %142 = load i32, ptr %34, align 8, !tbaa !13
+  %.not155 = icmp eq i32 %142, 0
   br i1 %.not155, label %.loopexit, label %.lr.ph146
 
-144:                                              ; preds = %.lr.ph146
-  %145 = add i8 %.080145, 1
-  %146 = zext i8 %145 to i32
-  %147 = load i32, ptr %34, align 8, !tbaa !13
-  %148 = icmp ugt i32 %147, %146
-  br i1 %148, label %.lr.ph146, label %.loopexit, !llvm.loop !26
+143:                                              ; preds = %.lr.ph146
+  %144 = add i8 %.080145, 1
+  %145 = zext i8 %144 to i32
+  %146 = load i32, ptr %34, align 8, !tbaa !13
+  %147 = icmp ugt i32 %146, %145
+  br i1 %147, label %.lr.ph146, label %.loopexit, !llvm.loop !26
 
-.lr.ph146:                                        ; preds = %142, %144
-  %149 = phi i32 [ %146, %144 ], [ 0, %142 ]
-  %.080145 = phi i8 [ %145, %144 ], [ 0, %142 ]
-  %150 = sub nsw i32 15, %149
-  %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds i8, ptr %33, i64 %151
-  %153 = load i8, ptr %152, align 1, !tbaa !14
-  %154 = add i8 %153, 1
-  store i8 %154, ptr %152, align 1, !tbaa !14
-  %.not103 = icmp eq i8 %154, 0
-  br i1 %.not103, label %144, label %.loopexit
+.lr.ph146:                                        ; preds = %141, %143
+  %148 = phi i32 [ %145, %143 ], [ 0, %141 ]
+  %.080145 = phi i8 [ %144, %143 ], [ 0, %141 ]
+  %149 = sub nsw i32 15, %148
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds i8, ptr %33, i64 %150
+  %152 = load i8, ptr %151, align 1, !tbaa !14
+  %153 = add i8 %152, 1
+  store i8 %153, ptr %151, align 1, !tbaa !14
+  %.not103 = icmp eq i8 %153, 0
+  br i1 %.not103, label %143, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph146, %144, %142, %138
-  %155 = sub i64 %.083151, %spec.select
-  %156 = getelementptr inbounds nuw i8, ptr %.082152, i64 %spec.select
-  %157 = getelementptr inbounds nuw i8, ptr %.084149, i64 %spec.select
-  %.not98 = icmp eq i64 %155, 0
+.loopexit:                                        ; preds = %.lr.ph146, %143, %141, %.thread
+  %154 = sub i64 %.083151, %spec.select
+  %155 = getelementptr inbounds nuw i8, ptr %.082152, i64 %spec.select
+  %156 = getelementptr inbounds nuw i8, ptr %.084149, i64 %spec.select
+  %.not98 = icmp eq i64 %154, 0
   br i1 %.not98, label %.loopexit128, label %35, !llvm.loop !27
 
 .loopexit128:                                     ; preds = %.loopexit, %28, %mbedtls_ccm_crypt.exit125, %mbedtls_ccm_crypt.exit, %133, %63
   %.2 = phi i32 [ %62, %63 ], [ %67, %mbedtls_ccm_crypt.exit ], [ %89, %mbedtls_ccm_crypt.exit125 ], [ %132, %133 ], [ 0, %28 ], [ 0, %.loopexit ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %12, i64 noundef 16) #10
-  br label %158
+  br label %157
 
-158:                                              ; preds = %27, %19, %6, %.loopexit128
+157:                                              ; preds = %27, %19, %6, %.loopexit128
   %.0 = phi i32 [ %.2, %.loopexit128 ], [ -13, %6 ], [ -13, %19 ], [ -13, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
