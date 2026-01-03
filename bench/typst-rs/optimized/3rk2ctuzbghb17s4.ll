@@ -103503,6 +103503,8 @@ _ZN4core3ops8function5FnMut8call_mut17hb24614bfef0794f5E.llvm.245604466996101609
   %.0.i.i.i.i4.i.i = select i1 %.0.i.inv.i.i.i.i3.i.i, double %260, double 0.000000e+00
   %261 = fadd double %.0.i.i.i.i4.i.i, %.0.i.i.i.i.i.i206
   %262 = fadd double %261, %.0.i.i.i31.i192
+  %.0.i.inv.i.i.i5.i.i = fcmp ord double %262, 0.000000e+00
+  %.0.i.i.i6.i.i = select i1 %.0.i.inv.i.i.i5.i.i, double %262, double 0.000000e+00
   %263 = fmul double %233, 0.000000e+00
   %.0.i.inv.i.i.i.i9.i.i = fcmp ord double %263, 0.000000e+00
   %.0.i.i.i.i10.i.i = select i1 %.0.i.inv.i.i.i.i9.i.i, double %263, double 0.000000e+00
@@ -103511,6 +103513,8 @@ _ZN4core3ops8function5FnMut8call_mut17hb24614bfef0794f5E.llvm.245604466996101609
   %.0.i.i.i.i14.i.i = select i1 %.0.i.inv.i.i.i.i13.i.i, double %264, double 0.000000e+00
   %265 = fadd double %.0.i.i.i.i14.i.i, %.0.i.i.i.i10.i.i
   %266 = fadd double %265, %.0.i.i.i45.i204
+  %.0.i.inv.i.i.i17.i.i = fcmp ord double %266, 0.000000e+00
+  %.0.i.i.i18.i.i = select i1 %.0.i.inv.i.i.i17.i.i, double %266, double 0.000000e+00
   %267 = fmul double %187, %231
   %.0.i.inv.i.i.i.i.i3.i = fcmp ord double %267, 0.000000e+00
   %.0.i.i.i.i.i4.i = select i1 %.0.i.inv.i.i.i.i.i3.i, double %267, double 0.000000e+00
@@ -103551,15 +103555,15 @@ _ZN4core3ops8function5FnMut8call_mut17hb24614bfef0794f5E.llvm.245604466996101609
   %282 = fadd double %.0.i.i.i16.i66.i, %.0.i.i.i45.i204
   %.0.i.inv.i.i.i17.i67.i = fcmp ord double %282, 0.000000e+00
   %.0.i.i.i18.i68.i = select i1 %.0.i.inv.i.i.i17.i67.i, double %282, double 0.000000e+00
-  %283 = fcmp ugt double %262, %.0.i.i.i6.i10.i
+  %283 = fcmp ugt double %.0.i.i.i6.i.i, %.0.i.i.i6.i10.i
   br i1 %283, label %284, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit.i
 
 284:                                              ; preds = %198
-  %285 = fcmp ult double %262, %.0.i.i.i6.i10.i
+  %285 = fcmp ult double %.0.i.i.i6.i.i, %.0.i.i.i6.i10.i
   br i1 %285, label %.invoke, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit.i
 
 _ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit.i: ; preds = %284, %198
-  %286 = phi double [ %.0.i.i.i6.i10.i, %284 ], [ %262, %198 ]
+  %286 = phi double [ %.0.i.i.i6.i10.i, %284 ], [ %.0.i.i.i6.i.i, %198 ]
   %287 = fcmp ugt double %286, %.0.i.i.i6.i32.i
   br i1 %287, label %288, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit69.i
 
@@ -103578,15 +103582,15 @@ _ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit69.i: ; preds = %288, %_ZN5
 
 _ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit70.i: ; preds = %292, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit69.i
   %294 = phi double [ %.0.i.i.i6.i56.i, %292 ], [ %290, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit69.i ]
-  %295 = fcmp ugt double %266, %.0.i.i.i18.i20.i
+  %295 = fcmp ugt double %.0.i.i.i18.i.i, %.0.i.i.i18.i20.i
   br i1 %295, label %296, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit71.i
 
 296:                                              ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit70.i
-  %297 = fcmp ult double %266, %.0.i.i.i18.i20.i
+  %297 = fcmp ult double %.0.i.i.i18.i.i, %.0.i.i.i18.i20.i
   br i1 %297, label %.invoke, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit71.i
 
 _ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit71.i: ; preds = %296, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit70.i
-  %298 = phi double [ %.0.i.i.i18.i20.i, %296 ], [ %266, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit70.i ]
+  %298 = phi double [ %.0.i.i.i18.i20.i, %296 ], [ %.0.i.i.i18.i.i, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit70.i ]
   %299 = fcmp ugt double %298, %.0.i.i.i18.i44.i
   br i1 %299, label %300, label %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit72.i
 
@@ -103608,11 +103612,11 @@ _ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit73.i: ; preds = %304, %_ZN5
   br i1 %283, label %307, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit.i
 
 307:                                              ; preds = %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit73.i
-  %308 = fcmp ult double %262, %.0.i.i.i6.i10.i
+  %308 = fcmp ult double %.0.i.i.i6.i.i, %.0.i.i.i6.i10.i
   br i1 %308, label %.invoke, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit.i
 
 _ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit.i: ; preds = %307, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit73.i
-  %309 = phi double [ %262, %307 ], [ %.0.i.i.i6.i10.i, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit73.i ]
+  %309 = phi double [ %.0.i.i.i6.i.i, %307 ], [ %.0.i.i.i6.i10.i, %_ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit73.i ]
   %310 = fcmp ugt double %309, %.0.i.i.i6.i32.i
   br i1 %310, label %311, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit74.i
 
@@ -103634,11 +103638,11 @@ _ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit75.i: ; preds = %315, %_ZN5
   br i1 %295, label %318, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit76.i
 
 318:                                              ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit75.i
-  %319 = fcmp ult double %266, %.0.i.i.i18.i20.i
+  %319 = fcmp ult double %.0.i.i.i18.i.i, %.0.i.i.i18.i20.i
   br i1 %319, label %.invoke, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit76.i
 
 _ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit76.i: ; preds = %318, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit75.i
-  %320 = phi double [ %266, %318 ], [ %.0.i.i.i18.i20.i, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit75.i ]
+  %320 = phi double [ %.0.i.i.i18.i.i, %318 ], [ %.0.i.i.i18.i20.i, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit75.i ]
   %321 = fcmp ugt double %320, %.0.i.i.i18.i44.i
   br i1 %321, label %322, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit77.i
 
