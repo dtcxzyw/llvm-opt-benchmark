@@ -27056,8 +27056,8 @@ define noundef range(i8 -1, 2) i8 @"_ZN81_$LT$uv_python..discovery..ExecutableNa
 default.unreachable:                              ; preds = %37
   unreachable
 
-.thread:                                          ; preds = %.thread115, %.thread102, %.thread93, %89, %.thread81, %14, %13, %36, %.thread89, %37, %9, %10, %.thread111, %15
-  %.sroa.0.1 = phi i8 [ %16, %15 ], [ %.sroa.0.7114, %.thread111 ], [ %.60, %10 ], [ %., %9 ], [ %.sroa.0.3, %36 ], [ -1, %.thread89 ], [ 1, %37 ], [ 1, %14 ], [ -1, %13 ], [ 1, %.thread81 ], [ %spec.select, %89 ], [ %spec.select131, %.thread115 ], [ %spec.select130, %.thread102 ], [ %spec.select129, %.thread93 ]
+.thread:                                          ; preds = %.thread115, %.thread102, %.thread93, %88, %.thread81, %14, %13, %36, %.thread89, %37, %9, %10, %.thread111, %15
+  %.sroa.0.1 = phi i8 [ %16, %15 ], [ %.sroa.0.7114, %.thread111 ], [ %.60, %10 ], [ %., %9 ], [ %.sroa.0.3, %36 ], [ -1, %.thread89 ], [ 1, %37 ], [ 1, %14 ], [ -1, %13 ], [ 1, %.thread81 ], [ %spec.select, %88 ], [ %spec.select131, %.thread115 ], [ %spec.select130, %.thread102 ], [ %spec.select129, %.thread93 ]
   ret i8 %.sroa.0.1
 
 11:                                               ; preds = %9
@@ -27229,19 +27229,17 @@ default.unreachable:                              ; preds = %37
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 39
   %86 = load i8, ptr %85, align 1, !range !6146, !noundef !20
   %87 = tail call i8 @llvm.ucmp.i8.i8(i8 %84, i8 %86)
-  %88 = icmp ne i8 %84, %86
-  %or.cond = and i1 %switch, %88
   %switch.offset = sub nsw i8 0, %87
-  %spec.select131 = select i1 %or.cond, i8 %switch.offset, i8 %87
+  %spec.select131 = select i1 %switch, i8 %switch.offset, i8 %87
   br label %.thread
 
 .thread111:                                       ; preds = %70, %66, %75
   %.sroa.0.7114 = phi i8 [ %.sroa.0.7, %75 ], [ 1, %70 ], [ -1, %66 ]
-  br i1 %switch, label %89, label %.thread
+  br i1 %switch, label %88, label %.thread
 
-89:                                               ; preds = %.thread111
-  %90 = icmp eq i8 %.sroa.0.7114, -1
-  %spec.select = select i1 %90, i8 1, i8 -1
+88:                                               ; preds = %.thread111
+  %89 = icmp eq i8 %.sroa.0.7114, -1
+  %spec.select = select i1 %89, i8 1, i8 -1
   br label %.thread
 }
 
