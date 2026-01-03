@@ -9233,118 +9233,118 @@ parse_digits.exit:                                ; preds = %10
   br label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %29, %23
-  %.067 = phi i32 [ 0, %23 ], [ %32, %29 ]
+  %.067 = phi i32 [ 0, %23 ], [ %30, %29 ]
   %exitcond.not.i44 = phi i1 [ false, %23 ], [ true, %29 ]
-  %.01420.i43 = phi ptr [ %24, %23 ], [ %30, %29 ]
-  %25 = load i8, ptr %.01420.i43, align 1, !tbaa !15
+  %spec.select.pn = phi ptr [ %24, %23 ], [ %30, %29 ]
+  %25 = load i8, ptr %spec.select.pn, align 1, !tbaa !15
   %26 = sext i8 %25 to i32
   %27 = add nsw i32 %26, -48
   %28 = icmp ult i32 %27, 10
   br i1 %28, label %29, label %parse_digits.exit.thread
 
 29:                                               ; preds = %.lr.ph.i41
-  %30 = getelementptr i8, ptr %.01420.i43, i64 1
-  %31 = mul i32 %.067, 10
-  %32 = add i32 %27, %31
+  %30 = getelementptr i8, ptr %spec.select.pn, i64 1
+  %29 = mul i32 %.067, 10
+  %30 = add i32 %27, %29
   br i1 %exitcond.not.i44, label %parse_digits.exit45, label %.lr.ph.i41, !llvm.loop !79
 
 parse_digits.exit45:                              ; preds = %29
-  %33 = icmp eq ptr %scevgep, null
-  br i1 %33, label %parse_digits.exit.thread, label %34
+  %31 = icmp eq ptr %scevgep, null
+  br i1 %31, label %parse_digits.exit.thread, label %32
 
-34:                                               ; preds = %parse_digits.exit45
-  %35 = ptrtoint ptr %scevgep to i64
-  %36 = ptrtoint ptr %0 to i64
-  %37 = sub i64 %35, %36
-  %38 = icmp ult i64 %37, %1
-  br i1 %38, label %39, label %48
+32:                                               ; preds = %parse_digits.exit45
+  %33 = ptrtoint ptr %scevgep to i64
+  %34 = ptrtoint ptr %0 to i64
+  %35 = sub i64 %33, %34
+  %36 = icmp ult i64 %35, %1
+  br i1 %36, label %37, label %46
 
-39:                                               ; preds = %34
-  br i1 %19, label %40, label %.lr.ph.i46
+37:                                               ; preds = %32
+  br i1 %19, label %38, label %.lr.ph.i46
 
-40:                                               ; preds = %39
-  %41 = getelementptr i8, ptr %.01420.i, i64 6
-  %42 = load i8, ptr %scevgep, align 1, !tbaa !15
-  %.not39 = icmp eq i8 %42, 45
+38:                                               ; preds = %37
+  %39 = getelementptr i8, ptr %.01420.i, i64 6
+  %40 = load i8, ptr %scevgep, align 1, !tbaa !15
+  %.not39 = icmp eq i8 %40, 45
   br i1 %.not39, label %.lr.ph.i46, label %parse_digits.exit.thread
 
-.lr.ph.i46:                                       ; preds = %40, %39
-  %.133 = phi ptr [ %41, %40 ], [ %scevgep, %39 ]
-  %43 = load i8, ptr %.133, align 1, !tbaa !15
-  %44 = sext i8 %43 to i32
-  %45 = add nsw i32 %44, -48
-  %46 = icmp ugt i32 %45, 9
+.lr.ph.i46:                                       ; preds = %38, %37
+  %.133 = phi ptr [ %39, %40 ], [ %scevgep, %39 ]
+  %41 = load i8, ptr %.133, align 1, !tbaa !15
+  %42 = sext i8 %41 to i32
+  %43 = add nsw i32 %42, -48
+  %44 = icmp ugt i32 %43, 9
   %scevgep94 = getelementptr i8, ptr %.133, i64 1
-  %47 = icmp eq ptr %scevgep94, null
-  %or.cond = or i1 %46, %47
-  br i1 %or.cond, label %parse_digits.exit.thread, label %48
+  %45 = icmp eq ptr %scevgep94, null
+  %or.cond = or i1 %44, %45
+  br i1 %or.cond, label %parse_digits.exit.thread, label %46
 
-48:                                               ; preds = %.lr.ph.i46, %34
-  %.064 = phi i32 [ 1, %34 ], [ %45, %.lr.ph.i46 ]
-  %49 = tail call fastcc i32 @iso_to_ymd(i32 noundef %14, i32 noundef %32, i32 noundef %.064, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %.not40 = icmp eq i32 %49, 0
-  %50 = add nsw i32 %49, -3
-  %.2 = select i1 %.not40, i32 0, i32 %50
+46:                                               ; preds = %.lr.ph.i46, %32
+  %.064 = phi i32 [ 1, %34 ], [ %43, %.lr.ph.i46 ]
+  %47 = tail call fastcc i32 @iso_to_ymd(i32 noundef %14, i32 noundef %30, i32 noundef %.064, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %.not40 = icmp eq i32 %47, 0
+  %48 = add nsw i32 %47, -3
+  %.2 = select i1 %.not40, i32 0, i32 %48
   br label %parse_digits.exit.thread
 
-.lr.ph.i51:                                       ; preds = %17, %55
+.lr.ph.i51:                                       ; preds = %17, %53
   %exitcond.not.i54 = phi i1 [ true, %55 ], [ false, %17 ]
-  %.01420.i53 = phi ptr [ %56, %55 ], [ %spec.select, %17 ]
-  %51 = load i8, ptr %.01420.i53, align 1, !tbaa !15
-  %52 = sext i8 %51 to i32
-  %53 = add nsw i32 %52, -48
-  %54 = icmp ult i32 %53, 10
-  br i1 %54, label %55, label %parse_digits.exit.thread
+  %.01420.i53 = phi ptr [ %54, %55 ], [ %spec.select, %17 ]
+  %49 = load i8, ptr %.01420.i53, align 1, !tbaa !15
+  %50 = sext i8 %49 to i32
+  %51 = add nsw i32 %50, -48
+  %52 = icmp ult i32 %51, 10
+  br i1 %52, label %53, label %parse_digits.exit.thread
 
-55:                                               ; preds = %.lr.ph.i51
-  %56 = getelementptr i8, ptr %.01420.i53, i64 1
-  %57 = load i32, ptr %3, align 4, !tbaa !16
-  %58 = mul i32 %57, 10
-  %59 = add i32 %58, %53
-  store i32 %59, ptr %3, align 4, !tbaa !16
+53:                                               ; preds = %.lr.ph.i51
+  %54 = getelementptr i8, ptr %.01420.i53, i64 1
+  %55 = load i32, ptr %3, align 4, !tbaa !16
+  %56 = mul i32 %55, 10
+  %57 = add i32 %56, %51
+  store i32 %57, ptr %3, align 4, !tbaa !16
   br i1 %exitcond.not.i54, label %parse_digits.exit55, label %.lr.ph.i51, !llvm.loop !79
 
-parse_digits.exit55:                              ; preds = %55
-  %60 = icmp eq ptr %56, null
-  br i1 %60, label %parse_digits.exit.thread, label %61
+parse_digits.exit55:                              ; preds = %53
+  %58 = icmp eq ptr %54, null
+  br i1 %58, label %parse_digits.exit.thread, label %59
 
-61:                                               ; preds = %parse_digits.exit55
-  br i1 %19, label %62, label %.lr.ph.i56.preheader
+59:                                               ; preds = %parse_digits.exit55
+  br i1 %19, label %60, label %.lr.ph.i56.preheader
 
-62:                                               ; preds = %61
-  %63 = getelementptr i8, ptr %.01420.i53, i64 2
-  %64 = load i8, ptr %56, align 1, !tbaa !15
-  %.not = icmp eq i8 %64, 45
+60:                                               ; preds = %59
+  %61 = getelementptr i8, ptr %.01420.i53, i64 2
+  %62 = load i8, ptr %54, align 1, !tbaa !15
+  %.not = icmp eq i8 %62, 45
   br i1 %.not, label %.lr.ph.i56.preheader, label %parse_digits.exit.thread
 
-.lr.ph.i56.preheader:                             ; preds = %62, %61
-  %.01420.i58.ph = phi ptr [ %56, %61 ], [ %63, %62 ]
+.lr.ph.i56.preheader:                             ; preds = %60, %59
+  %.01420.i58.ph = phi ptr [ %54, %61 ], [ %61, %62 ]
   br label %.lr.ph.i56
 
-.lr.ph.i56:                                       ; preds = %.lr.ph.i56.preheader, %69
+.lr.ph.i56:                                       ; preds = %.lr.ph.i56.preheader, %67
   %exitcond.not.i59 = phi i1 [ true, %69 ], [ false, %.lr.ph.i56.preheader ]
-  %.01420.i58 = phi ptr [ %70, %69 ], [ %.01420.i58.ph, %.lr.ph.i56.preheader ]
-  %65 = load i8, ptr %.01420.i58, align 1, !tbaa !15
-  %66 = sext i8 %65 to i32
-  %67 = add nsw i32 %66, -48
-  %68 = icmp ult i32 %67, 10
-  br i1 %68, label %69, label %parse_digits.exit60
+  %.01420.i58 = phi ptr [ %68, %69 ], [ %.01420.i58.ph, %.lr.ph.i56.preheader ]
+  %63 = load i8, ptr %.01420.i58, align 1, !tbaa !15
+  %64 = sext i8 %63 to i32
+  %65 = add nsw i32 %64, -48
+  %66 = icmp ult i32 %65, 10
+  br i1 %66, label %67, label %parse_digits.exit60
 
-69:                                               ; preds = %.lr.ph.i56
-  %70 = getelementptr i8, ptr %.01420.i58, i64 1
-  %71 = load i32, ptr %4, align 4, !tbaa !16
-  %72 = mul i32 %71, 10
-  %73 = add i32 %72, %67
-  store i32 %73, ptr %4, align 4, !tbaa !16
+67:                                               ; preds = %.lr.ph.i56
+  %68 = getelementptr i8, ptr %.01420.i58, i64 1
+  %69 = load i32, ptr %4, align 4, !tbaa !16
+  %70 = mul i32 %69, 10
+  %71 = add i32 %70, %65
+  store i32 %71, ptr %4, align 4, !tbaa !16
   br i1 %exitcond.not.i59, label %parse_digits.exit60, label %.lr.ph.i56, !llvm.loop !79
 
-parse_digits.exit60:                              ; preds = %.lr.ph.i56, %69
-  %74 = phi ptr [ %70, %69 ], [ null, %.lr.ph.i56 ]
-  %75 = icmp eq ptr %74, null
-  %. = sext i1 %75 to i32
+parse_digits.exit60:                              ; preds = %.lr.ph.i56, %67
+  %72 = phi ptr [ %68, %69 ], [ null, %.lr.ph.i56 ]
+  %73 = icmp eq ptr %72, null
+  %. = sext i1 %73 to i32
   br label %parse_digits.exit.thread
 
-parse_digits.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph.i51, %.lr.ph.i41, %.lr.ph.i46, %48, %parse_digits.exit45, %40, %parse_digits.exit55, %62, %parse_digits.exit60, %parse_digits.exit
+parse_digits.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph.i51, %.lr.ph.i41, %.lr.ph.i46, %46, %parse_digits.exit45, %38, %parse_digits.exit55, %60, %parse_digits.exit60, %parse_digits.exit
   %.0 = phi i32 [ -1, %parse_digits.exit ], [ -1, %parse_digits.exit55 ], [ -2, %62 ], [ %., %parse_digits.exit60 ], [ %.2, %48 ], [ -3, %parse_digits.exit45 ], [ -2, %40 ], [ -4, %.lr.ph.i46 ], [ -3, %.lr.ph.i41 ], [ -1, %.lr.ph.i51 ], [ -1, %.lr.ph.i ]
   ret i32 %.0
 }

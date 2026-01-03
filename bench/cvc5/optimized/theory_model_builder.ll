@@ -12196,11 +12196,11 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_6theory24Theo
   br label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_6theory24TheoryEngineModelBuilder8AssignerESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit
 
 _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_6theory24TheoryEngineModelBuilder8AssignerESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit: ; preds = %2686, %2674
-  %.19.i.i.i1439.sroa.sel.v.sroa.sel.v.sink = phi ptr [ %.19.i.i.i1439.sroa.sel.v.sroa.sel.v, %2686 ], [ %.19.i.i.i1428.sroa.sel.v.sroa.sel.v, %2674 ]
+  %.19.i.i.i1439.sroa.sel.v.sroa.sel.v.pn = phi ptr [ %.19.i.i.i1439.sroa.sel.v.sroa.sel.v, %2686 ], [ %.19.i.i.i1428.sroa.sel.v.sroa.sel.v, %2674 ]
   %.sink4344 = phi i64 [ %2678, %2686 ], [ %2666, %2674 ]
   %.19.i.i.i1439.lcssa.sink = phi ptr [ %.19.i.i.i1439, %2686 ], [ %.19.i.i.i1428, %2674 ]
-  %.19.i.i.i1439.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i1439.sroa.sel.v.sroa.sel.v.sink, i64 32
-  %2687 = load ptr, ptr %.19.i.i.i1439.sroa.sel.v.sroa.sel, align 8, !tbaa !41
+  %.19.i.i.i1439.sroa.sel.v.sroa.sel.sink = getelementptr inbounds nuw i8, ptr %.19.i.i.i1439.sroa.sel.v.sroa.sel.v.pn, i64 32
+  %2687 = load ptr, ptr %.19.i.i.i1439.sroa.sel.v.sroa.sel.sink, align 8, !tbaa !41
   %2688 = load i64, ptr %2687, align 8
   %2689 = and i64 %2688, 1099511627775
   %2690 = icmp samesign ult i64 %.sink4344, %2689

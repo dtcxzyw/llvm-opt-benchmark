@@ -1778,18 +1778,18 @@ _ZN12_GLOBAL__N_110CFGBuilder17appendInitializerEPN5clang8CFGBlockEPNS1_18CXXCto
   %532 = load i16, ptr %461, align 8, !noalias !116
   %533 = and i16 %532, 511
   %.not44.i150.i = icmp eq i16 %533, 127
-  br i1 %.not44.i150.i, label %.preheader.i.i, label %_ZN5clang39extractElementInitializerFromNestedAILEEPKNS_17ArrayInitLoopExprE.exit.i.i
+  br i1 %.not44.i150.i, label %.preheader.i.i.i, label %_ZN5clang39extractElementInitializerFromNestedAILEEPKNS_17ArrayInitLoopExprE.exit.i.i
 
-.preheader.i.i:                                   ; preds = %531, %.preheader.i.i
+.preheader.i.i.i:                                 ; preds = %531, %.preheader.i.i.i
   %.pn.i.i.i = phi ptr [ %.08.i.i.i, %.preheader.i.i ], [ %461, %531 ]
   %.08.in.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 24
   %.08.i.i.i = load ptr, ptr %.08.in.i.i.i, align 8, !tbaa !3, !noalias !116
   %534 = load i16, ptr %.08.i.i.i, align 8, !noalias !116
   %535 = and i16 %534, 511
   %.not15.i.i.i = icmp eq i16 %535, 127
-  br i1 %.not15.i.i.i, label %.preheader.i.i, label %_ZN5clang39extractElementInitializerFromNestedAILEEPKNS_17ArrayInitLoopExprE.exit.i.i
+  br i1 %.not15.i.i.i, label %.preheader.i.i.i, label %_ZN5clang39extractElementInitializerFromNestedAILEEPKNS_17ArrayInitLoopExprE.exit.i.i
 
-_ZN5clang39extractElementInitializerFromNestedAILEEPKNS_17ArrayInitLoopExprE.exit.i.i: ; preds = %.preheader.i.i, %531
+_ZN5clang39extractElementInitializerFromNestedAILEEPKNS_17ArrayInitLoopExprE.exit.i.i: ; preds = %.preheader.i.i.i, %531
   %.07.i.i.i = phi ptr [ null, %531 ], [ %.08.i.i.i, %.preheader.i.i ]
   %536 = load ptr, ptr %50, align 8, !tbaa !111, !noalias !116
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 32
@@ -16287,18 +16287,18 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitLambdaEx
   %17 = load i16, ptr %15, align 8
   %18 = and i16 %17, 511
   %.not28 = icmp eq i16 %18, 127
-  br i1 %.not28, label %.preheader, label %_ZN5clang39extractElementInitializerFromNestedAILEEPKNS_17ArrayInitLoopExprE.exit
+  br i1 %.not28, label %.preheader.i, label %_ZN5clang39extractElementInitializerFromNestedAILEEPKNS_17ArrayInitLoopExprE.exit
 
-.preheader:                                       ; preds = %16, %.preheader
+.preheader.i:                                     ; preds = %16, %.preheader.i
   %.pn.i = phi ptr [ %.08.i, %.preheader ], [ %15, %16 ]
   %.08.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 24
   %.08.i = load ptr, ptr %.08.in.i, align 8, !tbaa !3
   %19 = load i16, ptr %.08.i, align 8
   %20 = and i16 %19, 511
   %.not15.i = icmp eq i16 %20, 127
-  br i1 %.not15.i, label %.preheader, label %_ZN5clang39extractElementInitializerFromNestedAILEEPKNS_17ArrayInitLoopExprE.exit
+  br i1 %.not15.i, label %.preheader.i, label %_ZN5clang39extractElementInitializerFromNestedAILEEPKNS_17ArrayInitLoopExprE.exit
 
-_ZN5clang39extractElementInitializerFromNestedAILEEPKNS_17ArrayInitLoopExprE.exit: ; preds = %.preheader, %16
+_ZN5clang39extractElementInitializerFromNestedAILEEPKNS_17ArrayInitLoopExprE.exit: ; preds = %.preheader.i, %16
   %.07.i = phi ptr [ null, %16 ], [ %.08.i, %.preheader ]
   %21 = load ptr, ptr %11, align 8, !tbaa !111
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32

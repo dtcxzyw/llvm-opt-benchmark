@@ -4594,7 +4594,7 @@ _ZN8QMapNodeIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE10lowerBoundERKS3_.ex
   %17 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = icmp ult ptr %11, %18
-  br i1 %19, label %20, label %_ZNK8QMapDataIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE8findNodeERKS3_.exit
+  br i1 %19, label %20, label %_ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6insertERKS3_RKS5_.exit
 
 20:                                               ; preds = %_ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6detachEv.exit, %_ZN8QMapNodeIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE10lowerBoundERKS3_.exit.i, %16
   %21 = load atomic i32, ptr %7 monotonic, align 4
@@ -4640,7 +4640,7 @@ _ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6detachEv.exit.i: ; preds
   %32 = getelementptr inbounds nuw i8, ptr %.121.i, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = icmp ult ptr %26, %33
-  br i1 %34, label %._crit_edge.thread.i, label %_ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6insertERKS3_RKS5_.exit
+  br i1 %34, label %._crit_edge.thread.i, label %_ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6insertERKS3_RKS5_.exit.sink.split
 
 ._crit_edge.thread.i:                             ; preds = %31, %._crit_edge.i, %_ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6detachEv.exit.i
   %.018.lcssa35.i = phi i1 [ %30, %31 ], [ %30, %._crit_edge.i ], [ true, %_ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6detachEv.exit.i ]
@@ -4649,18 +4649,18 @@ _ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6detachEv.exit.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %1, align 8
   store ptr %37, ptr %36, align 8
+  br label %_ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6insertERKS3_RKS5_.exit.sink.split
+
+_ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6insertERKS3_RKS5_.exit.sink.split: ; preds = %31, %._crit_edge.thread.i
+  %.sink14 = phi ptr [ %35, %._crit_edge.thread.i ], [ %.121.i, %31 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.sink14, i64 32
+  store ptr null, ptr %38, align 8
   br label %_ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6insertERKS3_RKS5_.exit
 
-_ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6insertERKS3_RKS5_.exit: ; preds = %31, %._crit_edge.thread.i
-  %.121.i.lcssa.sink = phi ptr [ %35, %._crit_edge.thread.i ], [ %.121.i, %31 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.121.i.lcssa.sink, i64 32
-  store ptr null, ptr %38, align 8
-  br label %_ZNK8QMapDataIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE8findNodeERKS3_.exit
-
-_ZNK8QMapDataIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE8findNodeERKS3_.exit: ; preds = %16, %_ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6insertERKS3_RKS5_.exit
-  %.1.i.i.lcssa.sink = phi ptr [ %.121.i.lcssa.sink, %_ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6insertERKS3_RKS5_.exit ], [ %.1.i.i, %16 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.1.i.i.lcssa.sink, i64 32
-  ret ptr %39
+_ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6insertERKS3_RKS5_.exit: ; preds = %16, %_ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6insertERKS3_RKS5_.exit.sink.split
+  %.1.i.i.pn = phi ptr [ %.sink14, %_ZN4QMapIPN3vcg9AlignPair6ResultEP18MeshTreeWidgetItemE6insertERKS3_RKS5_.exit ], [ %.1.i.i, %16 ]
+  %.0 = getelementptr inbounds nuw i8, ptr %.1.i.i.pn, i64 32
+  ret ptr %.0
 }
 
 declare void @_ZN6QBrushC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
@@ -5287,7 +5287,7 @@ _ZN8QMapNodeIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE10lower
   %17 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = icmp ult ptr %11, %18
-  br i1 %19, label %20, label %_ZNK8QMapDataIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE8findNodeERKS5_.exit
+  br i1 %19, label %20, label %_ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6insertERKS5_RKS7_.exit
 
 20:                                               ; preds = %_ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6detachEv.exit, %_ZN8QMapNodeIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE10lowerBoundERKS5_.exit.i, %16
   %21 = load atomic i32, ptr %7 monotonic, align 4
@@ -5333,7 +5333,7 @@ _ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6detachEv.e
   %32 = getelementptr inbounds nuw i8, ptr %.121.i, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = icmp ult ptr %26, %33
-  br i1 %34, label %._crit_edge.thread.i, label %_ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6insertERKS5_RKS7_.exit
+  br i1 %34, label %._crit_edge.thread.i, label %_ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6insertERKS5_RKS7_.exit.sink.split
 
 ._crit_edge.thread.i:                             ; preds = %31, %._crit_edge.i, %_ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6detachEv.exit.i
   %.018.lcssa35.i = phi i1 [ %30, %31 ], [ %30, %._crit_edge.i ], [ true, %_ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6detachEv.exit.i ]
@@ -5342,18 +5342,18 @@ _ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6detachEv.e
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %1, align 8
   store ptr %37, ptr %36, align 8
+  br label %_ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6insertERKS5_RKS7_.exit.sink.split
+
+_ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6insertERKS5_RKS7_.exit.sink.split: ; preds = %31, %._crit_edge.thread.i
+  %.sink14 = phi ptr [ %35, %._crit_edge.thread.i ], [ %.121.i, %31 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.sink14, i64 32
+  store ptr null, ptr %38, align 8
   br label %_ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6insertERKS5_RKS7_.exit
 
-_ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6insertERKS5_RKS7_.exit: ; preds = %31, %._crit_edge.thread.i
-  %.121.i.lcssa.sink = phi ptr [ %35, %._crit_edge.thread.i ], [ %.121.i, %31 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.121.i.lcssa.sink, i64 32
-  store ptr null, ptr %38, align 8
-  br label %_ZNK8QMapDataIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE8findNodeERKS5_.exit
-
-_ZNK8QMapDataIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE8findNodeERKS5_.exit: ; preds = %16, %_ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6insertERKS5_RKS7_.exit
-  %.1.i.i.lcssa.sink = phi ptr [ %.121.i.lcssa.sink, %_ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6insertERKS5_RKS7_.exit ], [ %.1.i.i, %16 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.1.i.i.lcssa.sink, i64 32
-  ret ptr %39
+_ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6insertERKS5_RKS7_.exit: ; preds = %16, %_ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6insertERKS5_RKS7_.exit.sink.split
+  %.1.i.i.pn = phi ptr [ %.sink14, %_ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemE6insertERKS5_RKS7_.exit ], [ %.1.i.i, %16 ]
+  %.0 = getelementptr inbounds nuw i8, ptr %.1.i.i.pn, i64 32
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind

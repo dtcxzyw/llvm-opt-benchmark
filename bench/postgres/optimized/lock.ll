@@ -2974,9 +2974,9 @@ FastPathUnGrantRelationLock.exit:                 ; preds = %155
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %177
 
-177:                                              ; preds = %.outer._crit_edge.thread, %285
-  %178 = phi ptr [ %.pre168, %.outer._crit_edge.thread ], [ %286, %285 ]
-  %179 = phi ptr [ %.pre166, %.outer._crit_edge.thread ], [ %287, %285 ]
+177:                                              ; preds = %.outer._crit_edge.thread, %284
+  %178 = phi ptr [ %.pre168, %.outer._crit_edge.thread ], [ %285, %285 ]
+  %179 = phi ptr [ %.pre166, %.outer._crit_edge.thread ], [ %286, %285 ]
   %indvars.iv162 = phi i64 [ 0, %.outer._crit_edge.thread ], [ %indvars.iv.next163, %285 ]
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 184
   %181 = getelementptr inbounds nuw %struct.dlist_head, ptr %180, i64 %indvars.iv162
@@ -2987,7 +2987,7 @@ FastPathUnGrantRelationLock.exit:                 ; preds = %155
   %186 = icmp eq ptr %185, null
   %187 = icmp eq ptr %185, %181
   %spec.select.i = or i1 %186, %187
-  br i1 %spec.select.i, label %285, label %188
+  br i1 %spec.select.i, label %284, label %188
 
 188:                                              ; preds = %177
   %189 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %183, i32 noundef 0) #16
@@ -3111,7 +3111,7 @@ UnGrantLock.exit:                                 ; preds = %221, %234
   %248 = getelementptr inbounds i8, ptr %.sroa.0.0147, i64 -24
   %249 = load i32, ptr %248, align 8
   %250 = icmp eq i32 %249, 0
-  br i1 %250, label %251, label %273
+  br i1 %250, label %251, label %272
 
 251:                                              ; preds = %._crit_edge142
   %252 = getelementptr inbounds i8, ptr %.sroa.0.0147, i64 -16
@@ -3140,38 +3140,38 @@ UnGrantLock.exit:                                 ; preds = %221, %234
   %.not.i119 = icmp eq ptr %269, null
   br i1 %.not.i119, label %270, label %273
 
-270:                                              ; preds = %251
-  %271 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
+270:; preds = %251
+  %271 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #16
   %272 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #16
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1708, ptr noundef nonnull @__func__.CleanUpLock) #16
   unreachable
 
-273:                                              ; preds = %251, %._crit_edge142
-  %274 = getelementptr inbounds nuw i8, ptr %192, i64 104
-  %275 = load i32, ptr %274, align 8
-  %276 = icmp eq i32 %275, 0
-  br i1 %276, label %277, label %283
+272:                                              ; preds = %251, %._crit_edge142
+  %273 = getelementptr inbounds nuw i8, ptr %192, i64 104
+  %274 = load i32, ptr %273, align 8
+  %275 = icmp eq i32 %274, 0
+  br i1 %275, label %276, label %282
 
-277:                                              ; preds = %273
-  %278 = load ptr, ptr @LockMethodLockHash, align 8
-  %279 = call ptr @hash_search_with_hash_value(ptr noundef %278, ptr noundef nonnull %192, i32 noundef %247, i32 noundef 2, ptr noundef null) #16
-  %.not12.i = icmp eq ptr %279, null
-  br i1 %.not12.i, label %280, label %CleanUpLock.exit
+276:                                              ; preds = %272
+  %277 = load ptr, ptr @LockMethodLockHash, align 8
+  %278 = call ptr @hash_search_with_hash_value(ptr noundef %277, ptr noundef nonnull %192, i32 noundef %247, i32 noundef 2, ptr noundef null) #16
+  %.not12.i = icmp eq ptr %278, null
+  br i1 %.not12.i, label %279, label %CleanUpLock.exit
 
-280:                                              ; preds = %277
-  %281 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
-  %282 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22) #16
+279:                                              ; preds = %276
+  %280 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
+  %281 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22) #16
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1724, ptr noundef nonnull @__func__.CleanUpLock) #16
   unreachable
 
-283:                                              ; preds = %273
-  br i1 %.0.lcssa, label %284, label %CleanUpLock.exit
+282:                                              ; preds = %272
+  br i1 %.0.lcssa, label %283, label %CleanUpLock.exit
 
-284:                                              ; preds = %283
+283:                                              ; preds = %282
   call void @ProcLockWakeup(ptr noundef nonnull %13, ptr noundef nonnull %192) #16
   br label %CleanUpLock.exit
 
-CleanUpLock.exit:                                 ; preds = %284, %283, %277, %205, %.lr.ph150
+CleanUpLock.exit:                                 ; preds = %283, %282, %276, %205, %.lr.ph150
   %.not111 = icmp eq ptr %.sroa.8.0148, %181
   br i1 %.not111, label %._crit_edge151, label %.lr.ph150, !llvm.loop !27
 
@@ -3179,16 +3179,16 @@ CleanUpLock.exit:                                 ; preds = %284, %283, %277, %2
   call void @LWLockRelease(ptr noundef nonnull %183) #16
   %.pre = load ptr, ptr @MyProc, align 8
   %.pre167 = load ptr, ptr @MainLWLockArray, align 8
-  br label %285
+  br label %284
 
-285:                                              ; preds = %177, %._crit_edge151
-  %286 = phi ptr [ %178, %177 ], [ %.pre167, %._crit_edge151 ]
-  %287 = phi ptr [ %179, %177 ], [ %.pre, %._crit_edge151 ]
+284:                                              ; preds = %177, %._crit_edge151
+  %285 = phi ptr [ %178, %177 ], [ %.pre167, %._crit_edge151 ]
+  %286 = phi ptr [ %179, %177 ], [ %.pre, %._crit_edge151 ]
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next163, 16
-  br i1 %exitcond165.not, label %288, label %177, !llvm.loop !28
+  br i1 %exitcond165.not, label %287, label %177, !llvm.loop !28
 
-288:                                              ; preds = %285
+287:                                              ; preds = %284
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

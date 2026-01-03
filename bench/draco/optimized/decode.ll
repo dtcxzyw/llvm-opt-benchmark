@@ -2724,8 +2724,8 @@ _ZN5draco7OptionsD2Ev.exit:                       ; preds = %_ZNSt4pairIN5draco1
   resume { ptr, i32 } %46
 
 47:                                               ; preds = %_ZNSt3mapIN5draco17GeometryAttribute4TypeENS0_7OptionsESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit, %_ZN5draco7OptionsD2Ev.exit
-  %48 = phi ptr [ %.sroa.012.0.i, %_ZN5draco7OptionsD2Ev.exit ], [ %.19.i.i.i, %_ZNSt3mapIN5draco17GeometryAttribute4TypeENS0_7OptionsESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit ]
-  %.0 = getelementptr inbounds nuw i8, ptr %48, i64 40
+  %.19.i.i.i.pn = phi ptr [ %.sroa.012.0.i, %_ZN5draco7OptionsD2Ev.exit ], [ %.19.i.i.i, %_ZNSt3mapIN5draco17GeometryAttribute4TypeENS0_7OptionsESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit ]
+  %.0 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.pn, i64 40
   ret ptr %.0
 }
 

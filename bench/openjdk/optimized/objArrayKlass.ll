@@ -5144,20 +5144,20 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35: ; preds = %49, %_ZN
   br label %66
 
 ._crit_edge:                                      ; preds = %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread, %7
-  %61 = load i32, ptr @heapOopSize, align 4
-  %62 = sext i32 %61 to i64
-  %63 = mul i64 %6, %62
-  %64 = getelementptr inbounds i8, ptr %spec.select.i33, i64 %63
+  %60 = load i32, ptr @heapOopSize, align 4
+  %61 = sext i32 %60 to i64
+  %62 = mul i64 %6, %61
+  %63 = getelementptr inbounds i8, ptr %spec.select.i33, i64 %63
   %65 = ptrtoint ptr %spec.select.i33 to i64
   br label %66
 
-66:                                               ; preds = %._crit_edge, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35
+64:                                               ; preds = %._crit_edge, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35
   %.sink = phi i64 [ %65, %._crit_edge ], [ %56, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35 ]
-  %.sink53 = phi ptr [ %64, %._crit_edge ], [ %60, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35 ]
-  %67 = phi i1 [ true, %._crit_edge ], [ false, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35 ]
-  %68 = and i64 %.sink, -8
+  %.pn = phi ptr [ %64, %._crit_edge ], [ %60, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35 ]
+  %65 = phi i1 [ true, %._crit_edge ], [ false, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35 ]
+  %68 = and i64 %.pn, -8
   %69 = inttoptr i64 %68 to ptr
-  %70 = ptrtoint ptr %.sink53 to i64
+  %68 = ptrtoint ptr %.pn to i64
   %reass.sub41 = sub i64 %70, %68
   %71 = add i64 %reass.sub41, 7
   %72 = lshr i64 %71, 3
@@ -5292,27 +5292,27 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35: ; preds = %50, %_ZN
   br label %86
 
 ._crit_edge:                                      ; preds = %_ZN12G1BarrierSet19write_ref_field_preILm52715622E9narrowOopEEvPT0_.exit, %7
-  %81 = load i32, ptr @heapOopSize, align 4
-  %82 = sext i32 %81 to i64
-  %83 = mul i64 %6, %82
+  %80 = load i32, ptr @heapOopSize, align 4
+  %81 = sext i32 %80 to i64
+  %82 = mul i64 %6, %81
   %84 = getelementptr inbounds i8, ptr %spec.select.i33, i64 %83
   %85 = ptrtoint ptr %spec.select.i33 to i64
   br label %86
 
-86:                                               ; preds = %._crit_edge, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35
-  %.sink = phi i64 [ %85, %._crit_edge ], [ %76, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35 ]
-  %.sink54 = phi ptr [ %84, %._crit_edge ], [ %80, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35 ]
+86: ; preds = %._crit_edge, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35
+  %.pn = phi i64 [ %85, %._crit_edge ], [ %76, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35 ]
+  %85 = phi ptr [ %84, %._crit_edge ], [ %80, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35 ]
   %87 = phi i1 [ true, %._crit_edge ], [ false, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35 ]
-  %88 = and i64 %.sink, -8
-  %89 = inttoptr i64 %88 to ptr
-  %90 = ptrtoint ptr %.sink54 to i64
-  %reass.sub41 = sub i64 %90, %88
-  %91 = add i64 %reass.sub41, 7
-  %92 = lshr i64 %91, 3
-  %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 56
-  %95 = load ptr, ptr %94, align 8
-  tail call void %95(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr %89, i64 %92) #13
+  %86 = and i64 %.sink, -8
+  %87 = inttoptr i64 %86 to ptr
+  %88 = ptrtoint ptr %.sink54 to i64
+  %reass.sub41 = sub i64 %88, %86
+  %89 = add i64 %reass.sub41, 7
+  %90 = lshr i64 %89, 3
+  %91 = load ptr, ptr %8, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 56
+  %93 = load ptr, ptr %92, align 8
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr %87, i64 %90) #13
   ret i1 %87
 }
 
@@ -5402,20 +5402,20 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35.i: ; preds = %_ZN7oo
   br label %_ZN16ModRefBarrierSet13AccessBarrierILm52715590E19CardTableBarrierSetE21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S7_mS9_m.exit
 
 ._crit_edge.i:                                    ; preds = %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread.i, %7
-  %51 = load i32, ptr @heapOopSize, align 4
-  %52 = sext i32 %51 to i64
-  %53 = mul i64 %6, %52
+  %50 = load i32, ptr @heapOopSize, align 4
+  %51 = sext i32 %50 to i64
+  %52 = mul i64 %6, %51
   %54 = getelementptr inbounds i8, ptr %spec.select.i33.i, i64 %53
   %55 = ptrtoint ptr %spec.select.i33.i to i64
   br label %_ZN16ModRefBarrierSet13AccessBarrierILm52715590E19CardTableBarrierSetE21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S7_mS9_m.exit
 
 _ZN16ModRefBarrierSet13AccessBarrierILm52715590E19CardTableBarrierSetE21oop_arraycopy_in_heapIP7oopDescEEbP12arrayOopDescmPT_S7_mS9_m.exit: ; preds = %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35.i, %._crit_edge.i
   %.sink.i = phi i64 [ %55, %._crit_edge.i ], [ %46, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35.i ]
-  %.sink53.i = phi ptr [ %54, %._crit_edge.i ], [ %50, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35.i ]
-  %56 = phi i1 [ true, %._crit_edge.i ], [ false, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35.i ]
+  %.pn.i = phi ptr [ %54, %._crit_edge.i ], [ %50, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35.i ]
+  %54 = phi i1 [ true, %._crit_edge.i ], [ false, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35.i ]
   %57 = and i64 %.sink.i, -8
   %58 = inttoptr i64 %57 to ptr
-  %59 = ptrtoint ptr %.sink53.i to i64
+  %59 = ptrtoint ptr %.pn.i to i64
   %reass.sub = sub i64 %59, %57
   %60 = add i64 %reass.sub, 7
   %61 = lshr i64 %60, 3
@@ -5700,27 +5700,27 @@ _ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35: ; preds = %40, %_ZN
   br label %68
 
 ._crit_edge:                                      ; preds = %_ZN12G1BarrierSet19write_ref_field_preILm52715590EP7oopDescEEvPT0_.exit, %7
-  %63 = load i32, ptr @heapOopSize, align 4
-  %64 = sext i32 %63 to i64
-  %65 = mul i64 %6, %64
+  %62 = load i32, ptr @heapOopSize, align 4
+  %63 = sext i32 %62 to i64
+  %64 = mul i64 %6, %63
   %66 = getelementptr inbounds i8, ptr %spec.select.i33, i64 %65
   %67 = ptrtoint ptr %spec.select.i33 to i64
   br label %68
 
-68:                                               ; preds = %._crit_edge, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35
-  %.sink = phi i64 [ %67, %._crit_edge ], [ %58, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35 ]
-  %.sink54 = phi ptr [ %66, %._crit_edge ], [ %62, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35 ]
+68: ; preds = %._crit_edge, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35
+  %.pn = phi i64 [ %67, %._crit_edge ], [ %58, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35 ]
+  %67 = phi ptr [ %66, %._crit_edge ], [ %62, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35 ]
   %69 = phi i1 [ true, %._crit_edge ], [ false, %_ZN7oopDesc21is_instanceof_or_nullEPS_P5Klass.exit.thread35 ]
-  %70 = and i64 %.sink, -8
-  %71 = inttoptr i64 %70 to ptr
-  %72 = ptrtoint ptr %.sink54 to i64
-  %reass.sub41 = sub i64 %72, %70
-  %73 = add i64 %reass.sub41, 7
-  %74 = lshr i64 %73, 3
-  %75 = load ptr, ptr %8, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 56
-  %77 = load ptr, ptr %76, align 8
-  tail call void %77(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr %71, i64 %74) #13
+  %68 = and i64 %.sink, -8
+  %69 = inttoptr i64 %68 to ptr
+  %70 = ptrtoint ptr %.sink54 to i64
+  %reass.sub41 = sub i64 %70, %68
+  %71 = add i64 %reass.sub41, 7
+  %72 = lshr i64 %71, 3
+  %73 = load ptr, ptr %8, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 56
+  %75 = load ptr, ptr %74, align 8
+  tail call void %77(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr %69, i64 %72) #13
   ret i1 %69
 }
 

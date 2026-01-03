@@ -8536,7 +8536,7 @@ define dso_local i64 @acct_policy_get_preemptable_time(ptr noundef readonly capt
   %.not28.i = icmp eq ptr %20, null
   br i1 %.not28.i, label %.thread41, label %.thread
 
-21:                                               ; preds = %12
+29:                                               ; preds = %12
   %22 = select i1 %.not31.i, ptr %5, ptr %11
   %23 = getelementptr inbounds nuw i8, ptr %spec.select, i64 292
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 292
@@ -8545,7 +8545,7 @@ define dso_local i64 @acct_policy_get_preemptable_time(ptr noundef readonly capt
   %.not18 = icmp eq i32 %26, -1
   br i1 %.not18, label %33, label %29
 
-.thread:                                          ; preds = %12, %18, %9, %8
+30:                                               ; preds = %12, %18, %9, %8
   %.1.ph.ph = phi ptr [ %5, %9 ], [ %5, %8 ], [ %20, %18 ], [ %spec.select, %12 ]
   %27 = getelementptr inbounds nuw i8, ptr %.1.ph.ph, i64 292
   %28 = load i32, ptr %27, align 4
@@ -8558,16 +8558,16 @@ define dso_local i64 @acct_policy_get_preemptable_time(ptr noundef readonly capt
   %32 = add nsw i64 %3, %31
   br label %41
 
-33:                                               ; preds = %21
+.thread41:                                        ; preds = %29
   %.not19 = icmp eq i32 %25, -1
-  br i1 %.not19, label %.thread41, label %34
+  br i1 %.not19, label %37, label %34
 
-34:                                               ; preds = %33
+34:                                               ; preds = %.thread41
   %35 = zext i32 %25 to i64
   %36 = add nsw i64 %3, %35
   br label %41
 
-.thread41:                                        ; preds = %.thread, %18, %17, %33
+37:                                               ; preds = %.thread, %18, %17, %.thread41
   %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 792), align 8
   %.not20 = icmp eq i32 %37, -1
   br i1 %.not20, label %41, label %38
@@ -8615,7 +8615,7 @@ define dso_local zeroext i1 @acct_policy_is_job_preempt_exempt(ptr noundef reado
   %.not31.i.i = icmp eq i32 %17, 0
   %spec.select.i = select i1 %.not31.i.i, ptr %13, ptr %7
   %18 = icmp eq ptr %13, %7
-  br i1 %18, label %.thread.i, label %23
+  br i1 %18, label %.thread.i, label %acct_policy_set_qos_order.exit.i
 
 19:                                               ; preds = %1
   br i1 %.not27.i.i, label %.thread41.i, label %20
@@ -8626,38 +8626,38 @@ define dso_local zeroext i1 @acct_policy_is_job_preempt_exempt(ptr noundef reado
   %.not28.i.i = icmp eq ptr %22, null
   br i1 %.not28.i.i, label %.thread41.i, label %.thread.i
 
-23:                                               ; preds = %14
-  %24 = select i1 %.not31.i.i, ptr %7, ptr %13
-  %25 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 292
+acct_policy_set_qos_order.exit.i:                 ; preds = %14
+  %23 = select i1 %.not31.i.i, ptr %7, ptr %13
+  %24 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 292
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 292
   %27 = load i32, ptr %26, align 4
   %28 = load i32, ptr %25, align 4
   %.not18.i = icmp eq i32 %28, -1
-  br i1 %.not18.i, label %35, label %31
+  br i1 %.not18.i, label %acct_policy_get_preemptable_time.exit, label %31
 
-.thread.i:                                        ; preds = %20, %14, %11, %10
+31:                                               ; preds = %20, %14, %11, %10
   %.1.ph.ph.i = phi ptr [ %7, %11 ], [ %7, %10 ], [ %22, %20 ], [ %spec.select.i, %14 ]
   %29 = getelementptr inbounds nuw i8, ptr %.1.ph.ph.i, i64 292
   %30 = load i32, ptr %29, align 4
   %.not1853.i = icmp eq i32 %30, -1
   br i1 %.not1853.i, label %.thread41.i, label %31
 
-31:                                               ; preds = %.thread.i, %23
+32:                                               ; preds = %31, %23
   %32 = phi i32 [ %30, %.thread.i ], [ %28, %23 ]
   %33 = zext i32 %32 to i64
   %34 = add nsw i64 %5, %33
   br label %acct_policy_get_preemptable_time.exit
 
-35:                                               ; preds = %23
+.thread41.i:                                      ; preds = %23
   %.not19.i = icmp eq i32 %27, -1
   br i1 %.not19.i, label %.thread41.i, label %36
 
-36:                                               ; preds = %35
+36:                                               ; preds = %.thread41.i
   %37 = zext i32 %27 to i64
   %38 = add nsw i64 %5, %37
   br label %acct_policy_get_preemptable_time.exit
 
-.thread41.i:                                      ; preds = %35, %.thread.i, %20, %19
+acct_policy_get_preemptable_time.exit:            ; preds = %35, %.thread.i, %20, %19
   %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 792), align 8
   %.not20.i = icmp eq i32 %39, -1
   br i1 %.not20.i, label %acct_policy_get_preemptable_time.exit, label %40
@@ -8670,9 +8670,9 @@ define dso_local zeroext i1 @acct_policy_is_job_preempt_exempt(ptr noundef reado
 acct_policy_get_preemptable_time.exit:            ; preds = %31, %36, %.thread41.i, %40
   %.0.i = phi i64 [ %34, %31 ], [ %38, %36 ], [ %42, %40 ], [ %5, %.thread41.i ]
   call void @assoc_mgr_unlock(ptr noundef nonnull %2) #15
-  %43 = icmp slt i64 %3, %.0.i
+  %39 = icmp slt i64 %3, %.0.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i1 %43
+  ret i1 %39
 }
 
 ; Function Attrs: nounwind uwtable
