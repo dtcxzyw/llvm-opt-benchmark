@@ -8510,13 +8510,13 @@ define dso_local i64 @acct_policy_get_preemptable_time(ptr noundef readonly capt
   br i1 %.not.i, label %17, label %8
 
 8:                                                ; preds = %1
-  br i1 %.not27.i, label %acct_policy_set_qos_order.exit.thread36, label %9
+  br i1 %.not27.i, label %.thread, label %9
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %11 = load ptr, ptr %10, align 8
   %.not30.i = icmp eq ptr %11, null
-  br i1 %.not30.i, label %acct_policy_set_qos_order.exit.thread36, label %12
+  br i1 %.not30.i, label %.thread, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -8525,7 +8525,7 @@ define dso_local i64 @acct_policy_get_preemptable_time(ptr noundef readonly capt
   %.not31.i = icmp eq i32 %15, 0
   %spec.select = select i1 %.not31.i, ptr %11, ptr %5
   %16 = icmp eq ptr %11, %5
-  br i1 %16, label %acct_policy_set_qos_order.exit.thread36, label %acct_policy_set_qos_order.exit
+  br i1 %16, label %.thread, label %21
 
 17:                                               ; preds = %1
   br i1 %.not27.i, label %.thread41, label %18
@@ -8534,48 +8534,51 @@ define dso_local i64 @acct_policy_get_preemptable_time(ptr noundef readonly capt
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %20 = load ptr, ptr %19, align 8
   %.not28.i = icmp eq ptr %20, null
-  br i1 %.not28.i, label %.thread41, label %acct_policy_set_qos_order.exit.thread36
+  br i1 %.not28.i, label %.thread41, label %.thread
 
-acct_policy_set_qos_order.exit:                   ; preds = %12
-  %21 = select i1 %.not31.i, ptr %5, ptr %11
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 292
-  %23 = load i32, ptr %22, align 4
-  br label %acct_policy_set_qos_order.exit.thread36
+21:                                               ; preds = %12
+  %22 = select i1 %.not31.i, ptr %5, ptr %11
+  %23 = getelementptr inbounds nuw i8, ptr %spec.select, i64 292
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 292
+  %25 = load i32, ptr %24, align 4
+  %26 = load i32, ptr %23, align 4
+  %.not18 = icmp eq i32 %26, -1
+  br i1 %.not18, label %33, label %29
 
-acct_policy_set_qos_order.exit.thread36:          ; preds = %12, %18, %9, %8, %acct_policy_set_qos_order.exit
-  %spec.select.pn = phi ptr [ %spec.select, %acct_policy_set_qos_order.exit ], [ %5, %9 ], [ %5, %8 ], [ %20, %18 ], [ %spec.select, %12 ]
-  %24 = phi i32 [ %23, %acct_policy_set_qos_order.exit ], [ -1, %9 ], [ -1, %8 ], [ -1, %18 ], [ -1, %12 ]
-  %.in = getelementptr inbounds nuw i8, ptr %spec.select.pn, i64 292
-  %25 = load i32, ptr %.in, align 4
-  %.not18 = icmp eq i32 %25, -1
-  br i1 %.not18, label %29, label %26
+.thread:                                          ; preds = %12, %18, %9, %8
+  %.1.ph.ph = phi ptr [ %5, %9 ], [ %5, %8 ], [ %20, %18 ], [ %spec.select, %12 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.1.ph.ph, i64 292
+  %28 = load i32, ptr %27, align 4
+  %.not1853 = icmp eq i32 %28, -1
+  br i1 %.not1853, label %.thread41, label %29
 
-26:                                               ; preds = %acct_policy_set_qos_order.exit.thread36
-  %27 = zext i32 %25 to i64
-  %28 = add nsw i64 %3, %27
-  br label %37
-
-29:                                               ; preds = %acct_policy_set_qos_order.exit.thread36
-  %.not19 = icmp eq i32 %24, -1
-  br i1 %.not19, label %.thread41, label %30
-
-30:                                               ; preds = %29
-  %31 = zext i32 %24 to i64
+29:                                               ; preds = %.thread, %21
+  %30 = phi i32 [ %28, %.thread ], [ %26, %21 ]
+  %31 = zext i32 %30 to i64
   %32 = add nsw i64 %3, %31
-  br label %37
+  br label %41
 
-.thread41:                                        ; preds = %18, %17, %29
-  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 792), align 8
-  %.not20 = icmp eq i32 %33, -1
-  br i1 %.not20, label %37, label %34
+33:                                               ; preds = %21
+  %.not19 = icmp eq i32 %25, -1
+  br i1 %.not19, label %.thread41, label %34
 
-34:                                               ; preds = %.thread41
-  %35 = zext i32 %33 to i64
+34:                                               ; preds = %33
+  %35 = zext i32 %25 to i64
   %36 = add nsw i64 %3, %35
-  br label %37
+  br label %41
 
-37:                                               ; preds = %.thread41, %34, %30, %26
-  %.0 = phi i64 [ %28, %26 ], [ %32, %30 ], [ %36, %34 ], [ %3, %.thread41 ]
+.thread41:                                        ; preds = %.thread, %18, %17, %33
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 792), align 8
+  %.not20 = icmp eq i32 %37, -1
+  br i1 %.not20, label %41, label %38
+
+38:                                               ; preds = %.thread41
+  %39 = zext i32 %37 to i64
+  %40 = add nsw i64 %3, %39
+  br label %41
+
+41:                                               ; preds = %.thread41, %38, %34, %29
+  %.0 = phi i64 [ %32, %29 ], [ %36, %34 ], [ %40, %38 ], [ %3, %.thread41 ]
   ret i64 %.0
 }
 
@@ -8597,13 +8600,13 @@ define dso_local zeroext i1 @acct_policy_is_job_preempt_exempt(ptr noundef reado
   br i1 %.not.i.i, label %19, label %10
 
 10:                                               ; preds = %1
-  br i1 %.not27.i.i, label %acct_policy_set_qos_order.exit.thread36.i, label %11
+  br i1 %.not27.i.i, label %.thread.i, label %11
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 296
   %13 = load ptr, ptr %12, align 8
   %.not30.i.i = icmp eq ptr %13, null
-  br i1 %.not30.i.i, label %acct_policy_set_qos_order.exit.thread36.i, label %14
+  br i1 %.not30.i.i, label %.thread.i, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -8612,7 +8615,7 @@ define dso_local zeroext i1 @acct_policy_is_job_preempt_exempt(ptr noundef reado
   %.not31.i.i = icmp eq i32 %17, 0
   %spec.select.i = select i1 %.not31.i.i, ptr %13, ptr %7
   %18 = icmp eq ptr %13, %7
-  br i1 %18, label %acct_policy_set_qos_order.exit.thread36.i, label %acct_policy_set_qos_order.exit.i
+  br i1 %18, label %.thread.i, label %23
 
 19:                                               ; preds = %1
   br i1 %.not27.i.i, label %.thread41.i, label %20
@@ -8621,52 +8624,55 @@ define dso_local zeroext i1 @acct_policy_is_job_preempt_exempt(ptr noundef reado
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 296
   %22 = load ptr, ptr %21, align 8
   %.not28.i.i = icmp eq ptr %22, null
-  br i1 %.not28.i.i, label %.thread41.i, label %acct_policy_set_qos_order.exit.thread36.i
+  br i1 %.not28.i.i, label %.thread41.i, label %.thread.i
 
-acct_policy_set_qos_order.exit.i:                 ; preds = %14
-  %23 = select i1 %.not31.i.i, ptr %7, ptr %13
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 292
-  %25 = load i32, ptr %24, align 4
-  br label %acct_policy_set_qos_order.exit.thread36.i
+23:                                               ; preds = %14
+  %24 = select i1 %.not31.i.i, ptr %7, ptr %13
+  %25 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 292
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 292
+  %27 = load i32, ptr %26, align 4
+  %28 = load i32, ptr %25, align 4
+  %.not18.i = icmp eq i32 %28, -1
+  br i1 %.not18.i, label %35, label %31
 
-acct_policy_set_qos_order.exit.thread36.i:        ; preds = %acct_policy_set_qos_order.exit.i, %20, %14, %11, %10
-  %spec.select.pn.i = phi ptr [ %spec.select.i, %acct_policy_set_qos_order.exit.i ], [ %7, %11 ], [ %7, %10 ], [ %22, %20 ], [ %spec.select.i, %14 ]
-  %26 = phi i32 [ %25, %acct_policy_set_qos_order.exit.i ], [ -1, %11 ], [ -1, %10 ], [ -1, %20 ], [ -1, %14 ]
-  %.in.i = getelementptr inbounds nuw i8, ptr %spec.select.pn.i, i64 292
-  %27 = load i32, ptr %.in.i, align 4
-  %.not18.i = icmp eq i32 %27, -1
-  br i1 %.not18.i, label %31, label %28
+.thread.i:                                        ; preds = %20, %14, %11, %10
+  %.1.ph.ph.i = phi ptr [ %7, %11 ], [ %7, %10 ], [ %22, %20 ], [ %spec.select.i, %14 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.1.ph.ph.i, i64 292
+  %30 = load i32, ptr %29, align 4
+  %.not1853.i = icmp eq i32 %30, -1
+  br i1 %.not1853.i, label %.thread41.i, label %31
 
-28:                                               ; preds = %acct_policy_set_qos_order.exit.thread36.i
-  %29 = zext i32 %27 to i64
-  %30 = add nsw i64 %5, %29
-  br label %acct_policy_get_preemptable_time.exit
-
-31:                                               ; preds = %acct_policy_set_qos_order.exit.thread36.i
-  %.not19.i = icmp eq i32 %26, -1
-  br i1 %.not19.i, label %.thread41.i, label %32
-
-32:                                               ; preds = %31
-  %33 = zext i32 %26 to i64
+31:                                               ; preds = %.thread.i, %23
+  %32 = phi i32 [ %30, %.thread.i ], [ %28, %23 ]
+  %33 = zext i32 %32 to i64
   %34 = add nsw i64 %5, %33
   br label %acct_policy_get_preemptable_time.exit
 
-.thread41.i:                                      ; preds = %31, %20, %19
-  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 792), align 8
-  %.not20.i = icmp eq i32 %35, -1
-  br i1 %.not20.i, label %acct_policy_get_preemptable_time.exit, label %36
+35:                                               ; preds = %23
+  %.not19.i = icmp eq i32 %27, -1
+  br i1 %.not19.i, label %.thread41.i, label %36
 
-36:                                               ; preds = %.thread41.i
-  %37 = zext i32 %35 to i64
+36:                                               ; preds = %35
+  %37 = zext i32 %27 to i64
   %38 = add nsw i64 %5, %37
   br label %acct_policy_get_preemptable_time.exit
 
-acct_policy_get_preemptable_time.exit:            ; preds = %28, %32, %.thread41.i, %36
-  %.0.i = phi i64 [ %30, %28 ], [ %34, %32 ], [ %38, %36 ], [ %5, %.thread41.i ]
+.thread41.i:                                      ; preds = %35, %.thread.i, %20, %19
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 792), align 8
+  %.not20.i = icmp eq i32 %39, -1
+  br i1 %.not20.i, label %acct_policy_get_preemptable_time.exit, label %40
+
+40:                                               ; preds = %.thread41.i
+  %41 = zext i32 %39 to i64
+  %42 = add nsw i64 %5, %41
+  br label %acct_policy_get_preemptable_time.exit
+
+acct_policy_get_preemptable_time.exit:            ; preds = %31, %36, %.thread41.i, %40
+  %.0.i = phi i64 [ %34, %31 ], [ %38, %36 ], [ %42, %40 ], [ %5, %.thread41.i ]
   call void @assoc_mgr_unlock(ptr noundef nonnull %2) #15
-  %39 = icmp slt i64 %3, %.0.i
+  %43 = icmp slt i64 %3, %.0.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i1 %39
+  ret i1 %43
 }
 
 ; Function Attrs: nounwind uwtable

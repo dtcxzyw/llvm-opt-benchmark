@@ -876,6 +876,7 @@ if.then.i.i680:                                   ; preds = %if.end79
   store ptr %call.i427, ptr %spec.select, align 8
   %ref.tmp80.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i64 %call2.i429, ptr %ref.tmp80.sroa.3.0..sroa_idx, align 8
+  %incdec.ptr.i.i681 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
   br label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit712
 
 if.else.i.i682:                                   ; preds = %if.end79
@@ -904,15 +905,15 @@ _ZNKSt6vectorIN4llvh9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i687: ; pred
   store ptr %call.i427, ptr %add.ptr.i.i.i696, align 8
   %ref.tmp80.sroa.3.0.add.ptr.i.i.i696.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i696, i64 8
   store i64 %call2.i429, ptr %ref.tmp80.sroa.3.0.add.ptr.i.i.i696.sroa_idx, align 8
+  %incdec.ptr.i.i.i706 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i695, i64 16
   call void @_ZdlPv(ptr noundef nonnull %args59.sroa.0.8) #19
   %add.ptr19.i.i.i710 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %call5.i.i.i.i.i.i695, i64 %cond.i.i.i.i692
   br label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit712
 
 _ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit712: ; preds = %if.then.i.i680, %_ZNKSt6vectorIN4llvh9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i687
   %args59.sroa.75.7 = phi ptr [ %add.ptr19.i.i.i710, %_ZNKSt6vectorIN4llvh9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i687 ], [ %args59.sroa.75.6, %if.then.i.i680 ]
-  %call5.i.i.i.i.i.i695.pn = phi ptr [ %call5.i.i.i.i.i.i695, %_ZNKSt6vectorIN4llvh9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i687 ], [ %spec.select, %if.then.i.i680 ]
+  %args59.sroa.27.9 = phi ptr [ %incdec.ptr.i.i.i706, %_ZNKSt6vectorIN4llvh9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i687 ], [ %incdec.ptr.i.i681, %if.then.i.i680 ]
   %args59.sroa.0.9 = phi ptr [ %call5.i.i.i.i.i.i695, %_ZNKSt6vectorIN4llvh9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i687 ], [ %args59.sroa.0.8, %if.then.i.i680 ]
-  %args59.sroa.27.9 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i695.pn, i64 16
   br i1 %call42, label %sw.bb85, label %sw.bb83
 
 sw.bb83:                                          ; preds = %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit712
@@ -923,9 +924,9 @@ sw.bb83:                                          ; preds = %_ZNSt6vectorIN4llvh
 
 if.then.i.i716:                                   ; preds = %sw.bb83
   store ptr %call.i439, ptr %args59.sroa.27.9, align 8
-  %ref.tmp84.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i695.pn, i64 24
+  %ref.tmp84.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %args59.sroa.27.9, i64 8
   store i64 %call2.i441, ptr %ref.tmp84.sroa.3.0..sroa_idx, align 8
-  %incdec.ptr.i.i717 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i695.pn, i64 32
+  %incdec.ptr.i.i717 = getelementptr inbounds nuw i8, ptr %args59.sroa.27.9, i64 16
   br label %sw.epilog
 
 if.else.i.i718:                                   ; preds = %sw.bb83
@@ -963,7 +964,7 @@ for.body.i.i.i.i.i.i734:                          ; preds = %_ZNKSt6vectorIN4llv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i735, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i736, i64 16, i1 false), !alias.scope !58
   %incdec.ptr.i.i.i.i.i.i737 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i.i736, i64 16
   %incdec.ptr1.i.i.i.i.i.i738 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i.i735, i64 16
-  %cmp.not.i.i.i.i.i.i739 = icmp eq ptr %__first.addr.06.i.i.i.i.i.i736, %call5.i.i.i.i.i.i695.pn
+  %cmp.not.i.i.i.i.i.i739 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i737, %args59.sroa.75.7
   br i1 %cmp.not.i.i.i.i.i.i739, label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i745, label %for.body.i.i.i.i.i.i734, !llvm.loop !49
 
 _ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i745: ; preds = %for.body.i.i.i.i.i.i734, %_ZNKSt6vectorIN4llvh9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i723
@@ -978,9 +979,8 @@ sw.bb85:                                          ; preds = %_ZNSt6vectorIN4llvh
 
 if.then.i.i752:                                   ; preds = %sw.bb85
   store ptr @.str.47, ptr %args59.sroa.27.9, align 8
-  %ref.tmp86.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i695.pn, i64 24
+  %ref.tmp86.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %args59.sroa.27.9, i64 8
   store i64 9, ptr %ref.tmp86.sroa.3.0..sroa_idx, align 8
-  %incdec.ptr.i.i753 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i695.pn, i64 32
   br label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit784
 
 if.else.i.i754:                                   ; preds = %sw.bb85
@@ -1018,20 +1018,20 @@ for.body.i.i.i.i.i.i770:                          ; preds = %_ZNKSt6vectorIN4llv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i771, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i772, i64 16, i1 false), !alias.scope !62
   %incdec.ptr.i.i.i.i.i.i773 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i.i772, i64 16
   %incdec.ptr1.i.i.i.i.i.i774 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i.i771, i64 16
-  %cmp.not.i.i.i.i.i.i775 = icmp eq ptr %__first.addr.06.i.i.i.i.i.i772, %call5.i.i.i.i.i.i695.pn
+  %cmp.not.i.i.i.i.i.i775 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i773, %args59.sroa.75.7
   br i1 %cmp.not.i.i.i.i.i.i775, label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i781, label %for.body.i.i.i.i.i.i770, !llvm.loop !49
 
 _ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i781: ; preds = %for.body.i.i.i.i.i.i770, %_ZNKSt6vectorIN4llvh9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i759
   %__cur.0.lcssa.i.i.i.i.i.i777 = phi ptr [ %call5.i.i.i.i.i.i767, %_ZNKSt6vectorIN4llvh9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i759 ], [ %incdec.ptr1.i.i.i.i.i.i774, %for.body.i.i.i.i.i.i770 ]
-  %incdec.ptr.i.i.i778 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i.i777, i64 16
   call void @_ZdlPv(ptr noundef nonnull %args59.sroa.0.9) #19
   %add.ptr19.i.i.i782 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %call5.i.i.i.i.i.i767, i64 %cond.i.i.i.i764
   br label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit784
 
 _ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit784: ; preds = %if.then.i.i752, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i781
   %args59.sroa.75.8 = phi ptr [ %add.ptr19.i.i.i782, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i781 ], [ %args59.sroa.75.7, %if.then.i.i752 ]
-  %args59.sroa.27.11 = phi ptr [ %incdec.ptr.i.i.i778, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i781 ], [ %incdec.ptr.i.i753, %if.then.i.i752 ]
+  %__cur.0.lcssa.i.i.i.i.i.i777.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i777, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i781 ], [ %args59.sroa.27.9, %if.then.i.i752 ]
   %args59.sroa.0.11 = phi ptr [ %call5.i.i.i.i.i.i767, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i781 ], [ %args59.sroa.0.9, %if.then.i.i752 ]
+  %args59.sroa.27.11 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i.i777.pn, i64 16
   %call.i445 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %OutputFilename) #16
   %call2.i447 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %OutputFilename) #16
   %cmp.not.i.i787 = icmp eq ptr %args59.sroa.27.11, %args59.sroa.75.8
@@ -1039,9 +1039,9 @@ _ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit784: ; preds = %if.the
 
 if.then.i.i788:                                   ; preds = %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit784
   store ptr %call.i445, ptr %args59.sroa.27.11, align 8
-  %ref.tmp87.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %args59.sroa.27.11, i64 8
+  %ref.tmp87.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i.i777.pn, i64 24
   store i64 %call2.i447, ptr %ref.tmp87.sroa.3.0..sroa_idx, align 8
-  %incdec.ptr.i.i789 = getelementptr inbounds nuw i8, ptr %args59.sroa.27.11, i64 16
+  %incdec.ptr.i.i789 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i.i777.pn, i64 32
   br label %sw.epilog
 
 if.else.i.i790:                                   ; preds = %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit784
@@ -1079,7 +1079,7 @@ for.body.i.i.i.i.i.i806:                          ; preds = %_ZNKSt6vectorIN4llv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i807, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i808, i64 16, i1 false), !alias.scope !66
   %incdec.ptr.i.i.i.i.i.i809 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i.i808, i64 16
   %incdec.ptr1.i.i.i.i.i.i810 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i.i807, i64 16
-  %cmp.not.i.i.i.i.i.i811 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i809, %args59.sroa.75.8
+  %cmp.not.i.i.i.i.i.i811 = icmp eq ptr %__first.addr.06.i.i.i.i.i.i808, %__cur.0.lcssa.i.i.i.i.i.i777.pn
   br i1 %cmp.not.i.i.i.i.i.i811, label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i817, label %for.body.i.i.i.i.i.i806, !llvm.loop !49
 
 _ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i817: ; preds = %for.body.i.i.i.i.i.i806, %_ZNKSt6vectorIN4llvh9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i795

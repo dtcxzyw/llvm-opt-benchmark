@@ -6805,10 +6805,10 @@ define hidden void @"_ZN3mbe7tt_iter15TtIter$LT$S$GT$18expect_glued_punct17h4192
   %65 = load i32, ptr %64, align 4, !range !1821, !noundef !30
   br label %.thread
 
-.thread:                                          ; preds = %55, %.thread224thread-pre-split, %63
-  %66 = phi i1 [ false, %63 ], [ true, %.thread224thread-pre-split ], [ true, %55 ]
-  %.0118157 = phi ptr [ %64, %63 ], [ null, %.thread224thread-pre-split ], [ null, %55 ]
-  %.0117 = phi i32 [ %65, %63 ], [ 1114112, %.thread224thread-pre-split ], [ 1114112, %55 ]
+.thread:                                          ; preds = %.thread224thread-pre-split, %55, %63
+  %66 = phi i1 [ false, %63 ], [ true, %55 ], [ true, %.thread224thread-pre-split ]
+  %.0118157 = phi ptr [ %64, %63 ], [ null, %55 ], [ null, %.thread224thread-pre-split ]
+  %.0117 = phi i32 [ %65, %63 ], [ 1114112, %55 ], [ 1114112, %.thread224thread-pre-split ]
   %.0119158 = getelementptr inbounds nuw i8, ptr %18, i64 68
   %67 = load i32, ptr %.0119158, align 4, !range !1821, !noundef !30
   switch i32 %.sroa.0.0.copyload, label %68 [

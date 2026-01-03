@@ -644,7 +644,7 @@ define dso_local void @ForgetUnstartedBackgroundWorkers() local_unnamed_addr #0 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %select.unfold
-  %2 = phi ptr [ %33, %select.unfold ], [ %.pre20, %.lr.ph.preheader ]
+  %2 = phi ptr [ %34, %select.unfold ], [ %.pre20, %.lr.ph.preheader ]
   %.sroa.0.018 = phi ptr [ %.sroa.8.019, %select.unfold ], [ %1, %.lr.ph.preheader ]
   %.sroa.8.019.in = getelementptr inbounds nuw i8, ptr %.sroa.0.018, i64 8
   %.sroa.8.019 = load ptr, ptr %.sroa.8.019.in, align 8
@@ -692,19 +692,20 @@ define dso_local void @ForgetUnstartedBackgroundWorkers() local_unnamed_addr #0 
   br label %ForgetBackgroundWorker.exit
 
 ForgetBackgroundWorker.exit:                      ; preds = %24, %26
-  %28 = load ptr, ptr %.sroa.8.019.in, align 8
-  %29 = load ptr, ptr %.sroa.0.018, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %28, ptr %30, align 8
-  %31 = load ptr, ptr %.sroa.0.018, align 8
-  store ptr %31, ptr %28, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.018, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %.sroa.0.018, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr %29, ptr %31, align 8
+  %32 = load ptr, ptr %.sroa.0.018, align 8
+  store ptr %32, ptr %29, align 8
   tail call void @pfree(ptr noundef nonnull %3) #13
-  %32 = tail call i32 @kill(i32 noundef %13, i32 noundef 10) #13
+  %33 = tail call i32 @kill(i32 noundef %13, i32 noundef 10) #13
   %.pre = load ptr, ptr @BackgroundWorkerData, align 8
   br label %select.unfold
 
 select.unfold:                                    ; preds = %ForgetBackgroundWorker.exit, %11, %.lr.ph
-  %33 = phi ptr [ %.pre, %ForgetBackgroundWorker.exit ], [ %2, %11 ], [ %2, %.lr.ph ]
+  %34 = phi ptr [ %.pre, %ForgetBackgroundWorker.exit ], [ %2, %11 ], [ %2, %.lr.ph ]
   %.not13 = icmp eq ptr %.sroa.8.019, @BackgroundWorkerList
   br i1 %.not13, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !15
 
@@ -727,7 +728,7 @@ define dso_local void @ResetBackgroundWorkerCrashTimes() local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %.sroa.0.014, i64 -1296
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, -1
-  br i1 %4, label %5, label %28
+  br i1 %4, label %5, label %29
 
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr inbounds i8, ptr %.sroa.0.014, i64 -1496
@@ -762,23 +763,24 @@ define dso_local void @ResetBackgroundWorkerCrashTimes() local_unnamed_addr #0 {
   br label %ForgetBackgroundWorker.exit
 
 ForgetBackgroundWorker.exit:                      ; preds = %20, %22
-  %24 = load ptr, ptr %.sroa.8.015.in, align 8
-  %25 = load ptr, ptr %.sroa.0.014, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %24, ptr %26, align 8
-  %27 = load ptr, ptr %.sroa.0.014, align 8
-  store ptr %27, ptr %24, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %.sroa.0.014, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store ptr %25, ptr %27, align 8
+  %28 = load ptr, ptr %.sroa.0.014, align 8
+  store ptr %28, ptr %25, align 8
   tail call void @pfree(ptr noundef nonnull %6) #13
   br label %select.unfold
 
-28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds i8, ptr %.sroa.0.014, i64 -16
-  store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %.sroa.0.014, i64 -32
-  store i32 0, ptr %30, align 8
+29:                                               ; preds = %.lr.ph
+  %30 = getelementptr inbounds i8, ptr %.sroa.0.014, i64 -16
+  store i64 0, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %.sroa.0.014, i64 -32
+  store i32 0, ptr %31, align 8
   br label %select.unfold
 
-select.unfold:                                    ; preds = %28, %ForgetBackgroundWorker.exit
+select.unfold:                                    ; preds = %29, %ForgetBackgroundWorker.exit
   %.not10 = icmp eq ptr %.sroa.8.015, @BackgroundWorkerList
   br i1 %.not10, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !16
 

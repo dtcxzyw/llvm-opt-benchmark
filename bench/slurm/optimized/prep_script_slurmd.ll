@@ -209,7 +209,7 @@ _run_spank_job_script.exit:                       ; preds = %62, %64, %67
   %.057 = phi ptr [ %23, %_run_spank_job_script.exit ], [ null, %.critedge ], [ null, %19 ]
   %.053 = phi i32 [ %68, %_run_spank_job_script.exit ], [ 0, %.critedge ], [ 0, %19 ]
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %117, label %70
+  br i1 %.not, label %123, label %70
 
 70:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -255,111 +255,125 @@ _run_spank_job_script.exit:                       ; preds = %62, %64, %67
   %wide.trip.count = zext i32 %15 to i64
   br label %89
 
-89:                                               ; preds = %85, %113
-  %indvars.iv = phi i64 [ 0, %85 ], [ %indvars.iv.next, %113 ]
-  %.049117 = phi ptr [ null, %85 ], [ %.251.ph, %113 ]
+89:                                               ; preds = %85, %119
+  %indvars.iv = phi i64 [ 0, %85 ], [ %indvars.iv.next, %119 ]
+  %.049117 = phi ptr [ null, %85 ], [ %.251.ph, %119 ]
   %90 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i77 = icmp eq ptr %91, null
-  br i1 %.not.i77, label %.critedge76.sink.split, label %92
+  br i1 %.not.i77, label %_script_list_create.exit.thread, label %93
 
-92:                                               ; preds = %89
-  %93 = call i32 @glob(ptr noundef nonnull %91, i32 noundef 1, ptr noundef nonnull @_ef, ptr noundef nonnull %4) #6
-  switch i32 %93, label %108 [
-    i32 0, label %94
-    i32 3, label %_script_list_create.exit.thread82
-    i32 1, label %104
-    i32 2, label %106
-  ]
-
-94:                                               ; preds = %92
-  %95 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #6
-  %96 = load i64, ptr %4, align 8
-  %.not14.i = icmp eq i64 %96, 0
-  br i1 %.not14.i, label %_script_list_create.exit, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %94, %.lr.ph.i
-  %.013.i = phi i64 [ %101, %.lr.ph.i ], [ 0, %94 ]
-  %97 = load ptr, ptr %88, align 8
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %.013.i
-  %99 = load ptr, ptr %98, align 8
-  %100 = call ptr @xstrdup(ptr noundef %99) #6
-  call void @list_push(ptr noundef %95, ptr noundef %100) #6
-  %101 = add nuw i64 %.013.i, 1
-  %102 = load i64, ptr %4, align 8
-  %103 = icmp ult i64 %101, %102
-  br i1 %103, label %.lr.ph.i, label %_script_list_create.exit, !llvm.loop !8
-
-104:                                              ; preds = %92
-  %105 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3) #6
-  br label %_script_list_create.exit.thread82
-
-106:                                              ; preds = %92
-  %107 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull %91) #6
-  br label %_script_list_create.exit.thread82
-
-108:                                              ; preds = %92
-  %109 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, i32 noundef %93) #6
-  br label %_script_list_create.exit.thread82
-
-_script_list_create.exit.thread82:                ; preds = %92, %108, %104, %106
-  call void @globfree(ptr noundef nonnull %4) #6
-  br label %.critedge76.sink.split
-
-_script_list_create.exit:                         ; preds = %.lr.ph.i, %94
-  call void @globfree(ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not70.not = icmp eq ptr %95, null
-  br i1 %.not70.not, label %.critedge76, label %110
-
-110:                                              ; preds = %_script_list_create.exit
-  %.not71 = icmp eq ptr %.049117, null
-  br i1 %.not71, label %113, label %111
-
-111:                                              ; preds = %110
-  %112 = call i32 @list_transfer(ptr noundef nonnull %.049117, ptr noundef nonnull %95) #6
-  call void @list_destroy(ptr noundef nonnull %95) #6
-  br label %113
-
-113:                                              ; preds = %111, %110
-  %.251.ph = phi ptr [ %95, %110 ], [ %.049117, %111 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %114, label %89, !llvm.loop !11
-
-114:                                              ; preds = %113
-  %115 = call i32 @list_for_each(ptr noundef nonnull %.251.ph, ptr noundef nonnull @_run_subpath_command, ptr noundef nonnull %11) #6
-  call void @list_destroy(ptr noundef nonnull %.251.ph) #6
-  %116 = load i32, ptr %9, align 4
-  %.not74 = icmp eq i32 %116, 0
-  %spec.select = select i1 %.not74, i32 %.053, i32 %116
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %117
-
-117:                                              ; preds = %114, %69
-  %.259 = phi ptr [ %.360, %114 ], [ %.057, %69 ]
-  %.154 = phi i32 [ %spec.select, %114 ], [ %.053, %69 ]
-  call void @env_array_free(ptr noundef %.259) #6
-  br label %121
-
-.critedge76.sink.split:                           ; preds = %89, %_script_list_create.exit.thread82
+_script_list_create.exit.thread:                  ; preds = %89
+  %92 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge76
 
-.critedge76:                                      ; preds = %_script_list_create.exit, %.critedge76.sink.split
-  %118 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
-  %119 = load ptr, ptr %118, align 8
-  %120 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull %12, ptr noundef %119) #6
+93:                                               ; preds = %89
+  %94 = call i32 @glob(ptr noundef nonnull %91, i32 noundef 1, ptr noundef nonnull @_ef, ptr noundef nonnull %4) #6
+  switch i32 %94, label %111 [
+    i32 0, label %95
+    i32 3, label %_script_list_create.exit.thread82.loopexit
+    i32 1, label %105
+    i32 2, label %108
+  ]
+
+95:                                               ; preds = %93
+  %96 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #6
+  %97 = load i64, ptr %4, align 8
+  %.not14.i = icmp eq i64 %97, 0
+  br i1 %.not14.i, label %_script_list_create.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %95, %.lr.ph.i
+  %.013.i = phi i64 [ %102, %.lr.ph.i ], [ 0, %95 ]
+  %98 = load ptr, ptr %88, align 8
+  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %.013.i
+  %100 = load ptr, ptr %99, align 8
+  %101 = call ptr @xstrdup(ptr noundef %100) #6
+  call void @list_push(ptr noundef %96, ptr noundef %101) #6
+  %102 = add nuw i64 %.013.i, 1
+  %103 = load i64, ptr %4, align 8
+  %104 = icmp ult i64 %102, %103
+  br i1 %104, label %.lr.ph.i, label %_script_list_create.exit, !llvm.loop !8
+
+105:                                              ; preds = %93
+  %106 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %107 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3) #6
+  br label %_script_list_create.exit.thread82
+
+108:                                              ; preds = %93
+  %109 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %110 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull %91) #6
+  br label %_script_list_create.exit.thread82
+
+111:                                              ; preds = %93
+  %112 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %113 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, i32 noundef %94) #6
+  br label %_script_list_create.exit.thread82
+
+_script_list_create.exit.thread82.loopexit:       ; preds = %93
+  %114 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  br label %_script_list_create.exit.thread82
+
+_script_list_create.exit.thread82:                ; preds = %_script_list_create.exit.thread82.loopexit, %111, %105, %108
+  %115 = phi ptr [ %114, %_script_list_create.exit.thread82.loopexit ], [ %112, %111 ], [ %106, %105 ], [ %109, %108 ]
+  call void @globfree(ptr noundef nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %.critedge76
+
+_script_list_create.exit:                         ; preds = %.lr.ph.i, %95
+  call void @globfree(ptr noundef nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %.not70.not = icmp eq ptr %96, null
+  br i1 %.not70.not, label %.critedge76.loopexit, label %116
+
+116:                                              ; preds = %_script_list_create.exit
+  %.not71 = icmp eq ptr %.049117, null
+  br i1 %.not71, label %119, label %117
+
+117:                                              ; preds = %116
+  %118 = call i32 @list_transfer(ptr noundef nonnull %.049117, ptr noundef nonnull %96) #6
+  call void @list_destroy(ptr noundef nonnull %96) #6
+  br label %119
+
+119:                                              ; preds = %117, %116
+  %.251.ph = phi ptr [ %96, %116 ], [ %.049117, %117 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %120, label %89, !llvm.loop !11
+
+120:                                              ; preds = %119
+  %121 = call i32 @list_for_each(ptr noundef nonnull %.251.ph, ptr noundef nonnull @_run_subpath_command, ptr noundef nonnull %11) #6
+  call void @list_destroy(ptr noundef nonnull %.251.ph) #6
+  %122 = load i32, ptr %9, align 4
+  %.not74 = icmp eq i32 %122, 0
+  %spec.select = select i1 %.not74, i32 %.053, i32 %122
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %121
+  br label %123
 
-121:                                              ; preds = %.critedge76, %117
-  %.364 = phi i32 [ %.154, %117 ], [ -1, %.critedge76 ]
+123:                                              ; preds = %120, %69
+  %.259 = phi ptr [ %.360, %120 ], [ %.057, %69 ]
+  %.154 = phi i32 [ %spec.select, %120 ], [ %.053, %69 ]
+  call void @env_array_free(ptr noundef %.259) #6
+  br label %128
+
+.critedge76.loopexit:                             ; preds = %_script_list_create.exit
+  %124 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  br label %.critedge76
+
+.critedge76:                                      ; preds = %.critedge76.loopexit, %_script_list_create.exit.thread82, %_script_list_create.exit.thread
+  %125 = phi ptr [ %124, %.critedge76.loopexit ], [ %115, %_script_list_create.exit.thread82 ], [ %92, %_script_list_create.exit.thread ]
+  %126 = load ptr, ptr %125, align 8
+  %127 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull %12, ptr noundef %126) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %128
+
+128:                                              ; preds = %.critedge76, %123
+  %.364 = phi i32 [ %.154, %123 ], [ -1, %.critedge76 ]
   ret i32 %.364
 }
 

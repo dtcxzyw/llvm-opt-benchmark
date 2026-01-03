@@ -416,9 +416,9 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEiSt4lessIS3_ESaISt4pairIKS3_iEEE11
   br label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEiSt4lessIS3_ESaISt4pairIKS3_iEEEixERS7_.exit14
 
 _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEiSt4lessIS3_ESaISt4pairIKS3_iEEEixERS7_.exit14: ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEiSt4lessIS3_ESaISt4pairIKS3_iEEE4findERS7_.exit, %.critedge.i12, %63
-  %.sroa.06.0.i11.pn = phi ptr [ %69, %.critedge.i12 ], [ %.19.i.i.i.i5, %63 ], [ %.19.i.i.i, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEiSt4lessIS3_ESaISt4pairIKS3_iEEE4findERS7_.exit ]
-  %.0.in = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i11.pn, i64 40
-  %.0 = load i32, ptr %.0.in, align 4, !tbaa !46
+  %.19.i.i.i.lcssa.sink = phi ptr [ %69, %.critedge.i12 ], [ %.19.i.i.i.i5, %63 ], [ %.19.i.i.i, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEiSt4lessIS3_ESaISt4pairIKS3_iEEE4findERS7_.exit ]
+  %70 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.lcssa.sink, i64 40
+  %.0 = load i32, ptr %70, align 4, !tbaa !46
   ret i32 %.0
 }
 
@@ -577,9 +577,9 @@ _ZNSt3mapIN4cvc58internal8TypeNodeEiSt4lessIS2_ESaISt4pairIKS2_iEEE11lower_bound
   br label %_ZNSt3mapIN4cvc58internal8TypeNodeEiSt4lessIS2_ESaISt4pairIKS2_iEEEixERS6_.exit14
 
 _ZNSt3mapIN4cvc58internal8TypeNodeEiSt4lessIS2_ESaISt4pairIKS2_iEEEixERS6_.exit14: ; preds = %_ZNSt3mapIN4cvc58internal8TypeNodeEiSt4lessIS2_ESaISt4pairIKS2_iEEE4findERS6_.exit, %.critedge.i12, %63
-  %.sroa.06.0.i11.pn = phi ptr [ %69, %.critedge.i12 ], [ %.19.i.i.i.i5, %63 ], [ %.19.i.i.i, %_ZNSt3mapIN4cvc58internal8TypeNodeEiSt4lessIS2_ESaISt4pairIKS2_iEEE4findERS6_.exit ]
-  %.0.in = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i11.pn, i64 40
-  %.0 = load i32, ptr %.0.in, align 4, !tbaa !46
+  %.19.i.i.i.lcssa.sink = phi ptr [ %69, %.critedge.i12 ], [ %.19.i.i.i.i5, %63 ], [ %.19.i.i.i, %_ZNSt3mapIN4cvc58internal8TypeNodeEiSt4lessIS2_ESaISt4pairIKS2_iEEE4findERS6_.exit ]
+  %70 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.lcssa.sink, i64 40
+  %.0 = load i32, ptr %70, align 4, !tbaa !46
   ret i32 %.0
 }
 

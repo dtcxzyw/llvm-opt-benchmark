@@ -2974,10 +2974,10 @@ FastPathUnGrantRelationLock.exit:                 ; preds = %155
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %177
 
-177:                                              ; preds = %.outer._crit_edge.thread, %284
-  %178 = phi ptr [ %.pre168, %.outer._crit_edge.thread ], [ %285, %284 ]
-  %179 = phi ptr [ %.pre166, %.outer._crit_edge.thread ], [ %286, %284 ]
-  %indvars.iv162 = phi i64 [ 0, %.outer._crit_edge.thread ], [ %indvars.iv.next163, %284 ]
+177:                                              ; preds = %.outer._crit_edge.thread, %285
+  %178 = phi ptr [ %.pre168, %.outer._crit_edge.thread ], [ %286, %285 ]
+  %179 = phi ptr [ %.pre166, %.outer._crit_edge.thread ], [ %287, %285 ]
+  %indvars.iv162 = phi i64 [ 0, %.outer._crit_edge.thread ], [ %indvars.iv.next163, %285 ]
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 184
   %181 = getelementptr inbounds nuw %struct.dlist_head, ptr %180, i64 %indvars.iv162
   %182 = getelementptr inbounds nuw %union.LWLockPadded, ptr %178, i64 %indvars.iv162
@@ -2987,7 +2987,7 @@ FastPathUnGrantRelationLock.exit:                 ; preds = %155
   %186 = icmp eq ptr %185, null
   %187 = icmp eq ptr %185, %181
   %spec.select.i = or i1 %186, %187
-  br i1 %spec.select.i, label %284, label %188
+  br i1 %spec.select.i, label %285, label %188
 
 188:                                              ; preds = %177
   %189 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %183, i32 noundef 0) #16
@@ -3111,7 +3111,7 @@ UnGrantLock.exit:                                 ; preds = %221, %234
   %248 = getelementptr inbounds i8, ptr %.sroa.0.0147, i64 -24
   %249 = load i32, ptr %248, align 8
   %250 = icmp eq i32 %249, 0
-  br i1 %250, label %251, label %272
+  br i1 %250, label %251, label %273
 
 251:                                              ; preds = %._crit_edge142
   %252 = getelementptr inbounds i8, ptr %.sroa.0.0147, i64 -16
@@ -3122,55 +3122,56 @@ UnGrantLock.exit:                                 ; preds = %221, %234
   store ptr %254, ptr %256, align 8
   %257 = load ptr, ptr %252, align 8
   store ptr %257, ptr %254, align 8
-  %258 = load ptr, ptr %.sroa.8.0148.in, align 8
-  %259 = load ptr, ptr %.sroa.0.0147, align 8
-  %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
-  store ptr %258, ptr %260, align 8
-  %261 = load ptr, ptr %.sroa.0.0147, align 8
-  store ptr %261, ptr %258, align 8
-  %262 = getelementptr i8, ptr %.sroa.0.0147, i64 -40
-  %.val.i = load ptr, ptr %262, align 8
-  %263 = ptrtoint ptr %.val.i to i64
-  %264 = trunc i64 %263 to i32
-  %265 = shl i32 %264, 4
-  %266 = xor i32 %265, %247
-  %267 = load ptr, ptr @LockMethodProcLockHash, align 8
-  %268 = call ptr @hash_search_with_hash_value(ptr noundef %267, ptr noundef nonnull %191, i32 noundef %266, i32 noundef 2, ptr noundef null) #16
-  %.not.i119 = icmp eq ptr %268, null
-  br i1 %.not.i119, label %269, label %272
+  %258 = getelementptr inbounds nuw i8, ptr %.sroa.0.0147, i64 8
+  %259 = load ptr, ptr %258, align 8
+  %260 = load ptr, ptr %.sroa.0.0147, align 8
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
+  store ptr %259, ptr %261, align 8
+  %262 = load ptr, ptr %.sroa.0.0147, align 8
+  store ptr %262, ptr %259, align 8
+  %263 = getelementptr i8, ptr %.sroa.0.0147, i64 -40
+  %.val.i = load ptr, ptr %263, align 8
+  %264 = ptrtoint ptr %.val.i to i64
+  %265 = trunc i64 %264 to i32
+  %266 = shl i32 %265, 4
+  %267 = xor i32 %266, %247
+  %268 = load ptr, ptr @LockMethodProcLockHash, align 8
+  %269 = call ptr @hash_search_with_hash_value(ptr noundef %268, ptr noundef nonnull %191, i32 noundef %267, i32 noundef 2, ptr noundef null) #16
+  %.not.i119 = icmp eq ptr %269, null
+  br i1 %.not.i119, label %270, label %273
 
-269:                                              ; preds = %251
-  %270 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
-  %271 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #16
+270:                                              ; preds = %251
+  %271 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
+  %272 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #16
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1708, ptr noundef nonnull @__func__.CleanUpLock) #16
   unreachable
 
-272:                                              ; preds = %251, %._crit_edge142
-  %273 = getelementptr inbounds nuw i8, ptr %192, i64 104
-  %274 = load i32, ptr %273, align 8
-  %275 = icmp eq i32 %274, 0
-  br i1 %275, label %276, label %282
+273:                                              ; preds = %251, %._crit_edge142
+  %274 = getelementptr inbounds nuw i8, ptr %192, i64 104
+  %275 = load i32, ptr %274, align 8
+  %276 = icmp eq i32 %275, 0
+  br i1 %276, label %277, label %283
 
-276:                                              ; preds = %272
-  %277 = load ptr, ptr @LockMethodLockHash, align 8
-  %278 = call ptr @hash_search_with_hash_value(ptr noundef %277, ptr noundef nonnull %192, i32 noundef %247, i32 noundef 2, ptr noundef null) #16
-  %.not12.i = icmp eq ptr %278, null
-  br i1 %.not12.i, label %279, label %CleanUpLock.exit
+277:                                              ; preds = %273
+  %278 = load ptr, ptr @LockMethodLockHash, align 8
+  %279 = call ptr @hash_search_with_hash_value(ptr noundef %278, ptr noundef nonnull %192, i32 noundef %247, i32 noundef 2, ptr noundef null) #16
+  %.not12.i = icmp eq ptr %279, null
+  br i1 %.not12.i, label %280, label %CleanUpLock.exit
 
-279:                                              ; preds = %276
-  %280 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
-  %281 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22) #16
+280:                                              ; preds = %277
+  %281 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
+  %282 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22) #16
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1724, ptr noundef nonnull @__func__.CleanUpLock) #16
   unreachable
 
-282:                                              ; preds = %272
-  br i1 %.0.lcssa, label %283, label %CleanUpLock.exit
+283:                                              ; preds = %273
+  br i1 %.0.lcssa, label %284, label %CleanUpLock.exit
 
-283:                                              ; preds = %282
+284:                                              ; preds = %283
   call void @ProcLockWakeup(ptr noundef nonnull %13, ptr noundef nonnull %192) #16
   br label %CleanUpLock.exit
 
-CleanUpLock.exit:                                 ; preds = %283, %282, %276, %205, %.lr.ph150
+CleanUpLock.exit:                                 ; preds = %284, %283, %277, %205, %.lr.ph150
   %.not111 = icmp eq ptr %.sroa.8.0148, %181
   br i1 %.not111, label %._crit_edge151, label %.lr.ph150, !llvm.loop !27
 
@@ -3178,16 +3179,16 @@ CleanUpLock.exit:                                 ; preds = %283, %282, %276, %2
   call void @LWLockRelease(ptr noundef nonnull %183) #16
   %.pre = load ptr, ptr @MyProc, align 8
   %.pre167 = load ptr, ptr @MainLWLockArray, align 8
-  br label %284
+  br label %285
 
-284:                                              ; preds = %177, %._crit_edge151
-  %285 = phi ptr [ %178, %177 ], [ %.pre167, %._crit_edge151 ]
-  %286 = phi ptr [ %179, %177 ], [ %.pre, %._crit_edge151 ]
+285:                                              ; preds = %177, %._crit_edge151
+  %286 = phi ptr [ %178, %177 ], [ %.pre167, %._crit_edge151 ]
+  %287 = phi ptr [ %179, %177 ], [ %.pre, %._crit_edge151 ]
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next163, 16
-  br i1 %exitcond165.not, label %287, label %177, !llvm.loop !28
+  br i1 %exitcond165.not, label %288, label %177, !llvm.loop !28
 
-287:                                              ; preds = %284
+288:                                              ; preds = %285
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

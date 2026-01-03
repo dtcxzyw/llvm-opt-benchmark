@@ -5612,7 +5612,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer16GetSoftened
   %12 = load i32, ptr %11, align 8
   %13 = select i1 %.not.i.i.i.i.i, i32 %12, i32 8
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %15
+  br i1 %14, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPS6_RKT_.exit.thread.i, label %15
 
 15:                                               ; preds = %3
   %16 = mul i32 %4, 37
@@ -5622,14 +5622,14 @@ define linkonce_odr hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer16GetSoftened
   %19 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !26
   %21 = icmp eq i32 %4, %20
-  br i1 %21, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit, label %.lr.ph.i.i, !prof !218
+  br i1 %21, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPS6_RKT_.exit.i, label %.lr.ph.i.i, !prof !218
 
 .lr.ph.i.i:                                       ; preds = %15, %24
   %22 = phi i32 [ %29, %24 ], [ %20, %15 ]
   %.01730.i.i = phi i32 [ %.017.i.i, %24 ], [ %.01728.i.i, %15 ]
   %.01529.i.i = phi i32 [ %25, %24 ], [ 1, %15 ]
   %23 = icmp eq i32 %22, -1
-  br i1 %23, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %24, !prof !219
+  br i1 %23, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPS6_RKT_.exit.thread.i, label %24, !prof !219
 
 24:                                               ; preds = %.lr.ph.i.i
   %25 = add i32 %.01529.i.i, 1
@@ -5639,75 +5639,86 @@ define linkonce_odr hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer16GetSoftened
   %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !26
   %30 = icmp eq i32 %4, %29
-  br i1 %30, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit, label %.lr.ph.i.i, !prof !220, !llvm.loop !269
+  br i1 %30, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPS6_RKT_.exit.i, label %.lr.ph.i.i, !prof !220, !llvm.loop !269
 
-_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %24, %15
-  %.pn = phi i64 [ %18, %15 ], [ %27, %24 ]
-  %31 = zext i32 %13 to i64
-  %32 = icmp samesign eq i64 %.pn, %31
-  br i1 %32, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %33
+_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPS6_RKT_.exit.i: ; preds = %24, %15
+  %.lcssa.i.i = phi i64 [ %18, %15 ], [ %27, %24 ]
+  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %.lcssa.i.i
+  %.pre = zext i32 %13 to i64
+  br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
 
-33:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
-  %.sroa.0.1.i = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %.pn
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 4
-  tail call void @_ZN4llvm16DAGTypeLegalizer7RemapIdERj(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef nonnull align 4 dereferenceable(4) %34) #17
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %36 = load i32, ptr %35, align 8
-  %37 = and i32 %36, 1
-  %.not.i.i.i.i.i.i = icmp eq i32 %37, 0
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %39 = load ptr, ptr %38, align 8
-  %40 = select i1 %.not.i.i.i.i.i.i, ptr %39, ptr %38
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %42 = load i32, ptr %41, align 8
-  %43 = select i1 %.not.i.i.i.i.i.i, i32 %42, i32 8
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %.loopexit.i.i, label %45
+_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPS6_RKT_.exit.thread.i: ; preds = %.lr.ph.i.i, %3
+  %32 = zext i32 %13 to i64
+  %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %32
+  br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
 
-45:                                               ; preds = %33
-  %46 = load i32, ptr %34, align 4, !tbaa !26
-  %47 = mul i32 %46, 37
-  %48 = add i32 %43, -1
-  %.01726.i.i.i = and i32 %47, %48
-  %49 = zext i32 %.01726.i.i.i to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %40, i64 %49
-  %51 = load i32, ptr %50, align 4, !tbaa !26
-  %52 = icmp eq i32 %46, %51
-  br i1 %52, label %_ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit, label %.lr.ph.i.i.i, !prof !218
+_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPS6_RKT_.exit.i, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPS6_RKT_.exit.thread.i
+  %.pre-phi = phi i64 [ %.pre, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPS6_RKT_.exit.i ], [ %32, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPS6_RKT_.exit.thread.i ]
+  %.sroa.0.1.i = phi ptr [ %31, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPS6_RKT_.exit.i ], [ %33, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E6doFindIjEEPS6_RKT_.exit.thread.i ]
+  %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %.pre-phi
+  %35 = icmp eq ptr %.sroa.0.1.i, %34
+  br i1 %35, label %68, label %36
 
-.lr.ph.i.i.i:                                     ; preds = %45, %55
-  %53 = phi i32 [ %60, %55 ], [ %51, %45 ]
-  %.01728.i.i.i = phi i32 [ %.017.i.i.i, %55 ], [ %.01726.i.i.i, %45 ]
-  %.01527.i.i.i = phi i32 [ %56, %55 ], [ 1, %45 ]
-  %54 = icmp eq i32 %53, -1
-  br i1 %54, label %.loopexit.i.i, label %55, !prof !219
+36:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 4
+  tail call void @_ZN4llvm16DAGTypeLegalizer7RemapIdERj(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef nonnull align 4 dereferenceable(4) %37) #17
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %39 = load i32, ptr %38, align 8
+  %40 = and i32 %39, 1
+  %.not.i.i.i.i.i.i = icmp eq i32 %40, 0
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %42 = load ptr, ptr %41, align 8
+  %43 = select i1 %.not.i.i.i.i.i.i, ptr %42, ptr %41
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %45 = load i32, ptr %44, align 8
+  %46 = select i1 %.not.i.i.i.i.i.i, i32 %45, i32 8
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %.loopexit.i.i, label %48
 
-55:                                               ; preds = %.lr.ph.i.i.i
-  %56 = add i32 %.01527.i.i.i, 1
-  %57 = add i32 %.01527.i.i.i, %.01728.i.i.i
-  %.017.i.i.i = and i32 %57, %48
-  %58 = zext i32 %.017.i.i.i to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %40, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !26
-  %61 = icmp eq i32 %46, %60
-  br i1 %61, label %_ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit, label %.lr.ph.i.i.i, !prof !220, !llvm.loop !221
+48:                                               ; preds = %36
+  %49 = load i32, ptr %37, align 4, !tbaa !26
+  %50 = mul i32 %49, 37
+  %51 = add i32 %46, -1
+  %.01726.i.i.i = and i32 %50, %51
+  %52 = zext i32 %.01726.i.i.i to i64
+  %53 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %43, i64 %52
+  %54 = load i32, ptr %53, align 4, !tbaa !26
+  %55 = icmp eq i32 %49, %54
+  br i1 %55, label %_ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit, label %.lr.ph.i.i.i, !prof !218
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i, %33
-  %62 = zext i32 %43 to i64
-  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %40, i64 %62
+.lr.ph.i.i.i:                                     ; preds = %48, %58
+  %56 = phi i32 [ %63, %58 ], [ %54, %48 ]
+  %.01728.i.i.i = phi i32 [ %.017.i.i.i, %58 ], [ %.01726.i.i.i, %48 ]
+  %.01527.i.i.i = phi i32 [ %59, %58 ], [ 1, %48 ]
+  %57 = icmp eq i32 %56, -1
+  br i1 %57, label %.loopexit.i.i, label %58, !prof !219
+
+58:                                               ; preds = %.lr.ph.i.i.i
+  %59 = add i32 %.01527.i.i.i, 1
+  %60 = add i32 %.01527.i.i.i, %.01728.i.i.i
+  %.017.i.i.i = and i32 %60, %51
+  %61 = zext i32 %.017.i.i.i to i64
+  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %43, i64 %61
+  %63 = load i32, ptr %62, align 4, !tbaa !26
+  %64 = icmp eq i32 %49, %63
+  br i1 %64, label %_ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit, label %.lr.ph.i.i.i, !prof !220, !llvm.loop !221
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i, %36
+  %65 = zext i32 %46 to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %43, i64 %65
   br label %_ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit
 
-_ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit:   ; preds = %55, %45, %.loopexit.i.i
-  %.sroa.0.1.i.i = phi ptr [ %63, %.loopexit.i.i ], [ %50, %45 ], [ %59, %55 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 8
-  %.sroa.03.0.copyload = load ptr, ptr %64, align 8, !tbaa !24
+_ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit:   ; preds = %58, %48, %.loopexit.i.i
+  %.sroa.0.1.i.i = phi ptr [ %66, %.loopexit.i.i ], [ %53, %48 ], [ %62, %58 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 8
+  %.sroa.03.0.copyload = load ptr, ptr %67, align 8, !tbaa !24
   %.sroa.34.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 16
   %.sroa.34.0.copyload = load i32, ptr %.sroa.34.0..sroa_idx, align 8, !tbaa !26
-  br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread
+  br label %68
 
-_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread: ; preds = %.lr.ph.i.i, %3, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit, %_ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit
-  %.sroa.03.0 = phi ptr [ %.sroa.03.0.copyload, %_ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit ], [ %1, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit ], [ %1, %3 ], [ %1, %.lr.ph.i.i ]
-  %.sroa.34.0 = phi i32 [ %.sroa.34.0.copyload, %_ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit ], [ %2, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit ], [ %2, %3 ], [ %2, %.lr.ph.i.i ]
+68:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit, %_ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit
+  %.sroa.03.0 = phi ptr [ %.sroa.03.0.copyload, %_ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit ], [ %1, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit ]
+  %.sroa.34.0 = phi i32 [ %.sroa.34.0.copyload, %_ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit ], [ %2, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.34.0, 1
   ret { ptr, i32 } %.fca.1.insert
