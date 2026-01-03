@@ -5955,8 +5955,8 @@ _ZN4llvm5APIntD2Ev.exit85:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %or.cond72 = or i1 %or.cond7, %or.cond9
   %259 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %260 = load ptr, ptr %259, align 8, !tbaa !166
-  %261 = getelementptr inbounds nuw %"struct.llvm::Dependence::DVEntry", ptr %260, i64 %.pre-phi
-  %262 = load i8, ptr %261, align 8
+  %260 = getelementptr inbounds nuw %"struct.llvm::Dependence::DVEntry", ptr %260, i64 %.pre-phi
+  %261 = load i8, ptr %260, align 8
   %263 = select i1 %or.cond72, i8 -4, i8 -8
   %264 = or disjoint i8 %.1, %263
   %265 = and i8 %264, %262
@@ -18457,8 +18457,8 @@ define dso_local void @_ZNK4llvm14DependenceInfo15updateDirectionERNS_10Dependen
   %22 = load ptr, ptr %13, align 8, !tbaa !163
   %23 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(1344) %21, ptr noundef %22) #27
   %24 = load i8, ptr %1, align 8
-  %25 = select i1 %23, i8 -8, i8 -4
-  %26 = or disjoint i8 %25, %.130
+  %.231 = select i1 %23, i8 -8, i8 -4
+  %26 = or disjoint i8 %.231, %.130
   %27 = and i8 %24, %26
   store i8 %27, ptr %1, align 8
   br label %70

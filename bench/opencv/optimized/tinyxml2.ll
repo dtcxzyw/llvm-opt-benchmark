@@ -3547,39 +3547,39 @@ _ZN2cv8tinyxml27StrPair9ParseTextEPcPKci.exit.thread: ; preds = %.tail.thread, %
   %.not19.i23 = icmp eq i8 %46, 0
   br i1 %.not19.i23, label %.thread, label %.lr.ph.i24
 
-.lr.ph.i24:                                       ; preds = %35, %56
-  %lhsc = phi i8 [ %58, %56 ], [ %46, %35 ]
-  %.01620.i25 = phi ptr [ %57, %56 ], [ %1, %35 ]
-  %47 = icmp eq i8 %lhsc, 60
-  br i1 %47, label %48, label %56
+.lr.ph.i24:                                       ; preds = %35, %57
+  %lhsc = phi i8 [ %59, %56 ], [ %46, %35 ]
+  %.01620.i25 = phi ptr [ %58, %56 ], [ %1, %35 ]
+  %48 = icmp eq i8 %lhsc, 60
+  br i1 %48, label %49, label %57
 
-48:                                               ; preds = %.lr.ph.i24
-  %49 = load i32, ptr %45, align 8, !tbaa !3
-  %50 = and i32 %49, 512
-  %.not.i.i.i28 = icmp eq i32 %50, 0
-  br i1 %.not.i.i.i28, label %_ZN2cv8tinyxml27StrPair9ParseTextEPcPKci.exit30, label %51
+49:                                               ; preds = %.lr.ph.i24
+  %50 = load i32, ptr %45, align 8, !tbaa !3
+  %51 = and i32 %50, 512
+  %.not.i.i.i28 = icmp eq i32 %51, 0
+  br i1 %.not.i.i.i28, label %_ZN2cv8tinyxml27StrPair9ParseTextEPcPKci.exit30, label %52
 
-51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %53 = load ptr, ptr %52, align 8, !tbaa !10
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %_ZN2cv8tinyxml27StrPair9ParseTextEPcPKci.exit30, label %55
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %54 = load ptr, ptr %53, align 8, !tbaa !10
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %_ZN2cv8tinyxml27StrPair9ParseTextEPcPKci.exit30, label %56
 
-55:                                               ; preds = %51
-  tail call void @_ZdaPv(ptr noundef nonnull %53) #23
+56:                                               ; preds = %52
+  tail call void @_ZdaPv(ptr noundef nonnull %54) #23
   br label %_ZN2cv8tinyxml27StrPair9ParseTextEPcPKci.exit30
 
-56:                                               ; preds = %.lr.ph.i24
-  %57 = getelementptr inbounds nuw i8, ptr %.01620.i25, i64 1
-  %58 = load i8, ptr %57, align 1, !tbaa !12
-  %.not.i26 = icmp eq i8 %58, 0
+57:                                               ; preds = %.lr.ph.i24
+  %58 = getelementptr inbounds nuw i8, ptr %.01620.i25, i64 1
+  %59 = load i8, ptr %58, align 1, !tbaa !12
+  %.not.i26 = icmp eq i8 %59, 0
   br i1 %.not.i26, label %.thread, label %.lr.ph.i24, !llvm.loop !13
 
-_ZN2cv8tinyxml27StrPair9ParseTextEPcPKci.exit30:  ; preds = %48, %51, %55
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %1, ptr %59, align 8, !tbaa !10
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.01620.i25, ptr %60, align 8, !tbaa !11
+_ZN2cv8tinyxml27StrPair9ParseTextEPcPKci.exit30:  ; preds = %49, %52, %56
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %1, ptr %60, align 8, !tbaa !10
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %.01620.i25, ptr %61, align 8, !tbaa !11
   %61 = select i1 %44, i32 260, i32 256
   %62 = or disjoint i32 %61, %41
   store i32 %62, ptr %45, align 8, !tbaa !3
@@ -3589,7 +3589,7 @@ _ZN2cv8tinyxml27StrPair9ParseTextEPcPKci.exit30:  ; preds = %48, %51, %55
   %.not18 = icmp eq i8 %.fr, 0
   br i1 %.not18, label %68, label %69
 
-.thread:                                          ; preds = %56, %35
+.thread:                                          ; preds = %57, %35
   %65 = getelementptr inbounds nuw i8, ptr %37, i64 92
   store i32 10, ptr %65, align 4, !tbaa !106
   %66 = getelementptr inbounds nuw i8, ptr %37, i64 104

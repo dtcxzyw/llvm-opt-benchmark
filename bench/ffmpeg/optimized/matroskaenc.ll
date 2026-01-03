@@ -6926,7 +6926,7 @@ put_ebml_id.exit:                                 ; preds = %.lr.ph.i
   %spec.select.i.i.i = select i1 %.not.i.i.i35, i32 %66, i32 %67
   %spec.select12.i.i.i = select i1 %.not.i.i.i35, i32 0, i32 16
   %.not11.i.i.i = icmp samesign ult i32 %spec.select.i.i.i, 256
-  %68 = lshr i32 %spec.select.i.i.i, 8
+  %69 = lshr i32 %spec.select.i.i.i, 8
   %.110.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select.i.i.i, i32 %68
   %69 = zext nneg i32 %.110.i.i.i to i64
   %70 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %69
@@ -6940,13 +6940,13 @@ put_ebml_id.exit:                                 ; preds = %.lr.ph.i
   br i1 %.not4.i36, label %put_ebml_id.exit40, label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %put_ebml_id.exit, %.lr.ph.i37
-  %.05.i38 = phi i32 [ %77, %.lr.ph.i37 ], [ %76, %put_ebml_id.exit ]
-  %77 = add nsw i32 %.05.i38, -1
-  %78 = shl nsw i32 %77, 3
-  %79 = lshr i32 %66, %78
-  %80 = and i32 %79, 255
-  call void @avio_w8(ptr noundef %65, i32 noundef %80) #14
-  %.not.i39 = icmp eq i32 %77, 0
+  %.05.i38 = phi i32 [ %78, %.lr.ph.i37 ], [ %76, %put_ebml_id.exit ]
+  %78 = add nsw i32 %.05.i38, -1
+  %79 = shl nsw i32 %78, 3
+  %80 = lshr i32 %66, %79
+  %81 = and i32 %80, 255
+  call void @avio_w8(ptr noundef %65, i32 noundef %81) #14
+  %.not.i39 = icmp eq i32 %78, 0
   br i1 %.not.i39, label %put_ebml_id.exit40.loopexit, label %.lr.ph.i37, !llvm.loop !51
 
 put_ebml_id.exit40.loopexit:                      ; preds = %.lr.ph.i37
@@ -6954,88 +6954,88 @@ put_ebml_id.exit40.loopexit:                      ; preds = %.lr.ph.i37
   br label %put_ebml_id.exit40
 
 put_ebml_id.exit40:                               ; preds = %put_ebml_id.exit40.loopexit, %put_ebml_id.exit
-  %81 = phi ptr [ %.pre, %put_ebml_id.exit40.loopexit ], [ %65, %put_ebml_id.exit ]
-  %82 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %83 = load i64, ptr %82, align 8, !tbaa !269
-  br label %84
+  %82 = phi ptr [ %.pre, %put_ebml_id.exit40.loopexit ], [ %65, %put_ebml_id.exit ]
+  %83 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %84 = load i64, ptr %83, align 8, !tbaa !269
+  br label %85
 
-84:                                               ; preds = %84, %put_ebml_id.exit40
+85:                                               ; preds = %85, %put_ebml_id.exit40
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %84 ], [ 1, %put_ebml_id.exit40 ]
-  %.0.i41 = phi i64 [ %85, %84 ], [ %83, %put_ebml_id.exit40 ]
-  %85 = lshr i64 %.0.i41, 8
-  %.not.i42 = icmp eq i64 %85, 0
+  %.0.i41 = phi i64 [ %86, %84 ], [ %84, %put_ebml_id.exit40 ]
+  %86 = lshr i64 %.0.i41, 8
+  %.not.i42 = icmp eq i64 %86, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not.i42, label %.lr.ph.i.i44, label %84, !llvm.loop !97
+  br i1 %.not.i42, label %.lr.ph.i.i44, label %85, !llvm.loop !97
 
-.lr.ph.i.i44:                                     ; preds = %84, %.lr.ph.i.i44
-  %.05.i.i45 = phi i32 [ %86, %.lr.ph.i.i44 ], [ %39, %84 ]
-  %86 = add nsw i32 %.05.i.i45, -1
-  %87 = shl nsw i32 %86, 3
-  %88 = lshr i32 21420, %87
-  %89 = and i32 %88, 255
-  call void @avio_w8(ptr noundef %81, i32 noundef %89) #14
-  %.not.i.i46 = icmp eq i32 %86, 0
+.lr.ph.i.i44:                                     ; preds = %85, %.lr.ph.i.i44
+  %.05.i.i45 = phi i32 [ %87, %.lr.ph.i.i44 ], [ %39, %84 ]
+  %87 = add nsw i32 %.05.i.i45, -1
+  %88 = shl nsw i32 %87, 3
+  %89 = lshr i32 21420, %88
+  %90 = and i32 %89, 255
+  call void @avio_w8(ptr noundef %82, i32 noundef %90) #14
+  %.not.i.i46 = icmp eq i32 %87, 0
   br i1 %.not.i.i46, label %put_ebml_id.exit.i, label %.lr.ph.i.i44, !llvm.loop !51
 
 put_ebml_id.exit.i:                               ; preds = %.lr.ph.i.i44
-  %90 = and i64 %indvars.iv.i, 4294967295
-  call fastcc void @put_ebml_length(ptr noundef %81, i64 noundef %90, i32 noundef 0)
-  br label %91
+  %91 = and i64 %indvars.iv.i, 4294967295
+  call fastcc void @put_ebml_length(ptr noundef %82, i64 noundef %91, i32 noundef 0)
+  br label %92
 
-91:                                               ; preds = %91, %put_ebml_id.exit.i
+92:                                               ; preds = %92, %put_ebml_id.exit.i
   %indvars.iv16.i = phi i64 [ %indvars.iv.i, %put_ebml_id.exit.i ], [ %indvars.iv.next17.i, %91 ]
   %indvars.iv.next17.i = add nsw i64 %indvars.iv16.i, -1
-  %92 = shl nsw i64 %indvars.iv.next17.i, 3
-  %93 = lshr i64 %83, %92
-  %94 = trunc i64 %93 to i32
-  %95 = and i32 %94, 255
-  call void @avio_w8(ptr noundef %81, i32 noundef %95) #14
-  %96 = icmp sgt i64 %indvars.iv16.i, 1
-  br i1 %96, label %91, label %put_ebml_uint.exit, !llvm.loop !60
+  %93 = shl nsw i64 %indvars.iv.next17.i, 3
+  %94 = lshr i64 %84, %93
+  %95 = trunc i64 %94 to i32
+  %96 = and i32 %95, 255
+  call void @avio_w8(ptr noundef %82, i32 noundef %96) #14
+  %97 = icmp sgt i64 %indvars.iv16.i, 1
+  br i1 %97, label %92, label %put_ebml_uint.exit, !llvm.loop !60
 
-put_ebml_uint.exit:                               ; preds = %91
-  %97 = load ptr, ptr %5, align 8, !tbaa !57
-  %98 = call i64 @avio_seek(ptr noundef %97, i64 noundef 0, i32 noundef 1) #14
-  %99 = add nsw i64 %46, -1
-  %100 = call i64 @avio_seek(ptr noundef %97, i64 noundef %99, i32 noundef 0) #14
-  %101 = icmp slt i64 %100, 0
-  br i1 %101, label %end_ebml_master.exit, label %102
+put_ebml_uint.exit:                               ; preds = %92
+  %98 = load ptr, ptr %5, align 8, !tbaa !57
+  %99 = call i64 @avio_seek(ptr noundef %98, i64 noundef 0, i32 noundef 1) #14
+  %100 = add nsw i64 %46, -1
+  %101 = call i64 @avio_seek(ptr noundef %98, i64 noundef %100, i32 noundef 0) #14
+  %102 = icmp slt i64 %101, 0
+  br i1 %102, label %end_ebml_master.exit, label %103
 
-102:                                              ; preds = %put_ebml_uint.exit
-  %103 = sub nsw i64 %98, %46
-  call fastcc void @put_ebml_length(ptr noundef %97, i64 noundef %103, i32 noundef range(i32 -2147483647, -2147483648) 1)
-  %104 = call i64 @avio_seek(ptr noundef %97, i64 noundef %98, i32 noundef 0) #14
+103:                                              ; preds = %put_ebml_uint.exit
+  %104 = sub nsw i64 %99, %46
+  call fastcc void @put_ebml_length(ptr noundef %98, i64 noundef %104, i32 noundef range(i32 -2147483647, -2147483648) 1)
+  %105 = call i64 @avio_seek(ptr noundef %98, i64 noundef %99, i32 noundef 0) #14
   br label %end_ebml_master.exit
 
-end_ebml_master.exit:                             ; preds = %put_ebml_uint.exit, %102
+end_ebml_master.exit:                             ; preds = %put_ebml_uint.exit, %103
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %105 = load i32, ptr %28, align 8, !tbaa !266
-  %106 = sext i32 %105 to i64
-  %107 = icmp slt i64 %indvars.iv.next, %106
-  br i1 %107, label %40, label %._crit_edge, !llvm.loop !270
+  %106 = load i32, ptr %28, align 8, !tbaa !266
+  %107 = sext i32 %106 to i64
+  %108 = icmp slt i64 %indvars.iv.next, %107
+  br i1 %108, label %40, label %._crit_edge, !llvm.loop !270
 
 ._crit_edge:                                      ; preds = %end_ebml_master.exit, %start_ebml_master_crc32.exit
-  %108 = call fastcc i32 @end_ebml_master_crc32(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %1, i32 noundef 290298740, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %109 = icmp slt i32 %108, 0
-  br i1 %109, label %start_ebml_master_crc32.exit.thread, label %110
+  %109 = call fastcc i32 @end_ebml_master_crc32(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %1, i32 noundef 290298740, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %110 = icmp slt i32 %109, 0
+  br i1 %110, label %start_ebml_master_crc32.exit.thread, label %111
 
-110:                                              ; preds = %._crit_edge
-  %111 = load i64, ptr %6, align 8, !tbaa !265
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 252
-  %113 = load i32, ptr %112, align 4, !tbaa !271
-  %114 = zext i32 %113 to i64
-  %115 = add i64 %111, %114
-  %116 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #14
-  %117 = sub i64 %115, %116
-  %118 = trunc i64 %117 to i32
-  call fastcc void @put_ebml_void(ptr noundef %0, i32 noundef %118)
-  %119 = call i64 @avio_seek(ptr noundef %0, i64 noundef %3, i32 noundef 0) #14
-  %spec.select48 = call i64 @llvm.smin.i64(i64 %119, i64 0)
+111:                                              ; preds = %._crit_edge
+  %112 = load i64, ptr %6, align 8, !tbaa !265
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 252
+  %114 = load i32, ptr %113, align 4, !tbaa !271
+  %115 = zext i32 %114 to i64
+  %116 = add i64 %112, %115
+  %117 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #14
+  %118 = sub i64 %116, %117
+  %119 = trunc i64 %118 to i32
+  call fastcc void @put_ebml_void(ptr noundef %0, i32 noundef %119)
+  %120 = call i64 @avio_seek(ptr noundef %0, i64 noundef %3, i32 noundef 0) #14
+  %spec.select48 = call i64 @llvm.smin.i64(i64 %120, i64 0)
   %spec.select = trunc i64 %spec.select48 to i32
   br label %start_ebml_master_crc32.exit.thread
 
-start_ebml_master_crc32.exit.thread:              ; preds = %13, %110, %._crit_edge, %10
-  %.0 = phi i32 [ %12, %10 ], [ %108, %._crit_edge ], [ %spec.select, %110 ], [ %14, %13 ]
+start_ebml_master_crc32.exit.thread:              ; preds = %13, %111, %._crit_edge, %10
+  %.0 = phi i32 [ %12, %10 ], [ %109, %._crit_edge ], [ %spec.select, %110 ], [ %14, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

@@ -1028,7 +1028,7 @@ define internal void @ac3_extract_exponents_c(ptr noundef writeonly captures(non
   %16 = sub i8 %.neg9, %14
   br label %17
 
-17:                                               ; preds = %.lr.ph, %7
+17: ; preds = %.lr.ph, %7
   %18 = phi i8 [ %16, %7 ], [ 24, %.lr.ph ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %18, ptr %19, align 1, !tbaa !45

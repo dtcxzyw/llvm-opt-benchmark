@@ -853,8 +853,8 @@ define dso_local void @intel_set_cdclk_pre_plane_update(ptr noundef %0) local_un
   %98 = or disjoint i32 %92, %97
   %99 = getelementptr inbounds nuw i8, ptr %40, i64 7368
   %100 = select i1 %89, i32 -2147483645, i32 3
-  %101 = or disjoint i32 %98, %100
-  %102 = tail call i32 @skl_pcode_request(ptr noundef nonnull %99, i32 noundef 7, i32 noundef %101, i32 noundef 1, i32 noundef 1, i32 noundef 3) #15
+  %101 = or disjoint i32 %99, %100
+  %102 = tail call i32 @skl_pcode_request(ptr noundef nonnull %100, i32 noundef 7, i32 noundef %101, i32 noundef 1, i32 noundef 1, i32 noundef 3) #15
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %111, label %104
 
@@ -1305,7 +1305,7 @@ define dso_local void @intel_set_cdclk_post_plane_update(ptr noundef %0) local_u
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 60
   %32 = load i8, ptr %31, align 4
   %33 = icmp eq i8 %30, %32
-  br i1 %33, label %106, label %34
+  br i1 %33, label %107, label %34
 
 34:                                               ; preds = %28, %22, %16, %1
   %35 = getelementptr i8, ptr %3, i64 7188
@@ -1353,27 +1353,27 @@ define dso_local void @intel_set_cdclk_post_plane_update(ptr noundef %0) local_u
   %73 = or disjoint i32 %72, %69
   %74 = tail call i32 @skl_pcode_request(ptr noundef nonnull %70, i32 noundef 7, i32 noundef %73, i32 noundef 1, i32 noundef 1, i32 noundef 3) #15
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %83, label %76
+  br i1 %75, label %90, label %76
 
 76:                                               ; preds = %58
   %77 = icmp eq ptr %40, null
-  br i1 %77, label %81, label %78
+  br i1 %77, label %81, label %84
 
-78:                                               ; preds = %76
+84:                                               ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %80 = load ptr, ptr %79, align 8
   br label %81
 
-81:                                               ; preds = %78, %76
+86:                                               ; preds = %84, %76
   %82 = phi ptr [ %80, %78 ], [ null, %76 ]
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %82, ptr noundef nonnull @.str.38, i32 noundef %74) #17
   br label %83
 
-83:                                               ; preds = %81, %58, %39, %34
+90:                                               ; preds = %86, %58, %39, %34
   %84 = icmp eq i32 %10, -1
-  br i1 %84, label %106, label %85
+  br i1 %84, label %106, label %94
 
-85:                                               ; preds = %83
+94:                                               ; preds = %90
   %86 = load i32, ptr %11, align 4
   %87 = load i32, ptr %12, align 4
   %88 = icmp ugt i32 %86, %87
@@ -1387,33 +1387,33 @@ define dso_local void @intel_set_cdclk_post_plane_update(ptr noundef %0) local_u
 
 93:                                               ; preds = %89
   tail call void asm sideeffect "1031: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1031b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1031) #15, !srcloc !41
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %95 = load ptr, ptr %94, align 8
-  %96 = tail call ptr @dev_driver_string(ptr noundef %95) #15
-  %97 = load ptr, ptr %94, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 80
-  %99 = load ptr, ptr %98, align 8
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %101, label %103
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %96 = load ptr, ptr %95, align 8
+  %97 = tail call ptr @dev_driver_string(ptr noundef %96) #15
+  %98 = load ptr, ptr %95, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 80
+  %100 = load ptr, ptr %99, align 8
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %102, label %104
 
-101:                                              ; preds = %93
-  %102 = load ptr, ptr %97, align 8
-  br label %103
+102:                                              ; preds = %93
+  %103 = load ptr, ptr %98, align 8
+  br label %104
 
-103:                                              ; preds = %101, %93
-  %104 = phi ptr [ %102, %101 ], [ %99, %93 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %96, ptr noundef %104, ptr noundef nonnull @.str.2) #15
+104:                                              ; preds = %102, %93
+  %105 = phi ptr [ %103, %101 ], [ %100, %93 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %97, ptr noundef %105, ptr noundef nonnull @.str.2) #15
   tail call void asm sideeffect "1032: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1032b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1032) #15, !srcloc !42
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 2558, i32 2313, i64 12) #15, !srcloc !43
   tail call void asm sideeffect "1033: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1033b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1033) #15, !srcloc !44
   tail call void asm sideeffect "1034: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1034b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1034) #15, !srcloc !45
-  br label %105
-
-105:                                              ; preds = %103, %89
-  tail call fastcc void @intel_set_cdclk(ptr noundef %3, ptr noundef nonnull %12, i32 noundef %10)
   br label %106
 
-106:                                              ; preds = %105, %85, %83, %28
+106:                                              ; preds = %104, %89
+  tail call fastcc void @intel_set_cdclk(ptr noundef %3, ptr noundef nonnull %12, i32 noundef %10)
+  br label %107
+
+107:                                              ; preds = %106, %85, %83, %28
   ret void
 }
 

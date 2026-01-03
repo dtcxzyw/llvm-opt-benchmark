@@ -1311,7 +1311,7 @@ define dso_local ptr @__netdev_alloc_skb(ptr noundef %0, i32 noundef %1, i32 nou
   %11 = add i32 %1, 64
   %12 = tail call ptr @__alloc_skb(i32 noundef %11, i32 noundef %2, i32 noundef 2, i32 noundef -1)
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %64, label %55
+  br i1 %13, label %65, label %56
 
 14:                                               ; preds = %3
   %15 = add nuw nsw i32 %1, 127
@@ -1365,7 +1365,7 @@ define dso_local ptr @__netdev_alloc_skb(ptr noundef %0, i32 noundef %1, i32 nou
   %43 = phi ptr [ %32, %29 ], [ %39, %35 ]
   %44 = phi i8 [ %34, %29 ], [ %41, %35 ]
   %45 = icmp eq ptr %43, null
-  br i1 %45, label %64, label %46, !prof !6
+  br i1 %45, label %65, label %46, !prof !6
 
 46:                                               ; preds = %42
   %47 = load ptr, ptr @skbuff_cache, align 8
@@ -1375,7 +1375,7 @@ define dso_local ptr @__netdev_alloc_skb(ptr noundef %0, i32 noundef %1, i32 nou
 
 50:                                               ; preds = %46
   call void @page_frag_free(ptr noundef nonnull %43) #23
-  br label %64
+  br label %65
 
 ._crit_edge:                                      ; preds = %46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %48, i8 0, i64 184, i1 false)
@@ -1389,23 +1389,23 @@ define dso_local ptr @__netdev_alloc_skb(ptr noundef %0, i32 noundef %1, i32 nou
   store i8 %54, ptr %52, align 2
   br label %55
 
-55:                                               ; preds = %._crit_edge, %10
-  %56 = phi ptr [ %12, %10 ], [ %48, %._crit_edge ]
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 200
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr i8, ptr %58, i64 64
-  store ptr %59, ptr %57, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 184
-  %61 = load i32, ptr %60, align 8
-  %62 = add i32 %61, 64
-  store i32 %62, ptr %60, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store ptr %0, ptr %63, align 8
-  br label %64
+56:                                               ; preds = %._crit_edge, %10
+  %57 = phi ptr [ %12, %10 ], [ %48, %._crit_edge ]
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 200
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr i8, ptr %59, i64 64
+  store ptr %60, ptr %58, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 184
+  %62 = load i32, ptr %61, align 8
+  %63 = add i32 %62, 64
+  store i32 %63, ptr %61, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  store ptr %0, ptr %64, align 8
+  br label %65
 
-64:                                               ; preds = %55, %50, %42, %10
-  %65 = phi ptr [ null, %50 ], [ null, %42 ], [ %56, %55 ], [ null, %10 ]
-  ret ptr %65
+65:                                               ; preds = %56, %50, %42, %10
+  %66 = phi ptr [ null, %50 ], [ null, %42 ], [ %57, %55 ], [ null, %10 ]
+  ret ptr %66
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1559,8 +1559,8 @@ define dso_local ptr @__napi_alloc_skb(ptr noundef readonly captures(none) %0, i
   br label %.thread6
 
 .thread6:                                         ; preds = %27, %89, %.thread7, %57, %9
-  %100 = phi ptr [ null, %.thread7 ], [ null, %57 ], [ %90, %89 ], [ null, %9 ], [ null, %27 ]
-  ret ptr %100
+  %101 = phi ptr [ null, %.thread7 ], [ null, %57 ], [ %90, %89 ], [ null, %9 ], [ null, %27 ]
+  ret ptr %101
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

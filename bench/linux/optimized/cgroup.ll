@@ -18550,9 +18550,9 @@ define internal noundef range(i32 -12, 1) i32 @cpuset_init_fs_context(ptr nounde
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 48
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   store ptr @cpuset_fs_context_ops, ptr %0, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i16 1, ptr %33, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  store i16 1, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %35 = select i1 %32, i32 2, i32 18
   %36 = or i32 %35, %.pre
   store i32 %36, ptr %34, align 8
@@ -18562,15 +18562,15 @@ define internal noundef range(i32 -12, 1) i32 @cpuset_init_fs_context(ptr nounde
   %39 = load ptr, ptr %26, align 8
   tail call void @put_filesystem(ptr noundef %39) #31
   store ptr @cgroup_fs_type, ptr %26, align 8
-  br label %40
+  br label %41
 
 cgroup_init_fs_context.exit:                      ; preds = %1
   tail call void @kfree(ptr noundef %2) #31
-  br label %40
+  br label %41
 
-40:                                               ; preds = %._crit_edge, %cgroup_init_fs_context.exit
-  %41 = phi i32 [ -12, %cgroup_init_fs_context.exit ], [ 0, %._crit_edge ]
-  ret i32 %41
+41:                                               ; preds = %._crit_edge, %cgroup_init_fs_context.exit
+  %42 = phi i32 [ -12, %cgroup_init_fs_context.exit ], [ 0, %._crit_edge ]
+  ret i32 %42
 }
 
 ; Function Attrs: null_pointer_is_valid
