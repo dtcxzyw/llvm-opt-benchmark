@@ -1642,14 +1642,13 @@ GetPredictionCostCrossColorRed.exit.i:            ; preds = %68, %65
   br i1 %75, label %.lr.ph72.preheader.i, label %GetBestGreenToRed.exit
 
 .lr.ph72.preheader.i:                             ; preds = %GetPredictionCostCrossColorRed.exit.i
-  %76 = icmp eq i24 %73, 0
-  %77 = icmp eq i24 %71, 0
-  %78 = sub nsw i64 %32, %70
-  %79 = add nsw i64 %78, -25165824
-  %spec.select.i.i = select i1 %77, i64 %79, i64 %78
-  %80 = add nsw i64 %spec.select.i.i, -25165824
-  %.1.i.i = select i1 %76, i64 %80, i64 %spec.select.i.i
-  %81 = add nsw i64 %.1.i.i, -25165824
+  %76 = icmp eq i24 %71, 0
+  %77 = sub nsw i64 %32, %70
+  %78 = add nsw i64 %77, -25165824
+  %spec.select.i.i = select i1 %76, i64 %78, i64 %77
+  %79 = icmp eq i24 %73, 0
+  %80 = select i1 %79, i64 -50331648, i64 -25165824
+  %81 = add i64 %spec.select.i.i, %80
   %82 = add nsw i32 %63, 3
   br label %.lr.ph.i
 
@@ -1867,19 +1866,18 @@ GetPredictionCostCrossColorBlue.exit:             ; preds = %175, %178
   %183 = zext nneg i24 %182 to i32
   %184 = icmp eq i24 %182, 0
   %185 = add nsw i64 %181, -25165824
-  %spec.select.i58 = select i1 %184, i64 %185, i64 %181
+  %spec.select.i57 = select i1 %184, i64 %185, i64 %181
   %186 = and i24 %.sroa.1.0.extract.shift.i, 255
   %187 = zext nneg i24 %186 to i32
   %188 = icmp eq i24 %186, 0
-  %189 = add nsw i64 %spec.select.i58, -25165824
-  %.1.i = select i1 %188, i64 %189, i64 %spec.select.i58
+  %189 = add nsw i64 %spec.select.i57, -25165824
+  %.1.i = select i1 %188, i64 %189, i64 %spec.select.i57
   %190 = icmp eq i24 %.sroa.221.0.extract.shift.i, 0
   %191 = add nsw i64 %.1.i, -25165824
   %.2.i = select i1 %190, i64 %191, i64 %.1.i
   %192 = icmp eq i24 %.sroa.2.0.extract.shift.i, 0
-  %193 = add nsw i64 %.2.i, -25165824
-  %.3.i = select i1 %192, i64 %193, i64 %.2.i
-  %194 = add nsw i64 %.3.i, -50331648
+  %193 = select i1 %192, i64 -75497472, i64 -50331648
+  %194 = add i64 %193, %.2.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %198
 
@@ -2001,14 +1999,14 @@ GetPredictionCostCrossColorBlue.exit.i:           ; preds = %250, %247
   %spec.select.i.i55 = select i1 %255, i64 %256, i64 %253
   %257 = icmp eq i32 %254, %187
   %258 = add nsw i64 %spec.select.i.i55, -25165824
-  %.1.i.i56 = select i1 %257, i64 %258, i64 %spec.select.i.i55
+  %.1.i.i = select i1 %257, i64 %258, i64 %spec.select.i.i55
   %259 = and i32 %213, 255
   %260 = icmp eq i32 %259, %.sroa.221.0.extract.trunc.i
-  %261 = add nsw i64 %.1.i.i56, -25165824
-  %.2.i.i57 = select i1 %260, i64 %261, i64 %.1.i.i56
+  %261 = add nsw i64 %.1.i.i, -25165824
+  %.2.i.i56 = select i1 %260, i64 %261, i64 %.1.i.i
   %262 = icmp eq i32 %259, %.sroa.2.0.extract.trunc.i
-  %263 = add nsw i64 %.2.i.i57, -25165824
-  %.3.i.i = select i1 %262, i64 %263, i64 %.2.i.i57
+  %263 = add nsw i64 %.2.i.i56, -25165824
+  %.3.i.i = select i1 %262, i64 %263, i64 %.2.i.i56
   %264 = icmp eq i32 %208, 0
   %265 = add nsw i64 %.3.i.i, -25165824
   %.4.i.i = select i1 %264, i64 %265, i64 %.3.i.i

@@ -1244,19 +1244,18 @@ define dso_local range(i32 265, 0) i32 @lrc_update_regs(ptr noundef %0, ptr noun
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 7176
   %257 = load i8, ptr %256, align 8
   %258 = icmp eq i8 %257, 8
-  %259 = or disjoint i32 %253, 32
-  %260 = select i1 %258, i32 %259, i32 %253
-  %261 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
-  %264 = load i64, ptr %263, align 8
-  %265 = getelementptr inbounds nuw i8, ptr %262, i64 248
-  %266 = load i32, ptr %265, align 8
-  %267 = trunc i64 %264 to i32
-  %268 = add i32 %266, %267
-  %269 = or i32 %260, %268
-  %270 = or i32 %269, 4
-  ret i32 %270
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %260 = load ptr, ptr %259, align 8
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
+  %262 = load i64, ptr %261, align 8
+  %263 = getelementptr inbounds nuw i8, ptr %260, i64 248
+  %264 = load i32, ptr %263, align 8
+  %265 = trunc i64 %262 to i32
+  %266 = add i32 %264, %265
+  %267 = select i1 %258, i32 36, i32 4
+  %268 = or disjoint i32 %267, %253
+  %269 = or i32 %268, %266
+  ret i32 %269
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

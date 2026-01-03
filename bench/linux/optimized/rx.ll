@@ -8375,14 +8375,14 @@ define internal fastcc void @ieee80211_rx_check_bss_color_collision(ptr noundef 
   %12 = load i8, ptr %11, align 1
   %13 = and i8 %12, 4
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %67, label %15
+  br i1 %14, label %68, label %15
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %17 = load volatile i64, ptr %16, align 8
   %18 = and i64 %17, 4503599627370496
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %67
+  br i1 %19, label %20, label %68
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8390,13 +8390,13 @@ define internal fastcc void @ieee80211_rx_check_bss_color_collision(ptr noundef 
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4906
   %24 = load i8, ptr %23, align 2, !range !13, !noundef !14
   %25 = icmp eq i8 %24, 0
-  br i1 %25, label %26, label %67
+  br i1 %25, label %26, label %68
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %28 = load i32, ptr %27, align 8
   %29 = icmp ult i32 %28, 36
-  br i1 %29, label %67, label %30
+  br i1 %29, label %68, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 36
@@ -8406,13 +8406,13 @@ define internal fastcc void @ieee80211_rx_check_bss_color_collision(ptr noundef 
   %33 = call ptr @cfg80211_find_elem_match(i8 noundef zeroext -1, ptr noundef nonnull %31, i32 noundef %32, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 0) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %67, label %35
+  br i1 %34, label %68, label %35
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = icmp ugt i8 %37, 5
-  br i1 %38, label %39, label %67
+  br i1 %38, label %39, label %68
 
 39:                                               ; preds = %35
   %40 = getelementptr i8, ptr %33, i64 3
@@ -8430,33 +8430,33 @@ define internal fastcc void @ieee80211_rx_check_bss_color_collision(ptr noundef 
   %49 = add nuw nsw i8 %45, %48
   %50 = and i32 %.pre, 131072
   %51 = icmp eq i32 %50, 0
-  %52 = add nuw nsw i8 %49, 5
-  %53 = select i1 %51, i8 %49, i8 %52
-  %.not = icmp ugt i8 %37, %53
-  br i1 %.not, label %.critedge, label %67
+  %52 = select i1 %51, i8 1, i8 6
+  %53 = add nuw nsw i8 %49, %52
+  %54 = icmp ult i8 %37, %53
+  br i1 %54, label %68, label %.critedge
 
 .critedge:                                        ; preds = %39, %42
-  %54 = load ptr, ptr %21, align 8
-  %55 = icmp sgt i32 %.pre, -1
-  br i1 %55, label %56, label %67
+  %55 = load ptr, ptr %21, align 8
+  %56 = icmp sgt i32 %.pre, -1
+  br i1 %56, label %57, label %68
 
-56:                                               ; preds = %.critedge
-  %57 = lshr i32 %.pre, 24
-  %58 = and i32 %57, 63
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 4449
-  %60 = load i8, ptr %59, align 1
-  %61 = trunc nuw nsw i32 %58 to i8
-  %62 = icmp eq i8 %60, %61
-  br i1 %62, label %63, label %67
+57:                                               ; preds = %.critedge
+  %58 = lshr i32 %.pre, 24
+  %59 = and i32 %58, 63
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 4449
+  %61 = load i8, ptr %60, align 1
+  %62 = trunc nuw nsw i32 %59 to i8
+  %63 = icmp eq i8 %61, %62
+  br i1 %63, label %64, label %68
 
-63:                                               ; preds = %56
-  %64 = getelementptr inbounds nuw i8, ptr %54, i64 4056
-  %65 = zext nneg i32 %58 to i64
-  %66 = shl nuw i64 1, %65
-  call void @ieee80211_obss_color_collision_notify(ptr noundef nonnull %64, i64 noundef %66, i32 noundef 2080) #18
-  br label %67
+64:                                               ; preds = %57
+  %65 = getelementptr inbounds nuw i8, ptr %55, i64 4056
+  %66 = zext nneg i32 %59 to i64
+  %67 = shl nuw i64 1, %66
+  call void @ieee80211_obss_color_collision_notify(ptr noundef nonnull %65, i64 noundef %67, i32 noundef 2080) #18
+  br label %68
 
-67:                                               ; preds = %63, %56, %.critedge, %42, %35, %30, %26, %20, %15, %1
+68:                                               ; preds = %64, %57, %.critedge, %42, %35, %30, %26, %20, %15, %1
   ret void
 }
 

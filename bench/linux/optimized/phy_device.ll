@@ -2818,7 +2818,7 @@ define dso_local i32 @phy_loopback(ptr noundef %0, i1 noundef zeroext %1) #0 ali
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -2147483648, 2147483644) i32 @genphy_loopback(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
-  br i1 %1, label %3, label %46
+  br i1 %1, label %3, label %45
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1016
@@ -2840,67 +2840,66 @@ define dso_local noundef range(i32 -2147483648, 2147483644) i32 @genphy_loopback
 10:                                               ; preds = %9, %8, %3, %3
   %11 = phi i16 [ 0, %9 ], [ 8192, %8 ], [ 64, %3 ], [ 64, %3 ]
   %12 = icmp eq i32 %7, 1
-  %13 = or disjoint i16 %11, 256
-  %14 = select i1 %12, i16 %13, i16 %11
-  %15 = or disjoint i16 %14, 16384
-  %16 = tail call i32 @phy_modify(ptr noundef %0, i32 noundef 0, i16 noundef zeroext -1, i16 noundef zeroext %15) #18
-  %17 = tail call i64 @ktime_get() #18
-  %18 = add i64 %17, 500000000
-  %19 = tail call i32 @__SCT__might_resched() #18
+  %13 = select i1 %12, i16 16640, i16 16384
+  %14 = or disjoint i16 %11, %13
+  %15 = tail call i32 @phy_modify(ptr noundef %0, i32 noundef 0, i16 noundef zeroext -1, i16 noundef zeroext %14) #18
+  %16 = tail call i64 @ktime_get() #18
+  %17 = add i64 %16, 500000000
+  %18 = tail call i32 @__SCT__might_resched() #18
   tail call void @usleep_range_state(i64 noundef 1251, i64 noundef 5000, i32 noundef 2) #18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %22 = load ptr, ptr %20, align 8
-  %23 = load i32, ptr %21, align 8
-  %24 = tail call i32 @mdiobus_read(ptr noundef %22, i32 noundef %23, i32 noundef 1) #18
-  %25 = and i32 %24, -2147483644
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.preheader, label %.loopexit
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %21 = load ptr, ptr %19, align 8
+  %22 = load i32, ptr %20, align 8
+  %23 = tail call i32 @mdiobus_read(ptr noundef %21, i32 noundef %22, i32 noundef 1) #18
+  %24 = and i32 %23, -2147483644
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %10, %34
-  %27 = tail call i64 @ktime_get() #18
-  %28 = icmp sgt i64 %27, %18
-  br i1 %28, label %29, label %34
+.preheader:                                       ; preds = %10, %33
+  %26 = tail call i64 @ktime_get() #18
+  %27 = icmp sgt i64 %26, %17
+  br i1 %27, label %28, label %33
 
-29:                                               ; preds = %.preheader
-  %30 = load ptr, ptr %20, align 8
-  %31 = load i32, ptr %21, align 8
-  %32 = tail call i32 @mdiobus_read(ptr noundef %30, i32 noundef %31, i32 noundef 1) #18
-  %.pre = and i32 %32, -2147483644
-  %33 = icmp ne i32 %.pre, 0
+28:                                               ; preds = %.preheader
+  %29 = load ptr, ptr %19, align 8
+  %30 = load i32, ptr %20, align 8
+  %31 = tail call i32 @mdiobus_read(ptr noundef %29, i32 noundef %30, i32 noundef 1) #18
+  %.pre = and i32 %31, -2147483644
+  %32 = icmp ne i32 %.pre, 0
   br label %.loopexit
 
-34:                                               ; preds = %.preheader
+33:                                               ; preds = %.preheader
   tail call void @usleep_range_state(i64 noundef 1251, i64 noundef 5000, i32 noundef 2) #18
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !22
-  %35 = load ptr, ptr %20, align 8
-  %36 = load i32, ptr %21, align 8
-  %37 = tail call i32 @mdiobus_read(ptr noundef %35, i32 noundef %36, i32 noundef 1) #18
-  %38 = and i32 %37, -2147483644
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.preheader, label %.loopexit, !llvm.loop !23
+  %34 = load ptr, ptr %19, align 8
+  %35 = load i32, ptr %20, align 8
+  %36 = tail call i32 @mdiobus_read(ptr noundef %34, i32 noundef %35, i32 noundef 1) #18
+  %37 = and i32 %36, -2147483644
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %.preheader, label %.loopexit, !llvm.loop !23
 
-.loopexit:                                        ; preds = %34, %29, %10
-  %.pre-phi = phi i1 [ %33, %29 ], [ true, %10 ], [ true, %34 ]
-  %40 = phi i32 [ %32, %29 ], [ %24, %10 ], [ %37, %34 ]
-  %41 = icmp sgt i32 %40, -1
-  %42 = and i1 %41, %.pre-phi
-  br i1 %42, label %49, label %43
+.loopexit:                                        ; preds = %33, %28, %10
+  %.pre-phi = phi i1 [ %32, %28 ], [ true, %10 ], [ true, %33 ]
+  %39 = phi i32 [ %31, %28 ], [ %23, %10 ], [ %36, %33 ]
+  %40 = icmp sgt i32 %39, -1
+  %41 = and i1 %40, %.pre-phi
+  br i1 %41, label %48, label %42
 
-43:                                               ; preds = %.loopexit
-  %44 = select i1 %.pre-phi, i32 0, i32 -110
-  %45 = select i1 %41, i32 %44, i32 %40
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @__func__.genphy_loopback, i32 noundef %45) #20
-  br label %49
+42:                                               ; preds = %.loopexit
+  %43 = select i1 %.pre-phi, i32 0, i32 -110
+  %44 = select i1 %40, i32 %43, i32 %39
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @__func__.genphy_loopback, i32 noundef %44) #20
+  br label %48
 
-46:                                               ; preds = %2
-  %47 = tail call i32 @phy_modify(ptr noundef %0, i32 noundef 0, i16 noundef zeroext 16384, i16 noundef zeroext 0) #18
-  %48 = tail call i32 @phy_config_aneg(ptr noundef %0) #18
-  br label %49
+45:                                               ; preds = %2
+  %46 = tail call i32 @phy_modify(ptr noundef %0, i32 noundef 0, i16 noundef zeroext 16384, i16 noundef zeroext 0) #18
+  %47 = tail call i32 @phy_config_aneg(ptr noundef %0) #18
+  br label %48
 
-49:                                               ; preds = %46, %43, %.loopexit
-  %50 = phi i32 [ %45, %43 ], [ 0, %.loopexit ], [ 0, %46 ]
-  ret i32 %50
+48:                                               ; preds = %45, %42, %.loopexit
+  %49 = phi i32 [ %44, %42 ], [ 0, %.loopexit ], [ 0, %45 ]
+  ret i32 %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

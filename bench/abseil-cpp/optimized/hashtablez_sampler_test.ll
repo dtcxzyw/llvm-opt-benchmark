@@ -23623,9 +23623,8 @@ common.resume:                                    ; preds = %52, %14
 
 26:                                               ; preds = %24
   %.cmp = icmp samesign ult i32 %.01924, 5
-  %.urem = add nsw i32 %.01924, -5
-  %27 = select i1 %.cmp, i32 %.01924, i32 %.urem
-  %28 = add nuw nsw i32 %27, 13
+  %27 = select i1 %.cmp, i32 13, i32 8
+  %28 = add nuw nsw i32 %27, %.01924
   %29 = zext nneg i32 %28 to i64
   %30 = or i32 %.01924, 12
   %31 = zext nneg i32 %30 to i64

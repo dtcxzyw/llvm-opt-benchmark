@@ -23,9 +23,8 @@ define { i64, i64 } @"_ZN90_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$
   %10 = icmp samesign ult i32 %2, 55296
   %11 = icmp samesign ugt i32 %4, 57343
   %or.cond.i = and i1 %10, %11
-  %12 = add nsw i32 %9, -2048
-  %spec.select.i = select i1 %or.cond.i, i32 %12, i32 %9
-  %13 = add nsw i32 %spec.select.i, 1
+  %12 = select i1 %or.cond.i, i32 -2047, i32 1
+  %13 = add nsw i32 %9, %12
   %14 = zext i32 %13 to i64
   br label %"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit"
 
@@ -52,9 +51,8 @@ define noundef range(i64 0, 4294967296) i64 @"_ZN97_$LT$rayon..range_inclusive..
   %10 = icmp samesign ult i32 %2, 55296
   %11 = icmp samesign ugt i32 %4, 57343
   %or.cond = and i1 %10, %11
-  %12 = add nsw i32 %9, -2048
-  %spec.select = select i1 %or.cond, i32 %12, i32 %9
-  %13 = add nsw i32 %spec.select, 1
+  %12 = select i1 %or.cond, i32 -2047, i32 1
+  %13 = add nsw i32 %9, %12
   %14 = zext i32 %13 to i64
   br label %15
 

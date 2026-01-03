@@ -1879,7 +1879,7 @@ define dso_local void @intel_pmu_pebs_enable(ptr noundef captures(none) %0) loca
   %172 = load i32, ptr %20, align 4
   %173 = and i32 %172, 2048
   %174 = icmp eq i32 %173, 0
-  br i1 %174, label %208, label %._crit_edge
+  br i1 %174, label %207, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %162
   %175 = load i32, ptr %11, align 4
@@ -1890,44 +1890,43 @@ define dso_local void @intel_pmu_pebs_enable(ptr noundef captures(none) %0) loca
   %180 = icmp eq i32 %179, 0
   %181 = getelementptr inbounds nuw i8, ptr %168, i64 2384
   %182 = load i64, ptr %181, align 8
-  %183 = or i64 %182, 1152921504606846976
-  %184 = select i1 %180, i64 %183, i64 %182
-  %185 = getelementptr inbounds nuw i8, ptr %168, i64 2384
-  %186 = or i64 %184, 2305843009213693952
-  store i64 %186, ptr %185, align 8
-  %187 = load i32, ptr %11, align 4
-  %188 = icmp sgt i32 %187, 31
-  br i1 %188, label %189, label %199
+  %183 = getelementptr inbounds nuw i8, ptr %168, i64 2384
+  %184 = select i1 %180, i64 3458764513820540928, i64 2305843009213693952
+  %185 = or i64 %184, %182
+  store i64 %185, ptr %183, align 8
+  %186 = load i32, ptr %11, align 4
+  %187 = icmp sgt i32 %186, 31
+  br i1 %187, label %188, label %198
 
-189:                                              ; preds = %._crit_edge
-  %190 = add nsw i32 %187, -32
-  %191 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
-  %192 = and i32 %191, 3840
-  %193 = icmp samesign ult i32 %192, 1280
-  %194 = add nsw i32 %187, -24
-  %195 = select i1 %193, i32 %194, i32 %187
-  %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr i64, ptr %171, i64 %196
-  %198 = load i64, ptr %197, align 8
-  br label %199
+188:                                              ; preds = %._crit_edge
+  %189 = add nsw i32 %186, -32
+  %190 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
+  %191 = and i32 %190, 3840
+  %192 = icmp samesign ult i32 %191, 1280
+  %193 = add nsw i32 %186, -24
+  %194 = select i1 %192, i32 %193, i32 %186
+  %195 = zext nneg i32 %194 to i64
+  %196 = getelementptr i64, ptr %171, i64 %195
+  %197 = load i64, ptr %196, align 8
+  br label %198
 
-199:                                              ; preds = %189, %._crit_edge
-  %200 = phi i64 [ %178, %._crit_edge ], [ %198, %189 ]
-  %201 = phi i32 [ 5313, %._crit_edge ], [ 4873, %189 ]
-  %202 = phi i32 [ %175, %._crit_edge ], [ %190, %189 ]
-  %203 = add i32 %202, %201
-  %204 = trunc i64 %200 to i32
-  %205 = lshr i64 %200, 32
-  %206 = trunc nuw i64 %205 to i32
-  call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %203, i32 %204, i32 %206) #14, !srcloc !42
+198:                                              ; preds = %188, %._crit_edge
+  %199 = phi i64 [ %178, %._crit_edge ], [ %197, %188 ]
+  %200 = phi i32 [ 5313, %._crit_edge ], [ 4873, %188 ]
+  %201 = phi i32 [ %175, %._crit_edge ], [ %189, %188 ]
+  %202 = add i32 %201, %200
+  %203 = trunc i64 %199 to i32
+  %204 = lshr i64 %199, 32
+  %205 = trunc nuw i64 %204 to i32
+  call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %202, i32 %203, i32 %205) #14, !srcloc !42
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #14
-          to label %208 [label %207], !srcloc !10
+          to label %207 [label %206], !srcloc !10
 
-207:                                              ; preds = %199
-  call void @do_trace_write_msr(i32 noundef %203, i64 noundef %200, i32 noundef 0) #14
-  br label %208
+206:                                              ; preds = %198
+  call void @do_trace_write_msr(i32 noundef %202, i64 noundef %199, i32 noundef 0) #14
+  br label %207
 
-208:                                              ; preds = %207, %199, %162
+207:                                              ; preds = %206, %198, %162
   ret void
 }
 
