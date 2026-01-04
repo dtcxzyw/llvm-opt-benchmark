@@ -2009,36 +2009,35 @@ jxl_enum.exit256:                                 ; preds = %998, %1022
   br i1 %.not224, label %1143, label %.thread324
 
 1143:                                             ; preds = %1142
-  %1144 = and i32 %.val257, 7
-  %.not225 = icmp eq i32 %1144, 0
-  br i1 %.not225, label %.thread324, label %1145
+  %1144 = sub i32 0, %.val257
+  %1145 = and i32 %1144, 7
+  %.not225 = icmp eq i32 %1145, 0
+  br i1 %.not225, label %.thread324, label %1146
 
-1145:                                             ; preds = %1143
-  %1146 = add i32 %.val257, 7
-  %1147 = and i32 %1146, 7
-  %1148 = xor i32 %1147, 7
-  %1149 = lshr i32 %.val257, 3
-  %1150 = zext nneg i32 %1149 to i64
-  %1151 = getelementptr inbounds nuw i8, ptr %1064, i64 %1150
-  %1152 = load i32, ptr %1151, align 1, !tbaa !14
-  %1153 = lshr i32 %1152, %1144
-  %1154 = sub nuw nsw i32 32, %1148
-  %1155 = lshr i32 -1, %1154
-  %1156 = and i32 %1153, %1155
-  %1157 = add i32 %1148, %.val257
-  %1158 = tail call i32 @llvm.umin.i32(i32 %1069, i32 %1157)
-  %.not226 = icmp eq i32 %1156, 0
+1146:                                             ; preds = %1143
+  %1147 = lshr i32 %.val257, 3
+  %1148 = zext nneg i32 %1147 to i64
+  %1149 = getelementptr inbounds nuw i8, ptr %1064, i64 %1148
+  %1150 = load i32, ptr %1149, align 1, !tbaa !14
+  %1151 = and i32 %.val257, 7
+  %1152 = lshr i32 %1150, %1151
+  %1153 = sub nuw nsw i32 32, %1145
+  %1154 = lshr i32 -1, %1153
+  %1155 = and i32 %1152, %1154
+  %1156 = add i32 %1145, %.val257
+  %1157 = tail call i32 @llvm.umin.i32(i32 %1069, i32 %1156)
+  %.not226 = icmp eq i32 %1155, 0
   br i1 %.not226, label %.thread324, label %jpegxl_read_extra_channel_info.exit.thread320
 
-.thread324:                                       ; preds = %1145, %1143, %1142
-  %.val265 = phi i32 [ %1158, %1145 ], [ %.val257, %1143 ], [ %.val257, %1142 ]
+.thread324:                                       ; preds = %1146, %1143, %1142
+  %.val265 = phi i32 [ %1157, %1146 ], [ %.val257, %1143 ], [ %.val257, %1142 ]
   %.val266 = load i32, ptr %42, align 4, !tbaa !11
-  %1159 = icmp slt i32 %.val266, %.val265
-  %spec.select = select i1 %1159, i32 -1397118274, i32 %.val265
+  %1158 = icmp slt i32 %.val266, %.val265
+  %spec.select = select i1 %1158, i32 -1397118274, i32 %.val265
   br label %jpegxl_read_extra_channel_info.exit.thread320
 
-jpegxl_read_extra_channel_info.exit.thread320:    ; preds = %765, %jxl_enum.exit.i, %721, %jxl_u32.exit244, %.thread324, %1145, %1046, %jxl_enum.exit256, %jxl_enum.exit253, %jxl_enum.exit250, %jxl_enum.exit247, %jxl_enum.exit, %jxl_u32.exit235, %521, %518, %55, %49, %4
-  %.0 = phi i32 [ -1094995529, %1145 ], [ -1094995529, %4 ], [ -1094995529, %49 ], [ %56, %55 ], [ %1047, %1046 ], [ %spec.select, %.thread324 ], [ -1397118274, %jxl_u32.exit244 ], [ -1397118274, %518 ], [ -1094995529, %521 ], [ -1094995529, %jxl_enum.exit256 ], [ -1094995529, %jxl_u32.exit235 ], [ -1094995529, %jxl_enum.exit ], [ -1094995529, %jxl_enum.exit247 ], [ -1094995529, %jxl_enum.exit253 ], [ -1094995529, %jxl_enum.exit250 ], [ -1397118274, %721 ], [ -1094995529, %jxl_enum.exit.i ], [ -1397118274, %765 ]
+jpegxl_read_extra_channel_info.exit.thread320:    ; preds = %765, %jxl_enum.exit.i, %721, %jxl_u32.exit244, %.thread324, %1146, %1046, %jxl_enum.exit256, %jxl_enum.exit253, %jxl_enum.exit250, %jxl_enum.exit247, %jxl_enum.exit, %jxl_u32.exit235, %521, %518, %55, %49, %4
+  %.0 = phi i32 [ -1094995529, %1146 ], [ -1094995529, %4 ], [ -1094995529, %49 ], [ %56, %55 ], [ %1047, %1046 ], [ %spec.select, %.thread324 ], [ -1397118274, %jxl_u32.exit244 ], [ -1397118274, %518 ], [ -1094995529, %521 ], [ -1094995529, %jxl_enum.exit256 ], [ -1094995529, %jxl_u32.exit235 ], [ -1094995529, %jxl_enum.exit ], [ -1094995529, %jxl_enum.exit247 ], [ -1094995529, %jxl_enum.exit253 ], [ -1094995529, %jxl_enum.exit250 ], [ -1397118274, %721 ], [ -1094995529, %jxl_enum.exit.i ], [ -1397118274, %765 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   ret i32 %.0
 }

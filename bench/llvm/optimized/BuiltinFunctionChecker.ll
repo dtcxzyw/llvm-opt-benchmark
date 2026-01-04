@@ -1667,7 +1667,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit122.i: ; pred
   br i1 %342, label %349, label %350
 
 349:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit122.i
-  br i1 %348, label %364, label %374
+  br i1 %348, label %364, label %373
 
 350:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit122.i
   br i1 %348, label %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i.i.i, label %_ZN4llvm5APIntC2Ejmbb.exit.i.i.i.i
@@ -1708,70 +1708,70 @@ _ZN4llvm5APIntC2Ejmbb.exit.i.i.i.i:               ; preds = %350
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %367 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %340, ptr %367, align 8, !tbaa !287, !noalias !299
-  %368 = add nuw nsw i32 %340, 63
+  %368 = sub nsw i32 0, %340
   %369 = and i32 %368, 63
-  %370 = xor i32 %369, 63
-  %371 = zext nneg i32 %370 to i64
-  %372 = lshr i64 -1, %371
-  %373 = icmp eq i32 %340, 0
-  %spec.select.i.i.i.i.i.i = select i1 %373, i64 0, i64 %372, !prof !302
+  %370 = zext nneg i32 %369 to i64
+  %371 = lshr i64 -1, %370
+  %372 = icmp eq i32 %340, 0
+  %spec.select.i.i.i.i.i.i = select i1 %372, i64 0, i64 %371, !prof !302
   store i64 %spec.select.i.i.i.i.i.i, ptr %12, align 8, !tbaa !10, !alias.scope !303, !noalias !308
   br label %_ZN4llvm6APSInt11getMaxValueEjb.exit.i.i
 
-374:                                              ; preds = %349
+373:                                              ; preds = %349
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %13, i64 noundef 0, i1 noundef zeroext false) #17, !noalias !293
   %.pre.i.i.i = load i32, ptr %347, align 8, !tbaa !287, !noalias !293
-  %375 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 %.pre.i.i.i, ptr %375, align 8, !tbaa !287, !alias.scope !293
-  %376 = load i64, ptr %13, align 8, !noalias !293
-  store i64 %376, ptr %14, align 8, !alias.scope !293
-  %377 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  store i8 1, ptr %377, align 4, !tbaa !289, !alias.scope !293
+  %374 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i32 %.pre.i.i.i, ptr %374, align 8, !tbaa !287, !alias.scope !293
+  %375 = load i64, ptr %13, align 8, !noalias !293
+  store i64 %375, ptr %14, align 8, !alias.scope !293
+  %376 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  store i8 1, ptr %376, align 4, !tbaa !289, !alias.scope !293
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %378 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 %340, ptr %378, align 8, !tbaa !287, !noalias !310
+  %377 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 %340, ptr %377, align 8, !tbaa !287, !noalias !310
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %12, i64 noundef -1, i1 noundef zeroext true) #17, !noalias !308
-  %.pre7.i.i.i = load i32, ptr %378, align 8, !tbaa !287, !noalias !308
+  %.pre7.i.i.i = load i32, ptr %377, align 8, !tbaa !287, !noalias !308
   br label %_ZN4llvm6APSInt11getMaxValueEjb.exit.i.i
 
 ._ZN4llvm5APInt10getAllOnesEj.exit.i.i_crit_edge.i.i: ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i.i.i.i
   %.pre.i.i.i.i = load i64, ptr %13, align 8, !tbaa !10, !alias.scope !296, !noalias !293
-  %379 = or i64 %.pre.i.i.i.i, %354
-  %380 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 %.pr.i.i.i.i, ptr %380, align 8, !tbaa !287, !alias.scope !293
+  %378 = or i64 %.pre.i.i.i.i, %354
+  %379 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i32 %.pr.i.i.i.i, ptr %379, align 8, !tbaa !287, !alias.scope !293
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !308)
   br label %_ZN4llvm5APInt10getAllOnesEj.exit.i.i.i.i
 
 _ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i.i.i: ; preds = %350
-  %381 = add nuw nsw i32 %340, 63
-  %382 = and i32 %381, 63
-  %383 = zext nneg i32 %382 to i64
-  %384 = shl nuw i64 1, %383
-  %385 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 %340, ptr %385, align 8, !tbaa !287, !alias.scope !293
-  store i64 %384, ptr %14, align 8, !alias.scope !293
-  %386 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  store i8 0, ptr %386, align 4, !tbaa !289, !alias.scope !293
+  %380 = add nuw nsw i32 %340, 63
+  %381 = and i32 %380, 63
+  %382 = zext nneg i32 %381 to i64
+  %383 = shl nuw i64 1, %382
+  %384 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i32 %340, ptr %384, align 8, !tbaa !287, !alias.scope !293
+  store i64 %383, ptr %14, align 8, !alias.scope !293
+  %385 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  store i8 0, ptr %385, align 4, !tbaa !289, !alias.scope !293
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %387 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 %340, ptr %387, align 8, !tbaa !287, !noalias !312
-  %388 = xor i32 %382, 63
+  %386 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 %340, ptr %386, align 8, !tbaa !287, !noalias !312
+  %387 = sub nsw i32 0, %340
+  %388 = and i32 %387, 63
   %389 = zext nneg i32 %388 to i64
   %390 = lshr i64 -1, %389
   %391 = icmp eq i32 %340, 0
   %spec.select.i.i.i6.i.i.i = select i1 %391, i64 0, i64 %390, !prof !302
-  %392 = xor i64 %384, -1
+  %392 = xor i64 %383, -1
   br label %398
 
 _ZN4llvm5APInt10getAllOnesEj.exit.i.i.i.i:        ; preds = %._ZN4llvm5APInt10getAllOnesEj.exit.i.i_crit_edge.i.i, %.thread21.i.i
-  %.sink = phi i64 [ %379, %._ZN4llvm5APInt10getAllOnesEj.exit.i.i_crit_edge.i.i ], [ %363, %.thread21.i.i ]
-  %393 = phi ptr [ %380, %._ZN4llvm5APInt10getAllOnesEj.exit.i.i_crit_edge.i.i ], [ %362, %.thread21.i.i ]
+  %.sink = phi i64 [ %378, %._ZN4llvm5APInt10getAllOnesEj.exit.i.i_crit_edge.i.i ], [ %363, %.thread21.i.i ]
+  %393 = phi ptr [ %379, %._ZN4llvm5APInt10getAllOnesEj.exit.i.i_crit_edge.i.i ], [ %362, %.thread21.i.i ]
   store i64 %.sink, ptr %14, align 8, !alias.scope !293
   %394 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i8 0, ptr %394, align 4, !tbaa !289, !alias.scope !293
@@ -1789,7 +1789,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge.i.i.i: ; preds = %_ZN4llvm5APInt1
   br label %398
 
 398:                                              ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge.i.i.i, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i.i.i
-  %399 = phi ptr [ %385, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i.i.i ], [ %393, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge.i.i.i ]
+  %399 = phi ptr [ %384, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i.i.i ], [ %393, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge.i.i.i ]
   %400 = phi i32 [ %340, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i.i.i ], [ %.pre.i.i44.i.i, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge.i.i.i ]
   %401 = phi i64 [ %spec.select.i.i.i6.i.i.i, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i.i.i ], [ %.pre.i45.i.i, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge.i.i.i ]
   %402 = phi i64 [ %392, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i.i.i.i ], [ %397, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge.i.i.i ]
@@ -1807,10 +1807,10 @@ _ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge.i.i.i: ; preds = %_ZN4llvm5APInt1
   store i64 %410, ptr %408, align 8, !tbaa !29, !noalias !308
   br label %_ZN4llvm6APSInt11getMaxValueEjb.exit.i.i
 
-_ZN4llvm6APSInt11getMaxValueEjb.exit.i.i:         ; preds = %404, %398, %374, %364
-  %411 = phi ptr [ %365, %364 ], [ %375, %374 ], [ %399, %398 ], [ %393, %404 ]
-  %412 = phi i8 [ 1, %364 ], [ 1, %374 ], [ 0, %398 ], [ 0, %404 ]
-  %413 = phi i32 [ %340, %364 ], [ %.pre7.i.i.i, %374 ], [ %400, %398 ], [ %.pre.i.i44.i.i, %404 ]
+_ZN4llvm6APSInt11getMaxValueEjb.exit.i.i:         ; preds = %404, %398, %373, %364
+  %411 = phi ptr [ %365, %364 ], [ %374, %373 ], [ %399, %398 ], [ %393, %404 ]
+  %412 = phi i8 [ 1, %364 ], [ 1, %373 ], [ 0, %398 ], [ 0, %404 ]
+  %413 = phi i32 [ %340, %364 ], [ %.pre7.i.i.i, %373 ], [ %400, %398 ], [ %.pre.i.i44.i.i, %404 ]
   %414 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %413, ptr %414, align 8, !tbaa !287, !alias.scope !308
   %415 = load i64, ptr %12, align 8, !noalias !308
